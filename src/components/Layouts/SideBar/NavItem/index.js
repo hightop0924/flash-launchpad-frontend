@@ -7,15 +7,15 @@ const NavItem = ({
   text = "Presales",
   img = Presales,
   right = false,
-  BgColor = "#1B1B1B",
-  TxColor = "#86888c",
+  BgClass = "bg-[#1B1B1B]",
+  TxClass = "text-[#86888c]",
 }) => {
   return (
     <div
-      className={`flex items-center gap-x-4 py-3 pl-10 pr-2.5 bg-[${BgColor}]`}
+      className={`flex items-center gap-x-4 py-3 pl-10 pr-2.5 cursor-pointer ${BgClass}`}
     >
       <Image src={img} alt="image" />
-      <p className={`text-[${TxColor}] text-[16px] font-semibold capitalize`}>
+      <p className={`${TxClass} text-[16px] font-semibold capitalize`}>
         {text}
       </p>
       {right && <Image src={Right} alt="right" />}

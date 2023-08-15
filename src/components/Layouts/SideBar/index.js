@@ -26,7 +26,7 @@ import FlokiBinance from "@/assets/image/floki-binance.png";
 
 const SideBar = () => {
   return (
-    <div className="bg-[#1B1B1B] w-[286px] h-[100%] pb-10">
+    <div className="bg-[#1B1B1B] w-[286px] h-[100%] pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
         <Image src={logo} alt="logo" />
         <p className="text-[#fff] text-[19.067px] font-bold">Flashpad</p>
@@ -60,8 +60,8 @@ const SideBar = () => {
       <NavItem
         text="Sponsorised by Floki"
         img={Sponsored}
-        BgColor="#f79422"
-        TxColor="#fff"
+        BgClass="bg-[#f79422]"
+        TxClass="text-[#fff]"
       />
 
       <div className="mt-40">
