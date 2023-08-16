@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
                 }}
               >
                 <HeaderSection />
-                <div className="">{children}</div>
+                <div className="px-10 pb-16">{children}</div>
               </div>
             </div>
           </div>

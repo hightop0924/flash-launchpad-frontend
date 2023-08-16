@@ -1,7 +1,7 @@
-import ColorCard from "@/components/ColorCard";
-import FlashCard from "@/components/FlashCard";
-import PartnerCard from "@/components/PartnerCard";
-import StatsCard from "@/components/StatsCard";
+import ColorCard from "@/components/Card/ColorCard";
+import FlashCard from "@/components/Card/FlashCard";
+import PartnerCard from "@/components/Card/PartnerCard";
+import StatsCard from "@/components/Card/StatsCard";
 
 import Binance from "@/assets/icons/binance-logo.svg";
 import Certik from "@/assets/icons/certik-logo.svg";
@@ -45,7 +45,7 @@ const HomePage = () => {
     },
   ];
   return (
-    <div className="pt-[127px] px-10 pb-16">
+    <div className="pt-[127px]">
       <p className="text-white text-[42px] text-center font-bold">Stats</p>
       <div className="mt-[60px] flex justify-between gap-x-[30px]">
         <StatsCard />
