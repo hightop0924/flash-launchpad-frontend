@@ -3,7 +3,7 @@ import Image from "next/image";
 import CircleArrows from "@/assets/icons/circle-arrows.svg";
 import StatsGraph from "@/assets/icons/stats-graph.svg";
 
-const StatsItem = ({
+const StatsCard = ({
   text = "Total Project",
   percent = "17.74",
   value = "1,112",
@@ -28,4 +28,4 @@ const StatsItem = ({
   );
 };
 
-export default StatsItem;
+export default StatsCard;

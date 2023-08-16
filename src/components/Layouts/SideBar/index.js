@@ -26,7 +26,7 @@ import FlokiBinance from "@/assets/image/floki-binance.png";
 
 const SideBar = () => {
   return (
-    <div className="bg-[#1B1B1B] w-[286px] h-[100%] pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10">
+    <div className="bg-[#1B1B1B] w-[286px] h-auto pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10 relative">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
         <Image src={logo} alt="logo" />
         <p className="text-[#fff] text-[19.067px] font-bold">Flashpad</p>
@@ -64,7 +64,7 @@ const SideBar = () => {
         TxClass="text-[#fff]"
       />
 
-      <div className="mt-40">
+      <div className="mt-40 absolute bottom-32">
         <Image src={FlokiBinance} alt="image" />
         <div className="mt-[113.5px] pl-10 pr-10 grid grid-cols-2 gap-x-5 gap-y-[26.55px]">
           <SmallIconOnlyBtn icon={Telegram} />
