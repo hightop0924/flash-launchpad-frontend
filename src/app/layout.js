@@ -1,8 +1,13 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 
+import Image from "next/image";
+
 import SideBar from "@/components/Layouts/SideBar";
 import Header from "@/components/Layouts/Header";
+
+import Background from "@/assets/image/background.png";
+import HeaderSection from "@/components/HeaderSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +25,17 @@ export default function RootLayout({ children }) {
           <div>
             <Header />
 
-            <div>{children}</div>
+            <div className="">
+              <div
+                className="w-[calc(100vw-286px)] h-full -ml-[1px]"
+                style={{
+                  background: `url('${Background.src}') center center`,
+                }}
+              >
+                <HeaderSection />
+                <div className="">{children}</div>
+              </div>
+            </div>
           </div>
         </div>
       </body>

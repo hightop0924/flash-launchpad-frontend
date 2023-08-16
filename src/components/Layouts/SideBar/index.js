@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import NavItem from "./NavItem";
-import SmallIconOnlyBtn from "./SmallIconOnlyBtn";
+import SmallIconOnlyBtn from "../../Button/SmallIconOnlyBtn";
 
 //! import the Image
 import logo from "@/assets/image/logo.svg";

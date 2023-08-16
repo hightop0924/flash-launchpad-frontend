@@ -5,6 +5,7 @@ import Home from "@/assets/icons/home.svg";
 const IconBtn = ({
   text = "Home",
   icon = Home,
+  rightIcon = "",
   heigh = "h-[38px]",
   BgClass = "bg-[#282828]",
   TxClass = "text-[#fff]",
@@ -22,6 +23,7 @@ const IconBtn = ({
       <p className={`${TxClass} text-[14px] font-semibold capitalize`}>
         {text}
       </p>
+      { rightIcon &&  <Image src={rightIcon} alt="image" /> }
     </button>
   );
 };

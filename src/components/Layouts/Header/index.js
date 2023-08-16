@@ -1,6 +1,6 @@
 "use client";
 
-import IconBtn from "./IconBtn";
+import IconBtn from "../../Button/IconBtn";
 
 import Home from "@/assets/icons/home.svg";
 import Docs from "@/assets/icons/docs.svg";
@@ -12,7 +12,7 @@ import Add from "@/assets/icons/add.svg";
 
 const Header = () => {
   return (
-    <div className="w-[1634px] h-20 px-10 bg-[#1b1b1b]/[.99] ml-[-1px] flex items-center justify-between">
+    <div className="w-[calc(100vw-286px)] h-20 px-10 bg-[#1b1b1b]/[.99] ml-[-1px] flex items-center justify-between">
       <div className="flex gap-2">
         <IconBtn text="Home" icon={Home} />
         <IconBtn text="Docs" icon={Docs} />
