@@ -36,6 +36,7 @@ import Dark from "@/assets/icons/dark.svg";
 import Light from "@/assets/icons/light.svg";
 
 import FlokiBinance from "@/assets/image/floki-binance.png";
+import IconBtn from "@/components/Button/IconBtn";
 
 const SideBar = () => {
   const [active, setActive] = useState(1);
@@ -46,7 +47,15 @@ const SideBar = () => {
         <p className="text-[#fff] text-[19.067px] font-bold">Flashpad</p>
       </div>
 
-      <div className="mt-[148.76px]">
+      <button
+        className={`ml-10 mt-[34px] px-6 py-3 flex justify-center items-center gap-2 rounded-[39px] h-[43px] bg-[#FCBF07]`}
+      >
+        <p className={`text-[#16171B] text-base font-semibold capitalize`}>
+          Buy $Flash
+        </p>
+      </button>
+
+      <div className="mt-[26px]">
         <p className="text-[#86888c] text-[14px] font-semibold uppercase tracking-[1.5px] pl-10">
           EXPLORE
         </p>
