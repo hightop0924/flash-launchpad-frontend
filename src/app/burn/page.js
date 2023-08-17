@@ -18,7 +18,7 @@ import SearchToken from "@/components/Form/SearchToken";
 
 const Burn = () => {
   const [active, setActive] = useState(1);
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
 
   const burnList = [
     {
