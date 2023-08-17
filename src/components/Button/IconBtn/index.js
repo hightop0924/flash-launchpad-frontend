@@ -20,10 +20,8 @@ const IconBtn = ({
       className={`${px} ${py} flex justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
     >
       <Image src={icon} alt="image" />
-      <p className={`${TxClass} text-[14px] font-semibold capitalize`}>
-        {text}
-      </p>
-      { rightIcon &&  <Image src={rightIcon} alt="image" /> }
+      <p className={`${TxClass} ${TxSize} font-semibold capitalize`}>{text}</p>
+      {rightIcon && <Image src={rightIcon} alt="image" />}
     </button>
   );
 };

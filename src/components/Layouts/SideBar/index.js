@@ -95,7 +95,7 @@ const SideBar = () => {
         <hr className="h-px w-[206px] mt-5 ml-10 bg-[#2C2C2C] border-0"></hr>
       </div>
 
-      <div className="mt-[102.77px]">
+      <div className="mt-[28px]">
         <p className="text-[#86888c] text-[14px] font-semibold uppercase tracking-[1.5px] pl-10">
           DEVELOPERS
         </p>
