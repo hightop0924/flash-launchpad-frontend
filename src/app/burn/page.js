@@ -141,6 +141,7 @@ const Burn = () => {
                   icon={Floki}
                   py="py-[16px]"
                   heigh="h-[60px]"
+                  onClick={() => setPage(page + 1)}
                 />
               </div>
             </div>
