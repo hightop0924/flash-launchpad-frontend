@@ -39,6 +39,10 @@ const FlashAuditResult = () => {
       text: "There is no proxy in the contract. The proxy contract means contract owner can modifiy the function of the token and possibly effect the price.",
     },
     {
+      title: "No mint function",
+      text: "Mint function is transparent or non-existent. Hidden mint functions may increase the amount of tokens in circulation and effect the price of the token.",
+    },
+    {
       title: "No function found that retrieves ownership",
       text: "If this function exists, it is possible for the project owner to regain ownership even after relinquishing it",
     },
@@ -87,7 +91,7 @@ const FlashAuditResult = () => {
     },
     {
       title: "No anti_whale(Unlimited number of transactions)",
-      text: "The maximum trading amount or maximum position can not be modified.",
+      text: "There is no limit to the number of token transactions. The number of scam token transactions may be limited (honeypot risk).",
     },
     {
       title: "Anti whale can not be modified",
@@ -239,8 +243,13 @@ const FlashAuditResult = () => {
               className="w-[241px] h-[40px]"
             />
 
-            <div className="w-[561px]">
-              <SearchToken check={true} />
+            <div className="w-[680px]">
+              <SearchToken
+                check={true}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                onClick={() => resultClick()}
+              />
             </div>
           </div>
           <div className="flex flex-row bg-[#1B1B1B] items-center justify-between w-[1554px] h-[84px] mt-[29px] pl-8 pr-3 rounded-[38px]">
