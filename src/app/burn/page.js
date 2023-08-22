@@ -9,12 +9,8 @@ import IconBtn from "@/components/Button/IconBtn";
 import Input from "@/components/Form/Input";
 
 import BurnBack from "@/assets/image/burn-back.png";
-import FlashAudit from "@/assets/image/flash-audit.png";
-import LogoBig from "@/assets/image/logo-big.png";
 import Floki from "@/assets/icons/floki.svg";
-import SearchBlack from "@/assets/icons/search-black.svg";
 import BurnImage from "@/assets/image/burn-image.png";
-import SearchToken from "@/components/Form/SearchToken";
 
 const Burn = () => {
   const [active, setActive] = useState(1);
@@ -50,111 +46,85 @@ const Burn = () => {
     <div className="relative min-h-[1300px]">
       <HeaderNav />
       <div className="flex flex-row justify-center">
-        {page === 3 ? (
-          <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9">
-            <div className="flex flex-col items-center gap-14">
-              <Image src={FlashAudit} alt="image" />
-              <Image src={LogoBig} alt="image" />
-            </div>
-            <div className="flex flex-col mt-11">
-              <SearchToken />
-            </div>
-            <div className="flex flex-col mt-[99px]">
+        <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
+          <Image src={BurnBack} alt="Image" />
+          <div className="pt-[40px] px-8 pb-7">
+            <p className="text-center text-white text-[42px] font-bold">
+              Burn Floki and earn <br /> Whitelist
+            </p>
+
+            {page === 1 ? (
+              <table class="w-[100%] border-collapse">
+                <thead>
+                  <tr className="text-[#86888C] text-[14px] border-b border-[#2C2C2C] h-[49px]">
+                    <td className="pl-5 border-none">Grade</td>
+                    <td className="pl-5 border-none">Burn Floki Amount</td>
+                    <td className="pl-5 border-none">Whitelist Slot</td>
+                    <td className="pl-5 border-none">Max Number Of Slots</td>
+                  </tr>
+                </thead>
+                <tbody className="text-white text-[14px]">
+                  {burnList.map((item, key) =>
+                    active === key ? (
+                      <tr
+                        className="bg-[#FCBF07] h-[49px] cursor-pointer border-none text-[#16171B]"
+                        key={key}
+                        onClick={() => setActive(key)}
+                      >
+                        <td className="pl-5">{item.grade}</td>
+                        <td className="pl-5">{item.amount}</td>
+                        <td className="pl-5">{item.slot}</td>
+                        <td className="pl-5">{item.maxSlot}</td>
+                      </tr>
+                    ) : (
+                      <tr
+                        className="h-[49px] cursor-pointer"
+                        key={key}
+                        onClick={() => setActive(key)}
+                      >
+                        <td className="pl-5 border-b border-[#2C2C2C]">
+                          {item.grade}
+                        </td>
+                        <td className="pl-5 border-b border-[#2C2C2C]">
+                          {item.amount}
+                        </td>
+                        <td className="pl-5 border-b border-[#2C2C2C]">
+                          {item.slot}
+                        </td>
+                        <td className="pl-5 border-b border-[#2C2C2C]">
+                          {item.maxSlot}
+                        </td>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </table>
+            ) : (
+              <div className="flex flex-col mt-[52px]">
+                <Input />
+              </div>
+            )}
+
+            <div className="flex flex-col mt-16">
               <IconBtn
-                text="Check"
-                TxSize="text-[20px]"
+                text={page === 1 ? "Burn Floki" : "Validate Burn"}
                 BgClass="bg-[#FCBF07]"
                 rounded="rounded-[8px]"
                 TxClass="text-[#16171B]"
-                icon={SearchBlack}
+                icon={Floki}
                 py="py-[16px]"
                 heigh="h-[60px]"
+                onClick={() => setPage(page + 1)}
               />
             </div>
           </div>
-        ) : (
-          <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
-            <Image src={BurnBack} alt="Image" />
-            <div className="pt-[40px] px-8 pb-7">
-              <p className="text-center text-white text-[42px] font-bold">
-                Burn Floki and earn <br /> Whitelist
-              </p>
-
-              {page === 1 ? (
-                <table class="w-[100%] border-collapse">
-                  <thead>
-                    <tr className="text-[#86888C] text-[14px] border-b border-[#2C2C2C] h-[49px]">
-                      <td className="pl-5 border-none">Grade</td>
-                      <td className="pl-5 border-none">Burn Floki Amount</td>
-                      <td className="pl-5 border-none">Whitelist Slot</td>
-                      <td className="pl-5 border-none">Max Number Of Slots</td>
-                    </tr>
-                  </thead>
-                  <tbody className="text-white text-[14px]">
-                    {burnList.map((item, key) =>
-                      active === key ? (
-                        <tr
-                          className="bg-[#FCBF07] h-[49px] cursor-pointer border-none text-[#16171B]"
-                          key={key}
-                          onClick={() => setActive(key)}
-                        >
-                          <td className="pl-5">{item.grade}</td>
-                          <td className="pl-5">{item.amount}</td>
-                          <td className="pl-5">{item.slot}</td>
-                          <td className="pl-5">{item.maxSlot}</td>
-                        </tr>
-                      ) : (
-                        <tr
-                          className="h-[49px] cursor-pointer"
-                          key={key}
-                          onClick={() => setActive(key)}
-                        >
-                          <td className="pl-5 border-b border-[#2C2C2C]">
-                            {item.grade}
-                          </td>
-                          <td className="pl-5 border-b border-[#2C2C2C]">
-                            {item.amount}
-                          </td>
-                          <td className="pl-5 border-b border-[#2C2C2C]">
-                            {item.slot}
-                          </td>
-                          <td className="pl-5 border-b border-[#2C2C2C]">
-                            {item.maxSlot}
-                          </td>
-                        </tr>
-                      )
-                    )}
-                  </tbody>
-                </table>
-              ) : (
-                <div className="flex flex-col mt-[52px]">
-                  <Input />
-                </div>
-              )}
-
-              <div className="flex flex-col mt-16">
-                <IconBtn
-                  text={page === 1 ? "Burn Floki" : "Validate Burn"}
-                  BgClass="bg-[#FCBF07]"
-                  rounded="rounded-[8px]"
-                  TxClass="text-[#16171B]"
-                  icon={Floki}
-                  py="py-[16px]"
-                  heigh="h-[60px]"
-                  onClick={() => setPage(page + 1)}
-                />
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
-      {page !== 3 && (
-        <Image
-          src={BurnImage}
-          alt="image"
-          className="absolute -bottom-16 -right-10"
-        />
-      )}
+      <Image
+        src={BurnImage}
+        alt="image"
+        className="absolute -bottom-16 -right-10"
+      />
     </div>
   );
 };
