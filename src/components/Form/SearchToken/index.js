@@ -1,4 +1,4 @@
-const SearchToken = ({ check = false }) => {
+const SearchToken = ({ check = false, value = "", onChange = "" }) => {
   return (
     <div className="w-[100%] flex border border-[#2C2C2C] bg-[#141414] rounded-lg relative">
       <div className="w-[147px] bg-[#282828]">
@@ -16,7 +16,9 @@ const SearchToken = ({ check = false }) => {
         name=""
         id=""
         placeholder="Search token address"
-        className="outline-none border-none bg-[#141414] py-[22px] pl-[20px] text-[16px] text-[#86888C]"
+        className="outline-none border-none bg-[#141414] py-[22px] pl-[20px] text-[16px] text-[#86888C] w-[100%]"
+        value={value}
+        onChange={(e) => onChange(e)}
       />
       {check && (
         <div className="w-[80px] h-[28px] bg-[#FCBF07] text-[16px] text-[#16171B)] px-3 py-[2px] text-center rounded-[32px] font-bold absolute right-[20px] top-[20px]">

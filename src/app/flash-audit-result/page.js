@@ -21,8 +21,13 @@ import IconBtn from "@/components/Button/IconBtn";
 import DefaultCard from "@/components/Card/DefaultCard";
 import AddressInput from "@/components/Form/AddressInput";
 
+//! import API
+import { GoPlus, ErrorCode } from "@goplus/sdk-node";
+let chainId = "1";
+
 const FlashAuditResult = () => {
-  const [result, setResult] = useState(true);
+  const [result, setResult] = useState("");
+  const [address, setAddress] = useState("");
 
   const detectionList = [
     {
@@ -149,9 +154,52 @@ const FlashAuditResult = () => {
     },
   ];
 
+  const resultClick = async () => {
+    let res = await GoPlus.tokenSecurity(chainId, address, 30);
+    if (res.code != ErrorCode.SUCCESS) {
+      console.error(res.message);
+    } else {
+      // console.log(res.result["0x408e41876cccdc0f92210600ef50372656052a38"]);
+      setResult(res.result[`${address.toLowerCase()}`]);
+      console.log(result.lp_total_supply);
+    }
+  };
+
+  const AddressShow = ({ address, len }) => {
+    return (
+      <>
+        {address.substring(0, len) +
+          "..." +
+          address.substring(address.length - len)}
+      </>
+    );
+  };
+
+  const BalanceSum = (array) => {
+    const res = array.reduce((a, b) => {
+      return Number(a.balance) + Number(b.balance);
+    });
+    return Number(res);
+  };
+  const topBalance = (array) => {
+    const res =
+      Number(array[0].balance) +
+      Number(array[1].balance) +
+      Number(array[2].balance) +
+      Number(array[3].balance) +
+      Number(array[4].balance) +
+      Number(array[5].balance) +
+      Number(array[6].balance) +
+      Number(array[7].balance) +
+      Number(array[8].balance) +
+      Number(array[9].balance);
+
+    return res;
+  };
+
   return (
     <div className="mt-14 min-h-[1300px]">
-      {result === false ? (
+      {result === "" ? (
         <div>
           <HeaderNav />
           <div className="flex flex-row justify-center">
@@ -161,7 +209,10 @@ const FlashAuditResult = () => {
                 <Image src={LogoBig} alt="image" />
               </div>
               <div className="flex flex-col mt-11">
-                <SearchToken />
+                <SearchToken
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
               </div>
               <div className="flex flex-col mt-[99px]">
                 <IconBtn
@@ -173,6 +224,7 @@ const FlashAuditResult = () => {
                   icon={SearchBlack}
                   py="py-[16px]"
                   heigh="h-[60px]"
+                  onClick={() => resultClick()}
                 />
               </div>
             </div>
@@ -195,8 +247,12 @@ const FlashAuditResult = () => {
             <div className="flex flex-row justify-between items-center w-[851px]">
               <div className="flex flex-row gap-2">
                 <div className="flex flex-col mr-2">
-                  <p className="text-white text-[18.88px] font-bold">Flash</p>
-                  <p className="text-white text-[14px]">Flash 3.0</p>
+                  <p className="text-white text-[18.88px] font-bold">
+                    {result.token_symbol && result.token_symbol}
+                  </p>
+                  <p className="text-white text-[14px]">
+                    {result.token_name && result.token_name}
+                  </p>
                 </div>
                 <Image src={EthereumLogoSmall} alt="etherem" />
                 <Image src={DextoolsLogoSmall} alt="etherem" />
@@ -304,12 +360,14 @@ const FlashAuditResult = () => {
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-row items-center justify-between">
                       <p className="text-sm text-[#86888C]">Token Symbol</p>
-                      <p className="text-sm font-bold text-[#FCBF07]">FLASH</p>
+                      <p className="text-sm font-bold text-[#FCBF07]">
+                        {result.token_symbol && result.token_symbol}
+                      </p>
                     </div>
                     <div className="flex flex-row items-center justify-between">
                       <p className="text-sm text-[#86888C]">Token Name</p>
                       <p className="text-sm font-bold text-[#FCBF07]">
-                        Flash 3.0
+                        {result && result.token_name}
                       </p>
                     </div>
                   </div>
@@ -318,15 +376,15 @@ const FlashAuditResult = () => {
                       <p className="text-sm text-[#86888C]">
                         Token Contract Address
                       </p>
-                      <AddressInput />
+                      <AddressInput value={address} />
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="text-sm text-[#86888C]">Contract Owner</p>
-                      <AddressInput />
+                      <AddressInput value={result && result.owner_address} />
                     </div>
                     <div className="flex flex-col gap-2">
                       <p className="text-sm text-[#86888C]">Contract Creator</p>
-                      <AddressInput />
+                      <AddressInput value={result && result.creator_address} />
                     </div>
                   </div>
                 </div>
@@ -335,14 +393,20 @@ const FlashAuditResult = () => {
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Token Holders</p>
-                    <p className="text-sm text-[#FCBF07]">855</p>
+                    <p className="text-sm text-[#FCBF07]">
+                      {result && result.holder_count}
+                    </p>
                   </div>
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Total Supply</p>
-                    <p className="text-sm text-[#FCBF07]">100000000.00</p>
+                    <p className="text-sm text-[#FCBF07]">
+                      {result && result.total_supply}
+                    </p>
                   </div>
                   <div className="flex flex-col gap-2 border-b border-b-[#2C2C2C] pb-6">
-                    <p className="text-sm text-[#86888C]">Total Supply</p>
+                    <p className="text-sm text-[#86888C]">
+                      Top10 Holders Ratio
+                    </p>
                     <div className="relative flex flex-row">
                       <div className="bg-[#16171B] h-[31px] w-[100%] rounded-[4px]"></div>
                       <div
@@ -352,59 +416,121 @@ const FlashAuditResult = () => {
                             "linear-gradient(90deg, rgba(252, 191, 7, 0.20) 0%, #FCBF07 100%)",
                         }}
                       >
-                        <p className="text-sm text-[#16171B]">43.95%</p>
+                        <p className="text-sm text-[#16171B]">
+                          {result.holders &&
+                            (
+                              (topBalance(result.holders) /
+                                Number(result.total_supply)) *
+                              100
+                            ).toFixed(2)}
+                          %
+                        </p>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col gap-[14px] mt-8">
-                    {baseinfoList.map((item, index) => (
-                      <div
-                        className="flex flex-row items-center justify-between"
-                        key={index}
-                      >
-                        <p className="text-sm text-[#86888C]">{item.right}</p>
-                        <p className="text-sm text-[#FCBF07]"> {item.left} </p>
-                      </div>
-                    ))}
+                    {result &&
+                      result.holders.map((item, index) => (
+                        <div
+                          className="flex flex-row items-center justify-between"
+                          key={index}
+                        >
+                          <p className="text-sm text-[#86888C]">
+                            {item.tag ? (
+                              item.tag
+                            ) : (
+                              <AddressShow address={item.address} len={4} />
+                            )}
+                          </p>
+                          <p className="text-sm text-[#FCBF07]">
+                            {(Number(item.balance) / 1000000).toFixed(3)}M (
+                            {Number(
+                              (item.balance / result.total_supply) * 100
+                            ).toFixed(2)}
+                            %)
+                          </p>
+                        </div>
+                      ))}
                   </div>
                   <div className="flex flex-row text-[12px] text-white gap-5 mt-5 border-b border-b-[#2C2C2C] pb-6">
                     <div className="flex flex-col gap-2">
                       <p className="font-bold">
                         Owner`s Holdings:
-                        <span className="font-light"> 500000.00</span>
+                        <span className="font-light">
+                          {" "}
+                          {result.owner_balance && result.owner_balance}
+                        </span>
                       </p>
                       <p className="font-bold">
-                        Owner`s Holdings:
-                        <span className="font-light"> 0.00</span>
+                        Creator`s Holdings:
+                        <span className="font-light">
+                          {" "}
+                          {result.creator_balance && result.creator_balance}
+                        </span>
                       </p>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <p>Percent: 0.50%</p>
-                      <p>Percent: 0.00%</p>
+                      <p>
+                        Percent:{" "}
+                        {result.owner_percent && result.owner_percent * 100}%
+                      </p>
+                      <p>
+                        Percent:
+                        {result.creator_percent && result.creator_percent * 100}
+                        %
+                      </p>
                     </div>
                   </div>
                   <div className="flex flex-col text-sm text-white gap-4">
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-row w-[220px] justify-between">
                         <p>Creator</p>
-                        <p className="text-[#FCBF07]">0x55b3...85bed2</p>
+                        <p className="text-[#FCBF07]">
+                          {result.creator_address && (
+                            <AddressShow
+                              address={result.creator_address}
+                              len={6}
+                            />
+                          )}
+                        </p>
                       </div>
-                      <p>0 (0.00%)</p>
+                      <p>
+                        {result && result.creator_balance} (
+                        {result && result.creator_percent * 100}%)
+                      </p>
                     </div>
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-row w-[220px] justify-between">
-                        <p>Creator</p>
-                        <p className="text-[#FCBF07]">0x55b3...85bed2</p>
+                        <p>Owner</p>
+                        <p className="text-[#FCBF07]">
+                          {result.owner_address && (
+                            <AddressShow
+                              address={result.owner_address}
+                              len={6}
+                            />
+                          )}
+                        </p>
                       </div>
-                      <p>0 (0.00%)</p>
+                      <p>
+                        {result && result.owner_balance / 1000}k (
+                        {result && result.owner_percent * 100}%)
+                      </p>
                     </div>
                     <div className="flex flex-row items-center justify-between">
                       <div className="flex flex-row w-[220px] justify-between">
-                        <p>Creator</p>
-                        <p className="text-[#FCBF07]">0x55b3...85bed2</p>
+                        <p>DEX</p>
+                        <p className="text-[#FCBF07]">
+                          {result.dex && (
+                            <AddressShow address={result.dex[0].pair} len={6} />
+                          )}
+                        </p>
                       </div>
                       <p>UniswapV2</p>
-                      <p>0 (0.00%)</p>
+                      <p>
+                        {result.dex &&
+                          (result.dex[0].liquidity / 1000).toFixed(3)}
+                        k
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -413,35 +539,50 @@ const FlashAuditResult = () => {
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">LP Holders</p>
-                    <p className="text-sm text-[#FCBF07]">2</p>
+                    <p className="text-sm text-[#FCBF07]">
+                      {result.lp_holders && result.lp_holders.length}
+                    </p>
                   </div>
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Total Supply</p>
-                    <p className="text-sm text-[#FCBF07]">2342234.34 </p>
+                    <p className="text-sm text-[#FCBF07]">
+                      {result.lp_holders &&
+                        BalanceSum(result.lp_holders).toFixed(2)}
+                    </p>
                   </div>
                   <div className="flex flex-col gap-2 border-b border-b-[#2C2C2C] pb-6">
                     <p className="text-sm text-[#86888C]">Total Supply</p>
                     <div className="relative flex flex-row">
                       <div className="bg-[#16171B] h-[31px] w-[100%] rounded-[4px]"></div>
                       <div
-                        className="absolute top-0 left-0 h-[31px] w-[265px] rounded-[4px] flex flex-row justify-end items-center pr-2"
+                        className="absolute top-0 left-0 h-[31px] w-[100%] rounded-[4px] flex flex-row justify-end items-center pr-2"
                         style={{
                           background:
                             "linear-gradient(90deg, rgba(252, 191, 7, 0.20) 0%, #FCBF07 100%)",
                         }}
                       >
-                        <p className="text-sm text-[#16171B]">43.95%</p>
+                        <p className="text-sm text-[#16171B]">100%</p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-between">
-                    <p className="text-sm text-[#86888C]">PinkLock02</p>
-                    <p className="text-sm text-[#FCBF07]">38.623K (100.00%)</p>
-                  </div>
-                  <div className="flex flex-row items-center justify-between">
-                    <p className="text-sm text-[#86888C]">Null Address</p>
-                    <p className="text-sm text-[#FCBF07]">0 (0.00%)</p>
-                  </div>
+                  {result.lp_holders &&
+                    result.lp_holders.map((item, index) => (
+                      <div
+                        className="flex flex-row items-center justify-between"
+                        key={index}
+                      >
+                        <p className="text-sm text-[#86888C]">{item.tag}</p>
+                        <p className="text-sm text-[#FCBF07]">
+                          {Number(item.balance).toFixed(2)} (
+                          {(
+                            (Number(item.balance) /
+                              BalanceSum(result.lp_holders)) *
+                            100
+                          ).toFixed(2)}
+                          % )
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </DefaultCard>
             </div>
