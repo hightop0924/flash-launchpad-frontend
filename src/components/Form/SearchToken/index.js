@@ -28,7 +28,7 @@ const SearchToken = ({
       {check && (
         <div
           onClick={onClick}
-          className="w-[80px] h-[28px] bg-[#FCBF07] text-[16px] text-[#16171B)] px-3 py-[2px] text-center rounded-[32px] font-bold absolute right-[20px] top-[20px]"
+          className="w-[80px] h-[28px] bg-[#FCBF07] text-[16px] text-[#16171B)] px-3 py-[2px] text-center rounded-[32px] font-bold absolute right-[20px] top-[20px] cursor-pointer"
         >
           Check
         </div>

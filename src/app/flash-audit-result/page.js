@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 
@@ -28,138 +28,84 @@ let chainId = "1";
 const FlashAuditResult = () => {
   const [result, setResult] = useState("");
   const [address, setAddress] = useState("");
+  const [riskyNum, setRiskyNum] = useState(0);
+  const [attentionNum, setAttentionNum] = useState(0);
 
-  const detectionList = [
-    {
-      title: "Contract source code verified",
-      text: "This token contract is open source. You can check the contract code for details. Unsourced token contracts are likely to have malicious functions to defraud their users of their assets.",
-    },
-    {
-      title: "No proxy",
-      text: "There is no proxy in the contract. The proxy contract means contract owner can modifiy the function of the token and possibly effect the price.",
-    },
-    {
-      title: "No mint function",
-      text: "Mint function is transparent or non-existent. Hidden mint functions may increase the amount of tokens in circulation and effect the price of the token.",
-    },
-    {
-      title: "No function found that retrieves ownership",
-      text: "If this function exists, it is possible for the project owner to regain ownership even after relinquishing it",
-    },
-    {
-      title: "Owner can't change balance",
-      text: "The contract owner is not found to have the authority to modify the balance of tokens at other addresses.",
-    },
-    {
-      title: "No hidden owner",
-      text: "No hidden owner address was found for the token. For contract with a hidden owner, developer can still manipulate the contract even if the ownership has been abandoned.",
-    },
-    {
-      title: "This token can not self destruct",
-      text: "No self-destruct function found. If this function exists and is triggered, the contract will be destroyed, all functions will be unavailable, and all related assets will be erased.",
-    },
-    {
-      title: "No external call risk found",
-      text: "External calls would cause this token contract to be highly dependent on other contracts, which may be a potential risk.",
-    },
-    {
-      title: "This token is not a gas abuser",
-      text: "No gas abuse activity has been found.",
-    },
-  ];
+  useEffect(() => {
+    let riskyTemp = riskyNum;
+    let attentionTemp = attentionNum;
+    if (result && result.owner_change_balance === "1") {
+      let temp = riskyNum;
+      temp += 1;
+      setRiskyNum(temp);
+    }
 
-  const riskList = [
-    {
-      title: "This does not appear to be a honeypot.",
-      text: "We are not aware of any malicious code.",
-    },
-    {
-      title: "No codes found to suspend trading.",
-      text: "If a suspendable code is included, the token maybe neither be bought nor sold (honeypot risk).",
-    },
-    {
-      title: "Holders can sell all of the token",
-      text: "Holders can sell all of the token. Some token contracts will have a maximum sell ratio.",
-    },
-    {
-      title: "The token can be bought",
-      text: "Generally, these unbuyable tokens would be found in Reward Tokens. Such Tokens are issued as rewards for some on-chain applications and cannot be bought directly by users.",
-    },
-    {
-      title: "No trading cooldown function",
-      text: "The token contract has no trading cooldown function. If there is a trading cooldown function, the user will not be able to sell the token within a certain time or block after buying.",
-    },
-    {
-      title: "No anti_whale(Unlimited number of transactions)",
-      text: "There is no limit to the number of token transactions. The number of scam token transactions may be limited (honeypot risk).",
-    },
-    {
-      title: "Anti whale can not be modified",
-      text: "The maximum trading amount or maximum position can not be modified.",
-    },
-    {
-      title: "Tax cannot be modified",
-      text: "The contract owner may not contain the authority to modify the transaction tax. If the transaction tax is increased to more than 49%, the tokens will not be able to be traded (honeypot risk).",
-    },
-    {
-      title: "No blacklist",
-      text: "The blacklist function is not included. If there is a blacklist, some addresses may not be able to trade normally (honeypot risk).",
-    },
-    {
-      title: "No whitelist",
-      text: "The whitelist function is not included. If there is a whitelist, some addresses may not be able to trade normally (honeypot risk).",
-    },
-    {
-      title: "No tax changes found for personal addresses",
-      text: "No tax changes were found for every assigned address. If it exists, the contract owner may set a very outrageous tax rate for assigned address to block it from trading.",
-    },
-  ];
+    if (result && result.is_mintable === "1") {
+      attentionTemp += 1;
+    }
 
-  const baseinfoList = [
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "PinkLock02",
-      left: "18M (18.00%)",
-    },
-    {
-      right: "0x28...8e9d",
-      left: "18M (18.00%)",
-    },
-  ];
+    if (result && result.external_call === "1") {
+      attentionTemp += 1;
+    }
+
+    if (result && result.transfer_pausable === "1") {
+      attentionTemp += 1;
+    }
+
+    if (result && result.is_blacklisted === "1") {
+      attentionTemp += 1;
+    }
+
+    if (result && result.is_whitelisted === "1") {
+      attentionTemp += 1;
+    }
+
+    if (result && result.is_proxy === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.can_take_back_ownership === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.hidden_owner === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.selfdestruct === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.is_honeypot === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.cannot_sell_all === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.cannot_buy === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.trading_cooldown === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.is_anti_whale === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.anti_whale_modifiable === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.slippage_modifiable === "1") {
+      attentionTemp += 1;
+    }
+    if (result && result.personal_slippage_modifiable === "1") {
+      attentionTemp += 1;
+    }
+
+    setAttentionNum(attentionTemp);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result]);
 
   const resultClick = async () => {
     let res = await GoPlus.tokenSecurity(chainId, address, 30);
+    setRiskyNum(0);
+    setAttentionNum(0);
+    setResult("");
     if (res.code != ErrorCode.SUCCESS) {
       console.error(res.message);
     } else {
@@ -275,7 +221,7 @@ const FlashAuditResult = () => {
                 <Image src={Risky} alt="risky" />
                 <div className="flex flex-col text-white">
                   <p className="text-base">Risky item</p>
-                  <p className="text-base font-bold">0</p>
+                  <p className="text-base font-bold">{riskyNum}</p>
                 </div>
               </div>
 
@@ -283,7 +229,7 @@ const FlashAuditResult = () => {
                 <Image src={Attention} alt="attention" />
                 <div className="flex flex-col text-white">
                   <p className="text-base">Attention item</p>
-                  <p className="text-base font-bold">0</p>
+                  <p className="text-base font-bold">{attentionNum}</p>
                 </div>
               </div>
             </div>
@@ -437,7 +383,7 @@ const FlashAuditResult = () => {
                             <p className="text-[14px] text-[#86888C]">
                               {result.can_take_back_ownership &&
                               result.can_take_back_ownership === "0"
-                                ? "The contract owner is not found to have the authority to modify the balance of tokens at other addresses."
+                                ? "If this function exists, it is possible for the project owner to regain ownership even after relinquishing it"
                                 : ""}
                             </p>
                           </div>
@@ -589,10 +535,16 @@ const FlashAuditResult = () => {
                   <div className="flex flex-col gap-[6px]">
                     <div className="flex flex-row gap-6">
                       <p className="text-white text-[16px] font-normal">
-                        Buy Tax: <span className="text-[#FCBF07]">0.00%</span>
+                        Buy Tax:{" "}
+                        <span className="text-[#FCBF07]">
+                          {result && Number(result.buy_tax * 100)}%
+                        </span>
                       </p>
                       <p className="text-white text-[16px] font-normal">
-                        Sell Tax: <span className="text-[#FCBF07]">0.00%</span>
+                        Sell Tax:{" "}
+                        <span className="text-[#FCBF07]">
+                          {result && Number(result.sell_tax * 100)}%
+                        </span>
                       </p>
                     </div>
                     <p className="text-[#86888C] text-[12px]">
@@ -875,13 +827,13 @@ const FlashAuditResult = () => {
                               {result.is_blacklisted &&
                               result.is_blacklisted === "0"
                                 ? "No blacklist"
-                                : ""}
+                                : "Blacklist function"}
                             </p>
                             <p className="text-[14px] text-[#86888C]">
                               {result.is_blacklisted &&
                               result.is_blacklisted === "0"
                                 ? "The blacklist function is not included. If there is a blacklist, some addresses may not be able to trade normally (honeypot risk)."
-                                : ""}
+                                : "The blacklist function is included. Some addresses may not be able to trade normally (honeypot risk)."}
                             </p>
                           </div>
                         </div>
@@ -996,13 +948,13 @@ const FlashAuditResult = () => {
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Token Holders</p>
                     <p className="text-sm text-[#FCBF07]">
-                      {result && result.holder_count}
+                      {result && Number(result.holder_count)}
                     </p>
                   </div>
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Total Supply</p>
                     <p className="text-sm text-[#FCBF07]">
-                      {result && result.total_supply}
+                      {result && Number(result.total_supply).toFixed(2)}
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 border-b border-b-[#2C2C2C] pb-6">
@@ -1046,9 +998,7 @@ const FlashAuditResult = () => {
                           </p>
                           <p className="text-sm text-[#FCBF07]">
                             {(Number(item.balance) / 1000000).toFixed(3)}M (
-                            {Number(
-                              (item.balance / result.total_supply) * 100
-                            ).toFixed(2)}
+                            {Number(item.percent * 100).toFixed(2)}
                             %)
                           </p>
                         </div>
@@ -1173,15 +1123,16 @@ const FlashAuditResult = () => {
                         className="flex flex-row items-center justify-between"
                         key={index}
                       >
-                        <p className="text-sm text-[#86888C]">{item.tag}</p>
+                        <p className="text-sm text-[#86888C]">
+                          {item.tag !== "" ? (
+                            item.tag
+                          ) : (
+                            <AddressShow address={item.address} len={4} />
+                          )}
+                        </p>
                         <p className="text-sm text-[#FCBF07]">
                           {Number(item.balance).toFixed(2)} (
-                          {(
-                            (Number(item.balance) /
-                              BalanceSum(result.lp_holders)) *
-                            100
-                          ).toFixed(2)}
-                          % )
+                          {Number(item.percent * 100).toFixed(2)}%)
                         </p>
                       </div>
                     ))}
