@@ -112,7 +112,6 @@ const FlashAuditResult = () => {
     } else {
       // console.log(res.result["0x408e41876cccdc0f92210600ef50372656052a38"]);
       setResult(res.result[`${address.toLowerCase()}`]);
-      console.log(result.lp_total_supply);
     }
   };
 

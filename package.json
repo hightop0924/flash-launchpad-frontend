@@ -21,5 +21,8 @@
   },
   "devDependencies": {
     "@goplus/sdk-node": "^1.0.9"
+  },
+  "browser": {
+    "fs": false
   }
 }
