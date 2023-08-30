@@ -111,7 +111,8 @@ const FlashAuditResult = () => {
     if (res.code != ErrorCode.SUCCESS) {
       console.error(res.message);
     } else {
-      if (!res.result) {
+      // console.log(res.result);
+      if (res.result[`${address.toLowerCase()}`]) {
         setResult(res.result[`${address.toLowerCase()}`]);
       } else {
         setResultFlag(true);
