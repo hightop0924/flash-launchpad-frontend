@@ -31,6 +31,7 @@ const FlashAuditResult = () => {
   const [address, setAddress] = useState("");
   const [riskyNum, setRiskyNum] = useState(0);
   const [attentionNum, setAttentionNum] = useState(0);
+  const [resultFlag, setResultFlag] = useState(false);
 
   useEffect(() => {
     let riskyTemp = riskyNum;
@@ -110,8 +111,11 @@ const FlashAuditResult = () => {
     if (res.code != ErrorCode.SUCCESS) {
       console.error(res.message);
     } else {
-      // console.log(res.result["0x408e41876cccdc0f92210600ef50372656052a38"]);
-      setResult(res.result[`${address.toLowerCase()}`]);
+      if (!res.result) {
+        setResult(res.result[`${address.toLowerCase()}`]);
+      } else {
+        setResultFlag(true);
+      }
     }
   };
 
@@ -165,7 +169,12 @@ const FlashAuditResult = () => {
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </div>
-              <div className="flex flex-col mt-[99px]">
+              {resultFlag && (
+                <p className="text-center text-[20px] text-[#f33434] mt-8">
+                  Token address is wrong
+                </p>
+              )}
+              <div className="flex flex-col mt-[30px]">
                 <IconBtn
                   text="Check"
                   TxSize="text-[20px]"
