@@ -966,10 +966,14 @@ const FlashAuditResult = () => {
                     <div className="relative flex flex-row">
                       <div className="bg-[#16171B] h-[31px] w-[100%] rounded-[4px]"></div>
                       <div
-                        className="absolute top-0 left-0 h-[31px] w-[265px] rounded-[4px] flex flex-row justify-end items-center pr-2"
+                        className="absolute top-0 left-0 h-[31px] rounded-[4px] flex flex-row justify-end items-center pr-2"
                         style={{
                           background:
                             "linear-gradient(90deg, rgba(252, 191, 7, 0.20) 0%, #FCBF07 100%)",
+                          width: `${
+                            result.holders &&
+                            (topBalance(result.holders) * 100).toFixed(2)
+                          }%`,
                         }}
                       >
                         <p className="text-sm text-[#16171B]">
