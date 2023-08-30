@@ -1,7 +1,8 @@
 import HeaderNav from "@/components/HeaderNav";
 import SearchInput from "@/components/Form/SearchInput";
-import Select from "@/components/Form/Select";
+import Select from "@/components/Form/RoundedSelect";
 import PresalesCard from "@/components/Card/PresalesCard";
+import HeaderSection from "@/components/HeaderSection";
 
 const PresalPage = () => {
   const presalesList = [
@@ -32,6 +33,7 @@ const PresalPage = () => {
   ];
   return (
     <div>
+      <HeaderSection />
       <HeaderNav />
       <div className="mt-6 flex justify-between">
         <SearchInput />

@@ -21,7 +21,7 @@ import Icon_7 from "@/assets/icons/7.svg";
 
 const HeaderSection = () => {
   return (
-    <div className="gap-x-[22px] flex py-8 pl-10">
+    <div className="gap-x-[22px] flex pb-8 pl-10">
       <div className="mr-8">
         <IconBtn
           icon={Floki}

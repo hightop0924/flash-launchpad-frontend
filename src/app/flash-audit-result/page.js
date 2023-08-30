@@ -20,6 +20,7 @@ import HeaderNav from "@/components/HeaderNav";
 import IconBtn from "@/components/Button/IconBtn";
 import DefaultCard from "@/components/Card/DefaultCard";
 import AddressInput from "@/components/Form/AddressInput";
+import HeaderSection from "@/components/HeaderSection";
 
 //! import API
 import { GoPlus, ErrorCode } from "@goplus/sdk-node";
@@ -148,7 +149,8 @@ const FlashAuditResult = () => {
   };
 
   return (
-    <div className="mt-14 min-h-[1300px]">
+    <div className="min-h-[1300px]">
+      <HeaderSection />
       {result === "" ? (
         <div>
           <HeaderNav />

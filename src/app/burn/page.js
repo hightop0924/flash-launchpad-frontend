@@ -7,6 +7,7 @@ import HeaderNav from "@/components/HeaderNav";
 import Image from "next/image";
 import IconBtn from "@/components/Button/IconBtn";
 import Input from "@/components/Form/Input";
+import HeaderSection from "@/components/HeaderSection";
 
 import BurnBack from "@/assets/image/burn-back.png";
 import Floki from "@/assets/icons/floki.svg";
@@ -44,6 +45,7 @@ const Burn = () => {
   ];
   return (
     <div className="relative min-h-[1300px]">
+      <HeaderSection />
       <HeaderNav />
       <div className="flex flex-row justify-center">
         <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">

@@ -32,8 +32,8 @@ export default function RootLayout({ children }) {
                   background: `url('${Background.src}') center center`,
                 }}
               >
-                <HeaderSection />
-                <div className="px-10 pb-16">{children}</div>
+                {/* <HeaderSection /> */}
+                <div className="px-10 pb-16 pt-8">{children}</div>
               </div>
             </div>
           </div>
