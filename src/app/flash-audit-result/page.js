@@ -128,8 +128,8 @@ const FlashAuditResult = () => {
 
   const BalanceSum = (array) => {
     const res = array.reduce((a, b) => {
-      return Number(a.balance) + Number(b.balance);
-    });
+      return a + Number(b.balance);
+    }, 0);
     return Number(res);
   };
   const topBalance = (array) => {
@@ -1094,7 +1094,7 @@ const FlashAuditResult = () => {
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">LP Holders</p>
                     <p className="text-sm text-[#FCBF07]">
-                      {result.lp_holders && result.lp_holders.length}
+                      {result.lp_holder_count && result.lp_holder_count}
                     </p>
                   </div>
                   <div className="flex flex-row items-center justify-between">
@@ -1133,7 +1133,7 @@ const FlashAuditResult = () => {
                           )}
                         </p>
                         <p className="text-sm text-[#FCBF07]">
-                          {Number(item.balance).toFixed(2)} (
+                          {Number(item.balance).toFixed(3)} (
                           {Number(item.percent * 100).toFixed(2)}%)
                         </p>
                       </div>
