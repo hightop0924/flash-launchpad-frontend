@@ -134,16 +134,16 @@ const FlashAuditResult = () => {
   };
   const topBalance = (array) => {
     const res =
-      Number(array[0].balance) +
-      Number(array[1].balance) +
-      Number(array[2].balance) +
-      Number(array[3].balance) +
-      Number(array[4].balance) +
-      Number(array[5].balance) +
-      Number(array[6].balance) +
-      Number(array[7].balance) +
-      Number(array[8].balance) +
-      Number(array[9].balance);
+      Number(array[0].percent) +
+      Number(array[1].percent) +
+      Number(array[2].percent) +
+      Number(array[3].percent) +
+      Number(array[4].percent) +
+      Number(array[5].percent) +
+      Number(array[6].percent) +
+      Number(array[7].percent) +
+      Number(array[8].percent) +
+      Number(array[9].percent);
 
     return res;
   };
@@ -973,12 +973,8 @@ const FlashAuditResult = () => {
                         }}
                       >
                         <p className="text-sm text-[#16171B]">
-                          {/* {result.holders &&
-                            (
-                              (topBalance(result.holders) /
-                                Number(result.total_supply)) *
-                              100
-                            ).toFixed(2)} */}
+                          {result.holders &&
+                            (topBalance(result.holders) * 100).toFixed(2)}
                           %
                         </p>
                       </div>
