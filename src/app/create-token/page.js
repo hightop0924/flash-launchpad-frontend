@@ -33,7 +33,14 @@ const CreateToken = () => {
         footerWrapper={<FooterButton />}
       >
         <div>
-          <Success />
+          <Success>
+            <p className="text-white text-[14px]">
+              All created tokens include an Audit. <br />
+              Audits can be found <span className="text-[#FCBF07]">here</span>.
+              Created tokens also get Audit badge on FlashPad presales
+              automatically.
+            </p>
+          </Success>
           <div className="flex flex-col pt-11 gap-8">
             <div>
               <DefaultSelect />
