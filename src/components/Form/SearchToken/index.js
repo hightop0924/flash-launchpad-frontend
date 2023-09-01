@@ -3,6 +3,7 @@ const SearchToken = ({
   value = "",
   onChange = "",
   onClick = "",
+  onSelectChange = "",
 }) => {
   return (
     <div className="w-[100%] flex border border-[#2C2C2C] bg-[#141414] rounded-lg relative">
@@ -11,9 +12,10 @@ const SearchToken = ({
           name=""
           id=""
           className="bg-[#282828] p-5 text-white text-base outline-none"
+          onChange={(e) => onSelectChange(e)}
         >
-          <option value="eth">Ethereum</option>
-          <option value="bnb">BSC</option>
+          <option value="1">Ethereum</option>
+          <option value="56">BSC</option>
         </select>
       </div>
       <input

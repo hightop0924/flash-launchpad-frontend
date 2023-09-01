@@ -24,7 +24,6 @@ import HeaderSection from "@/components/HeaderSection";
 
 //! import API
 import { GoPlus, ErrorCode } from "@goplus/sdk-node";
-let chainId = "1";
 
 const FlashAuditResult = () => {
   const [result, setResult] = useState("");
@@ -32,6 +31,7 @@ const FlashAuditResult = () => {
   const [riskyNum, setRiskyNum] = useState(0);
   const [attentionNum, setAttentionNum] = useState(0);
   const [resultFlag, setResultFlag] = useState(false);
+  const [chainId, setChainId] = useState("1");
 
   useEffect(() => {
     let riskyTemp = riskyNum;
@@ -152,6 +152,18 @@ const FlashAuditResult = () => {
     return res;
   };
 
+  const getLPLockedPercent = (array) => {
+    const res = array.reduce((a, b) => {
+      if (b.is_locked === 1) {
+        return a + Number(b.balance);
+      } else {
+        return a;
+      }
+    }, 0);
+
+    return Number(res);
+  };
+
   return (
     <div className="min-h-[1300px]">
       <HeaderSection />
@@ -168,6 +180,7 @@ const FlashAuditResult = () => {
                 <SearchToken
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
+                  onSelectChange={(e) => setChainId(e.target.value)}
                 />
               </div>
               {resultFlag && (
@@ -206,6 +219,7 @@ const FlashAuditResult = () => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 onClick={() => resultClick()}
+                onSelectChange={(e) => setChainId(e.target.value)}
               />
             </div>
           </div>
@@ -1109,22 +1123,37 @@ const FlashAuditResult = () => {
                   <div className="flex flex-row items-center justify-between">
                     <p className="text-sm text-[#86888C]">Total Supply</p>
                     <p className="text-sm text-[#FCBF07]">
-                      {result.lp_holders &&
-                        BalanceSum(result.lp_holders).toFixed(2)}
+                      {result.lp_total_supply &&
+                        Number(result.lp_total_supply).toFixed(2)}
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 border-b border-b-[#2C2C2C] pb-6">
-                    <p className="text-sm text-[#86888C]">Total Supply</p>
+                    <p className="text-sm text-[#86888C]">
+                      Percent of LP Locked
+                    </p>
                     <div className="relative flex flex-row">
                       <div className="bg-[#16171B] h-[31px] w-[100%] rounded-[4px]"></div>
                       <div
-                        className="absolute top-0 left-0 h-[31px] w-[100%] rounded-[4px] flex flex-row justify-end items-center pr-2"
+                        className="absolute top-0 left-0 h-[31px] min-w-[55px] rounded-[4px] flex flex-row justify-end items-center pr-2"
                         style={{
                           background:
                             "linear-gradient(90deg, rgba(252, 191, 7, 0.20) 0%, #FCBF07 100%)",
+                          width: `${Number(
+                            (getLPLockedPercent(result.lp_holders) /
+                              Number(result.lp_total_supply)) *
+                              100
+                          ).toFixed(2)}%`,
                         }}
                       >
-                        <p className="text-sm text-[#16171B]">100%</p>
+                        <p className="text-sm text-[#16171B]">
+                          {result.lp_total_supply &&
+                            Number(
+                              (getLPLockedPercent(result.lp_holders) /
+                                Number(result.lp_total_supply)) *
+                                100
+                            ).toFixed(2)}
+                          %
+                        </p>
                       </div>
                     </div>
                   </div>
