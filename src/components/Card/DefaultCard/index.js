@@ -2,6 +2,7 @@ const DefaultCard = ({
   children,
   header = "Security Detection",
   footer = false,
+  footerWrapper = "",
 }) => {
   return (
     <div className="bg-[#1B1B1B] rounded-2xl">
@@ -9,7 +10,9 @@ const DefaultCard = ({
         <p className="text-[24px] text-white font-bold">{header}</p>
       </div>
       <div className="p-7">{children}</div>
-      <div className="border-t border-t-[#2C2C2C] p-7"></div>
+      {footer && (
+        <div className="border-t border-t-[#2C2C2C] p-7">{footerWrapper}</div>
+      )}
     </div>
   );
 };
