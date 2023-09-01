@@ -6,6 +6,7 @@ import Image from "next/image";
 import DefaultCard from "@/components/Card/DefaultCard";
 import Success from "@/components/Alert/Success";
 import DefaultSelect from "@/components/Form/DefaultSelect";
+import Input from "@/components/Form/Input";
 
 //! import Image
 import BurnImage from "@/assets/image/burn-image.png";
@@ -22,7 +23,15 @@ const CreateToken = () => {
               <span className="text-[14px] text-[#FCBF07]">Fee: 0.1 BNB</span>
             </div>
 
-            <div className="flex flex-row"></div>
+            <div className="flex flex-row gap-8">
+              <Input label="token name" placeholder="Ex: Ethereum" />
+              <Input label="Token Symbol" placeholder="Ex: ETH" />
+            </div>
+
+            <div className="flex flex-row gap-8">
+              <Input label="Token Decimals" placeholder="18" />
+              <Input label="Total Supply" placeholder="Ex: 1000000000" />
+            </div>
           </div>
         </div>
       </DefaultCard>
