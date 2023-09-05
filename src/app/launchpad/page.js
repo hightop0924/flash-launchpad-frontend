@@ -4,9 +4,22 @@ import React, { useState, useEffect } from "react";
 
 //! import components
 import Input from "@/components/Form/Input";
+import Warning from "@/components/Alert/Warning";
+
+//! import Icons
+import LogoURLIcon from "@/assets/icons/logoURL-input.svg";
+import WebsiteIcon from "@/assets/icons/website-input.svg";
+import TwitterIcon from "@/assets/icons/twitter-input.svg";
+import FacebookIcon from "@/assets/icons/facebook-input.svg";
+import GithubIcon from "@/assets/icons/github-input.svg";
+import TelegramIcon from "@/assets/icons/telegram-input.svg";
+import InstagramIcon from "@/assets/icons/instagram-input.svg";
+import DiscordIcon from "@/assets/icons/discord-input.svg";
+import RedditIcon from "@/assets/icons/reddit-input.svg";
+import YoutubeIcon from "@/assets/icons/youtube-input.svg";
 
 const Launchpad = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
 
   return (
     <div className="min-h-[1300px]">
@@ -121,7 +134,9 @@ const Launchpad = () => {
                   </div>
                   <div className="flex flex-row gap-2 items-center">
                     <input type="radio" name="currency" />
-                    <p className="text-sm text-[#BCBBB9]">Other</p>
+                    <p className="text-sm text-[#BCBBB9]">
+                      1.5% BNB raised + 1.5% token sold
+                    </p>
                   </div>
                 </div>
               </div>
@@ -149,6 +164,22 @@ const Launchpad = () => {
                   </div>
                 </div>
               </div>
+
+              <Warning icon={false}>
+                <p className="text-sm text-[#FFF7CD]">
+                  Auto listing, after you finalize the pool your token will be
+                  auto listed on DEX.
+                </p>
+              </Warning>
+            </div>
+
+            <div className="flex flex-row justify-end">
+              <button
+                className="bg-[#FBBF04] rounded-[10px] py-[10px] px-[61px] text-sm font-semibold text-[#151103]"
+                onClick={() => setStep(2)}
+              >
+                Next
+              </button>
             </div>
           </div>
         )}
@@ -303,11 +334,141 @@ const Launchpad = () => {
                 Need 0 FLASH to create launchpad.
               </p>
               <div className="flex flex-row justify-end gap-5">
-                <button className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]">
+                <button
+                  className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
+                  onClick={() => setStep(1)}
+                >
                   Previous
                 </button>
 
                 <button className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {step === 3 && (
+          <div className="flex flex-col gap-7">
+            <p className="text-xs text-[#FBBF04]">(*) is required field.</p>
+            <div className="flex flex-row gap-6">
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Logo URL"
+                  required={true}
+                  placeholder="Ex: https://..."
+                  icon={LogoURLIcon}
+                />
+                <p className="text-xs text-[#FCBF07] mt-[6px]">
+                  URL must end with a supported image extension png, jpg, jpeg
+                  or gif. You can upload your image at
+                  <br />
+                  https://upload.flashlaunch.com/
+                </p>
+              </div>
+
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Website"
+                  required={true}
+                  placeholder="Ex: https://..."
+                  icon={WebsiteIcon}
+                />
+              </div>
+            </div>
+            <div className="flex flex-row gap-6">
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Facebook"
+                  placeholder="Ex: https://facebook.com/..."
+                  icon={FacebookIcon}
+                />
+              </div>
+
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Twitter"
+                  placeholder="Ex: https://twitter.com/..."
+                  icon={TwitterIcon}
+                />
+              </div>
+            </div>
+            <div className="flex flex-row gap-6">
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Github"
+                  placeholder="Ex: https://github.com/..."
+                  icon={GithubIcon}
+                />
+              </div>
+
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Telegram"
+                  placeholder="Ex: https://t.me/..."
+                  icon={TelegramIcon}
+                />
+              </div>
+            </div>
+            <div className="flex flex-row gap-6">
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Instagram"
+                  placeholder="Ex: https://instagram.com/..."
+                  icon={InstagramIcon}
+                />
+              </div>
+
+              <div className="flex flex-col w-[100%]">
+                <Input
+                  label="Discord"
+                  placeholder="Ex: https://t.me/..."
+                  icon={DiscordIcon}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col w-[100%]">
+              <Input
+                label="Reddit"
+                placeholder="Ex: https://reddit.com/..."
+                icon={RedditIcon}
+              />
+            </div>
+
+            <div className="flex flex-col w-[100%]">
+              <Input
+                label="Youtube Video"
+                placeholder="Ex: https://youtube.com/watch?v="
+                icon={YoutubeIcon}
+              />
+            </div>
+            <p className="text-xs text-[#FCBF07]">
+              Input your youtube URL, or youtube video ID.
+            </p>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm text-white">Description</p>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                className="bg-[#141414] rounded-[6px] border border-[#2C2C2C] py-[10px] px-4 outline-none"
+              ></textarea>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-row justify-end gap-5">
+                <button
+                  className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
+                  onClick={() => setStep(2)}
+                >
+                  Previous
+                </button>
+
+                <button
+                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]"
+                  onClick={() => setStep(3)}
+                >
                   Next
                 </button>
               </div>

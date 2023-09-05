@@ -21,7 +21,7 @@ const Input = ({
       )}
       {icon && (
         <Image
-          src={LogoURLIcon}
+          src={icon}
           alt="icon"
           className="absolute bottom-[22px] left-4"
         />
