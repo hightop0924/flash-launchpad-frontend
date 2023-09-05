@@ -44,8 +44,8 @@ const CreateLocks = () => {
           </Success>
           <div className="mt-11 flex flex-col gap-8">
             <Input placeholder="Token or LP Token Address" />
-            <Input label="Amount" placeholder="0" />
-            <Input label="Lock until" placeholder="09/09/2023 03:57 pm" />
+            <Input label="AMOUNT" placeholder="0" />
+            <Input label="LOCK UNTIL" placeholder="09/09/2023 03:57 pm" />
             <Warning>
               <>
                 <p className="text-[14px] text-[#FFF7CD]">

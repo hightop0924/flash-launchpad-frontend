@@ -1,7 +1,18 @@
-const Input = ({ label = "", value = "", onChange = "", placeholder = "" }) => {
+const Input = ({
+  label = "",
+  value = "",
+  onChange = "",
+  placeholder = "",
+  required = false,
+}) => {
   return (
     <div className="flex flex-col gap-2 w-[100%]">
-      {label && <p className="text-white text-[14px] uppercase"> {label} </p>}
+      {label && (
+        <p className="text-white text-[14px]">
+          {label}
+          {required && <span className="text-[#FCBF07]">*</span>}
+        </p>
+      )}
       <input
         type="text"
         placeholder={placeholder}

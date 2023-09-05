@@ -39,7 +39,7 @@ const MultiSender = () => {
       </div>
       <div className="mt-4 p-8 rounded-2xl bg-[#1B1B1B] flex flex-col gap-8">
         <div>
-          <Input label="Token address" />
+          <Input label="TOKEN ADDRESS" />
           <p className="text-[#86888C] text-base mt-2">
             Flash Multi-sender allows you to send ERC20 token in batch by
             easiest way. You can enter token address to send specific token or

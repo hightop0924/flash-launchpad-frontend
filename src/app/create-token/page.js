@@ -48,13 +48,13 @@ const CreateToken = () => {
             </div>
 
             <div className="flex flex-row gap-8">
-              <Input label="token name" placeholder="Ex: Ethereum" />
-              <Input label="Token Symbol" placeholder="Ex: ETH" />
+              <Input label="TOKEN NAME" placeholder="Ex: Ethereum" />
+              <Input label="TOKEN SYMBOL" placeholder="Ex: ETH" />
             </div>
 
             <div className="flex flex-row gap-8">
-              <Input label="Token Decimals" placeholder="18" />
-              <Input label="Total Supply" placeholder="Ex: 1000000000" />
+              <Input label="TOKEN DECIMALS" placeholder="18" />
+              <Input label="TOTAL SUPPLY" placeholder="Ex: 1000000000" />
             </div>
           </div>
         </div>
