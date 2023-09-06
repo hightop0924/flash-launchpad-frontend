@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 
+import Image from "next/image";
+
 //! import components
 import Input from "@/components/Form/Input";
 import Warning from "@/components/Alert/Warning";
@@ -17,9 +19,10 @@ import InstagramIcon from "@/assets/icons/instagram-input.svg";
 import DiscordIcon from "@/assets/icons/discord-input.svg";
 import RedditIcon from "@/assets/icons/reddit-input.svg";
 import YoutubeIcon from "@/assets/icons/youtube-input.svg";
+import WarningIcon from "@/assets/icons/warning.svg";
 
 const Launchpad = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(4);
 
   return (
     <div className="min-h-[1300px]">
@@ -472,6 +475,122 @@ const Launchpad = () => {
                   Next
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+        {step === 4 && (
+          <div className="flex flex-col">
+            <div className="flex flex-col">
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Total token</p>
+                <p className="text-[#FCBF07]">100,290.7 FLASH</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Token name</p>
+                <p>Flash 3.0</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Token symbol</p>
+                <p>Flash</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Token decimals</p>
+                <p>18</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Presale rate</p>
+                <p>1000 FLASH</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Sale method</p>
+                <p>Public</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Softcap</p>
+                <p>25</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Hardcap</p>
+                <p>100</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Unsold tokens</p>
+                <p>Burn</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Minimum buy</p>
+                <p>5 BNB</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Maximum buy</p>
+                <p>10 BNB</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Liquidity</p>
+                <p>51%</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Start time</p>
+                <p>2023-08-30T20:31 (UTC)</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>End time</p>
+                <p>2023-09-14T20:31 (UTC)</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Liquidity lockup time</p>
+                <p>365 days</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Website</p>
+                <p className="text-[#FCBF07]">flash-technologies.org</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Facebook</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Telegram</p>
+              </div>
+
+              <div className="py-4 flex flex-row justify-between items-center text-base text-white border-b border-b-[#2C2C2C]">
+                <p>Using Team Vesting?</p>
+                <p>No</p>
+              </div>
+            </div>
+
+            <div className="p-[17px] flex flex-row items-center gap-6 border border-[#262626] bg-[#141414] rounded-[6px] mt-[50px]">
+              <Image src={WarningIcon} alt="Warning" />
+              <p className="text-sm text-white">
+                Please exclude Flash Factory address
+                0x7461B2F388142a7584ac752e637B255Eead9bcPL from fees, rewards,
+                max tx amount to start creating pools
+              </p>
+            </div>
+
+            <div className="p-[17px] flex flex-row items-center gap-6 border border-[#262626] bg-[#141414] rounded-[6px] mt-[10px]">
+              <p className="text-xs text-white">
+                For tokens with burns, rebase or other special transfers please
+                ensure that you have a way to whitelist multiple addresses or
+                turn off the special transfer events (By setting fees to 0 for
+                example for the duration of the presale)
+              </p>
             </div>
           </div>
         )}
