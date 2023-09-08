@@ -42,7 +42,7 @@ import FlokiBinance from "@/assets/image/floki-binance.png";
 import IconBtn from "@/components/Button/IconBtn";
 
 const SideBar = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
 
   const routerList = [
     {

@@ -26,7 +26,7 @@ const HeaderSection = () => {
         <IconBtn
           icon={Floki}
           text="FLOKI"
-          BgClass="bg-[#F79422E5]/[.9]"
+          BgClass="bg-[#FCBF07]"
           py="py-[12px]"
           TxSize="text-[16px]"
         />

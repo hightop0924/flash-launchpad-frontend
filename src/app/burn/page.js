@@ -46,7 +46,6 @@ const Burn = () => {
   return (
     <div className="relative min-h-[1500px]">
       <HeaderSection />
-      <HeaderNav />
       <div className="flex flex-row justify-center">
         <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
           <Image src={BurnBack} alt="Image" />
