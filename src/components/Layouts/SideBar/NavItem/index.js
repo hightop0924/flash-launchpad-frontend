@@ -16,10 +16,20 @@ const NavItem = ({
   active = false,
   childItems = "",
   path = "",
+  index = "",
+  onClick = "",
 }) => {
   const router = useRouter();
   const handleClick = () => {
-    router.push(path);
+    if (childItems) {
+      onClick(index);
+    } else {
+      router.push(path);
+    }
+  };
+
+  const handleItemClick = (url) => {
+    router.push(url);
   };
 
   return (
@@ -50,9 +60,20 @@ const NavItem = ({
             <div
               className="py-[10px] pl-[52px] flex flex-row gap-6 items-center cursor-pointer"
               key={index}
+              onClick={() => handleItemClick(item.path)}
             >
-              <div className=" w-[8px] h-[8px] bg-[#282828] rounded-full"></div>
-              <p className="text-sm text-[#86888C]">{item.label}</p>
+              <div
+                className={`w-[8px] h-[8px] ${
+                  item.active ? "bg-[#FCBF07]" : "bg-[#282828]"
+                }  rounded-full`}
+              ></div>
+              <p
+                className={`text-sm ${
+                  item.active ? "text-[#FCBF07]" : "text-[#86888C]"
+                } `}
+              >
+                {item.label}
+              </p>
             </div>
           ))}
         </div>

@@ -80,6 +80,26 @@ const SideBar = () => {
       path: "/leaderboard",
       active: 5,
     },
+    {
+      path: "/launch/launchpad",
+      active: 7,
+    },
+    {
+      path: "/launch/fair-launch",
+      active: 8,
+    },
+    {
+      path: "/launch/create-token",
+      active: 9,
+    },
+    {
+      path: "/launch/create-staking",
+      active: 10,
+    },
+    {
+      path: "/launch/create-lock",
+      active: 11,
+    },
   ];
 
   const router = useRouter();
@@ -93,10 +113,17 @@ const SideBar = () => {
   };
 
   useEffect(() => {
+    console.log(pathname);
     routerList.forEach((item) => {
       if (item.path == pathname) {
         setActive(item.active);
       }
+      // if (pathname.indexOf("launch") > 0) {
+      //   setActive(6);
+      // }
+      // if (pathname.indexOf("tool") > 0) {
+      //   setActive(12);
+      // }
     });
   }, [pathname]);
   return (
@@ -147,15 +174,35 @@ const SideBar = () => {
             img={Launch}
             active_img={ActiveLaunch}
             right={true}
-            active={active === 6 && true}
-            index={6}
-            onClick={(index) => setActive(index)}
+            active={active > 6 && active < 12 && true}
+            index="6"
+            onClick={() => setActive(6)}
             childItems={[
-              { label: "Launchpad" },
-              { label: "Fair Launch" },
-              { label: "Token" },
-              { label: "Staking Pool" },
-              { label: "Create Lock" },
+              {
+                label: "Launchpad",
+                path: "/launch/launchpad",
+                active: active === 7 && true,
+              },
+              {
+                label: "Fair Launch",
+                path: "/launch/fair-launch",
+                active: active === 8 && true,
+              },
+              {
+                label: "Token",
+                path: "/launch/create-token",
+                active: active === 9 && true,
+              },
+              {
+                label: "Staking Pool",
+                path: "/launch/create-staking",
+                active: active === 10 && true,
+              },
+              {
+                label: "Create Lock",
+                path: "/launch/create-lock",
+                active: active === 11 && true,
+              },
             ]}
           />
 
@@ -164,7 +211,9 @@ const SideBar = () => {
             img={Tools}
             active_img={ActiveTools}
             right={true}
-            active={active === 7 && true}
+            index="7"
+            onClick={() => setActive(7)}
+            active={active > 11 && active < 15 && true}
             childItems={[
               { label: "Airdrop" },
               { label: "Create Token" },
