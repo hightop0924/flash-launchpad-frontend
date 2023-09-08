@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 import NavItem from "./NavItem";
 import SmallIconOnlyBtn from "../../Button/SmallIconOnlyBtn";
@@ -12,22 +12,24 @@ import SmallIconOnlyBtn from "../../Button/SmallIconOnlyBtn";
 import logo from "@/assets/image/logo.svg";
 
 import Presales from "@/assets/icons/presales.svg";
-import Sales from "@/assets/icons/sales.svg";
+import TokenList from "@/assets/icons/token-list.svg";
 import Pools from "@/assets/icons/pools.svg";
 import Locks from "@/assets/icons/locks.svg";
 import Liquidity from "@/assets/icons/liquidity.svg";
 import Launch from "@/assets/icons/launch.svg";
 import Tools from "@/assets/icons/tools.svg";
 import Audit from "@/assets/icons/audit.svg";
+import LeaderBoard from "@/assets/icons/leaderboard.svg";
 
 import ActivePresales from "@/assets/icons/active_presales.svg";
-import ActiveSales from "@/assets/icons/active_sales.svg";
+import TokenListActive from "@/assets/icons/token-list-active.svg";
 import ActivePools from "@/assets/icons/active_pools.svg";
 import ActiveLocks from "@/assets/icons/active_locks.svg";
 import ActiveLiquidity from "@/assets/icons/active_liquidity.svg";
 import ActiveLaunch from "@/assets/icons/active_launch.svg";
 import ActiveTools from "@/assets/icons/active_tools.svg";
 import ActiveAudit from "@/assets/icons/active_audit.svg";
+import LeaderBoardActive from "@/assets/icons/leaderboard-active.svg";
 
 import Sponsored from "@/assets/icons/sponsored.svg";
 
@@ -43,14 +45,45 @@ const SideBar = () => {
   const [active, setActive] = useState(1);
 
   const routerList = [
-    "presales",
-    "staking-plools",
-    "token-lock",
-    "liquidity-lock",
-    "leaderboard",
+    {
+      text: "Presales",
+      img: Presales,
+      active_img: ActivePresales,
+      path: "/presales",
+      active: 1,
+    },
+    {
+      text: "Staking Pools",
+      img: Pools,
+      active_img: ActivePools,
+      path: "/staking-pool",
+      active: 2,
+    },
+    {
+      text: "Token Locks List",
+      img: TokenList,
+      active_img: TokenListActive,
+      path: "/token-lock",
+      active: 3,
+    },
+    {
+      text: "Liquidity Locks List",
+      img: TokenList,
+      active_img: TokenListActive,
+      path: "/liquidity-lock",
+      active: 4,
+    },
+    {
+      text: "Leaderboard",
+      img: LeaderBoard,
+      active_img: LeaderBoardActive,
+      path: "/leaderboard",
+      active: 5,
+    },
   ];
 
   const router = useRouter();
+  const pathname = usePathname();
 
   const onNavItemClick = (index) => {
     setActive(index);
@@ -58,6 +91,14 @@ const SideBar = () => {
       router.push("/about");
     }
   };
+
+  useEffect(() => {
+    routerList.forEach((item) => {
+      if (item.path == pathname) {
+        setActive(item.active);
+      }
+    });
+  }, [pathname]);
   return (
     <div className="bg-[#1B1B1B] w-[286px] h-auto pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10 relative">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
@@ -78,46 +119,20 @@ const SideBar = () => {
           EXPLORE
         </p>
         <div className="flex flex-col mt-5 gap-y-2">
-          <NavItem
-            text="Presales"
-            img={Presales}
-            active_img={ActivePresales}
-            active={active === 1 && true}
-            index={1}
-            onClick={(index) => setActive(index)}
-          />
-          <NavItem
-            text="Special Sales"
-            img={Sales}
-            active_img={ActiveSales}
-            active={active === 2 && true}
-            index={2}
-            onClick={(index) => setActive(index)}
-          />
-          <NavItem
-            text="Staking Pools"
-            img={Pools}
-            active_img={ActivePools}
-            active={active === 3 && true}
-            index={3}
-            onClick={(index) => setActive(index)}
-          />
-          <NavItem
-            text="Token Locks"
-            img={Locks}
-            active_img={ActiveLocks}
-            active={active === 4 && true}
-            index={4}
-            onClick={(index) => setActive(index)}
-          />
-          <NavItem
-            text="Liquidity Locks"
-            img={Liquidity}
-            active_img={ActiveLiquidity}
-            active={active === 5 && true}
-            index={5}
-            onClick={(index) => setActive(index)}
-          />
+          {routerList.map((item, index) => {
+            if (index < 5) {
+              return (
+                <NavItem
+                  key={index}
+                  text={item.text}
+                  img={item.img}
+                  active_img={item.active_img}
+                  active={active === item.active && true}
+                  path={item.path}
+                />
+              );
+            }
+          })}
         </div>
         <hr className="h-px w-[206px] mt-5 ml-10 bg-[#2C2C2C] border-0"></hr>
       </div>
@@ -143,14 +158,13 @@ const SideBar = () => {
               { label: "Create Lock" },
             ]}
           />
+
           <NavItem
             text="Utility & Tools"
             img={Tools}
             active_img={ActiveTools}
             right={true}
             active={active === 7 && true}
-            index={7}
-            onClick={(index) => setActive(index)}
             childItems={[
               { label: "Airdrop" },
               { label: "Create Token" },
@@ -162,8 +176,6 @@ const SideBar = () => {
             img={Audit}
             active_img={ActiveAudit}
             active={active === 8 && true}
-            index={8}
-            onClick={(index) => setActive(index)}
           />
         </div>
       </div>

@@ -14,14 +14,12 @@ const NavItem = ({
   BgClass = "bg-[#1B1B1B]",
   TxClass = "text-[#86888c]",
   active = false,
-  onClick = "",
-  index = "",
   childItems = "",
+  path = "",
 }) => {
   const router = useRouter();
-  const handleClick = (index) => {
-    onClick(index);
-    router.push("/burn");
+  const handleClick = () => {
+    router.push(path);
   };
 
   return (
@@ -35,7 +33,7 @@ const NavItem = ({
               : ""
           }`,
         }}
-        onClick={() => handleClick(index)}
+        onClick={() => handleClick()}
       >
         <Image src={active ? active_img : img} alt="image" />
         <p className={`${TxClass} text-[16px] font-semibold capitalize`}>
