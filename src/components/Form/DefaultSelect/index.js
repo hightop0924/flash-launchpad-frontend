@@ -7,14 +7,14 @@ const DefaultSelect = ({
   ],
 }) => {
   return (
-    <div className="flex flex-col gap-3 w-[100%]">
+    <div className="flex flex-col gap-2 w-[100%]">
       {label && (
         <p className="text-white text-[14px]">
           {label}
           {required && <span className="text-[#FCBF07]">*</span>}
         </p>
       )}
-      <select className="w-[100%] p-5 bg-[#141414] border border-[#2C2C2C] rounded-[8px] outline-none text-base text-[#86888C]">
+      <select className="w-[100%] h-[59px] p-5 bg-[#141414] border border-[#2C2C2C] rounded-[8px] outline-none text-base text-[#86888C]">
         {optons.map((item, index) => (
           <option value={item.value} key={index}>
             {item.text}
