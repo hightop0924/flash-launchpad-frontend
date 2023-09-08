@@ -174,7 +174,7 @@ const SideBar = () => {
             img={Launch}
             active_img={ActiveLaunch}
             right={true}
-            active={active > 6 && active < 12 && true}
+            active={active > 5 && active < 12 && true}
             index="6"
             onClick={() => setActive(6)}
             childItems={[
@@ -211,7 +211,7 @@ const SideBar = () => {
             img={Tools}
             active_img={ActiveTools}
             right={true}
-            index="7"
+            index="12"
             onClick={() => setActive(7)}
             active={active > 11 && active < 15 && true}
             childItems={[

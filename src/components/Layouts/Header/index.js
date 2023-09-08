@@ -49,7 +49,7 @@ const Header = () => {
 
   const [netShow, setNetShow] = useState(false);
   const [lanShow, setLanShow] = useState(false);
-  const [createShow, setCreateShow] = useState(true);
+  const [createShow, setCreateShow] = useState(false);
 
   return (
     <div className="relative w-[calc(100vw-286px)] h-20 px-10 bg-[#1b1b1b]/[.99] ml-[-1px] flex items-center justify-between">

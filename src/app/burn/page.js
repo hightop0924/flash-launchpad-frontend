@@ -25,26 +25,26 @@ const Burn = () => {
       maxSlot: 20,
     },
     {
-      grade: "Diamond",
-      amount: "$100",
+      grade: "Gold",
+      amount: "$50",
       slot: 1,
-      maxSlot: 20,
+      maxSlot: 40,
     },
     {
-      grade: "Diamond",
-      amount: "$100",
+      grade: "Silver",
+      amount: "$25",
       slot: 1,
-      maxSlot: 20,
+      maxSlot: 70,
     },
     {
-      grade: "Diamond",
-      amount: "$100",
+      grade: "Bronze",
+      amount: "$10",
       slot: 1,
-      maxSlot: 20,
+      maxSlot: 100,
     },
   ];
   return (
-    <div className="relative min-h-[1500px]">
+    <div className="relative min-h-[1340px]">
       <HeaderSection />
       <div className="flex flex-row justify-center">
         <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
@@ -102,7 +102,7 @@ const Burn = () => {
               </table>
             ) : (
               <div className="flex flex-col mt-[52px]">
-                <Input />
+                <Input placeholder="Enter a Floki amount" />
               </div>
             )}
 
