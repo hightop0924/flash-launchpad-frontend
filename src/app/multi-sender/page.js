@@ -39,7 +39,7 @@ const MultiSender = () => {
       </div>
       <div className="mt-4 p-8 rounded-2xl bg-[#1B1B1B] flex flex-col gap-8">
         <div>
-          <Input label="TOKEN ADDRESS" />
+          <Input label="TOKEN ADDRESS" placeholder="0" />
           <p className="text-[#86888C] text-base mt-2">
             Flash Multi-sender allows you to send ERC20 token in batch by
             easiest way. You can enter token address to send specific token or
@@ -70,6 +70,15 @@ const MultiSender = () => {
           </>
         </Warning>
       </div>
+
+      <p className="text-white text-base text-center mt-8">
+        Disclaimer: PinkSale will never endorse or encourage that you invest in
+        any of the projects listed and therefore, accept no liability for <br />
+        any loss occasioned. It is the user(s) responsibility to do their own
+        research and seek financial advice from a professional. More <br />
+        information about (DYOR) can be found via{" "}
+        <span className="text-[#FCBF07]">Flashlaunch.</span>
+      </p>
     </div>
   );
 };

@@ -43,7 +43,7 @@ const CreateToken = () => {
           </Success>
           <div className="flex flex-col pt-11 gap-8">
             <div>
-              <DefaultSelect />
+              <DefaultSelect optons={[{ text: "Simple Tokens", value: "1" }]} />
               <span className="text-[14px] text-[#FCBF07]">Fee: 0.1 BNB</span>
             </div>
 

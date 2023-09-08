@@ -166,8 +166,8 @@ const Profile = () => {
                 <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
                   <Image src={PageLeftIcon} alt="page" />
                 </div>
-                <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
-                  <p className="text-base text-[#86888C]">1</p>
+                <div className="w-[28px] h-[28px] bg-[#FCBF07] rounded-[5.6px] flex flex-row justify-center items-center">
+                  <p className="text-base text-[#16171B]">1</p>
                 </div>
                 <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
                   <p className="text-base text-[#86888C]">2</p>
@@ -187,7 +187,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {(tabActive === 1 || tabActive === 2) && (
+      {(tabActive === 0 || tabActive === 1) && (
         <div className="mt-[157px] flex flex-row justify-center">
           <p className="text-center text-lg text-white w-[1155px]">
             Disclaimer: Flashlaunch will never endorse or encourage that you

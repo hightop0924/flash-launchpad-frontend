@@ -24,10 +24,15 @@ import WarningIcon from "@/assets/icons/warning.svg";
 import RefreshIcon from "@/assets/icons/refresh-yello.svg";
 import SwitchButton from "@/components/Form/SwitchButton";
 import CoverIcon from "@/assets/icons/cover.svg";
+import DatePickerIcon from "@/assets/icons/datepicker.svg";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateStaking = () => {
   const [step, setStep] = useState(1);
   const [stakingSwitch, setStakingSwitch] = useState(true);
+  const [startDate, setStartDate] = useState(null);
   const [step4Details, setStep4Details] = useState([
     { name: "Name", value: "Stake Flash 3.0", color: "#E65959" },
     { name: "Symbol", value: "sFLASH", color: "#E65959" },
@@ -196,11 +201,41 @@ const CreateStaking = () => {
             <div className="flex flex-col gap-2">
               <div className="flex flex-row gap-6">
                 <div className="flex flex-col gap-2 w-[100%]">
-                  <Input label="Start time (UTC)" placeholder="0" />
+                  <p className="text-white text-[14px]">Start time (UTC)</p>
+                  <div className="flex flex-col relative">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      showTimeSelect
+                      dateFormat="MM/d/yyyy hh:mm aa"
+                      placeholderText="Select date"
+                      className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
+                    />
+                    <Image
+                      src={DatePickerIcon}
+                      alt="image"
+                      className="absolute top-4 right-5"
+                    />
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-2 w-[100%]">
-                  <Input label="End time (UTC)" placeholder="0" />
+                  <p className="text-white text-[14px]">End time (UTC)</p>
+                  <div className="flex flex-col relative">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      showTimeSelect
+                      dateFormat="MM/d/yyyy hh:mm aa"
+                      placeholderText="Select date"
+                      className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
+                    />
+                    <Image
+                      src={DatePickerIcon}
+                      alt="image"
+                      className="absolute top-4 right-5"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -340,6 +375,7 @@ const CreateStaking = () => {
                 id=""
                 cols="30"
                 rows="10"
+                placeholder="Ex: This project is..."
                 className="bg-[#141414] rounded-[6px] border border-[#2C2C2C] py-[10px] px-4 outline-none"
               ></textarea>
             </div>

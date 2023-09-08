@@ -1,17 +1,23 @@
 "use client";
 import Image from "next/image";
 
+import React, { useState } from "react";
+
 //! import Image
 import BurnImage from "@/assets/image/burn-image.png";
 
 //! import Icon
 import CopyIcon from "@/assets/icons/copy.svg";
+import DatePickerIcon from "@/assets/icons/datepicker.svg";
 
 //! import components
 import DefaultCard from "@/components/Card/DefaultCard";
 import Success from "@/components/Alert/Success";
 import Warning from "@/components/Alert/Warning";
 import Input from "@/components/Form/Input";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const FooterButton = () => {
   return (
@@ -27,6 +33,8 @@ const FooterButton = () => {
 };
 
 const CreateLocks = () => {
+  const [startDate, setStartDate] = useState(null);
+
   return (
     <div className="relative min-h-[1500px]">
       <DefaultCard
@@ -45,7 +53,23 @@ const CreateLocks = () => {
           <div className="mt-11 flex flex-col gap-8">
             <Input placeholder="Token or LP Token Address" />
             <Input label="AMOUNT" placeholder="0" />
-            <Input label="LOCK UNTIL" placeholder="09/09/2023 03:57 pm" />
+            {/* <Input label="LOCK UNTIL" placeholder="09/09/2023 03:57 pm" /> */}
+            <div className="flex flex-col relative">
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                showTimeSelect
+                dateFormat="MM/d/yyyy hh:mm aa"
+                placeholderText="09/09/2023 03:57 pm"
+                className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
+              />
+              <Image
+                src={DatePickerIcon}
+                alt="image"
+                className="absolute top-4 right-5"
+              />
+            </div>
+
             <Warning>
               <>
                 <p className="text-[14px] text-[#FFF7CD]">

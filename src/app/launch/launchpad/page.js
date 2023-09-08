@@ -6,6 +6,7 @@ import Image from "next/image";
 
 //! import components
 import Input from "@/components/Form/Input";
+import DefaultSelect from "@/components/Form/DefaultSelect";
 import Warning from "@/components/Alert/Warning";
 
 //! import Icons
@@ -20,9 +21,14 @@ import DiscordIcon from "@/assets/icons/discord-input.svg";
 import RedditIcon from "@/assets/icons/reddit-input.svg";
 import YoutubeIcon from "@/assets/icons/youtube-input.svg";
 import WarningIcon from "@/assets/icons/warning.svg";
+import DatePickerIcon from "@/assets/icons/datepicker.svg";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Launchpad = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
+  const [startDate, setStartDate] = useState(null);
 
   return (
     <div className="min-h-[1500px]">
@@ -100,7 +106,12 @@ const Launchpad = () => {
                 <p className="text-sm text-white">Currency</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="radio" name="currency" />
+                    <input
+                      type="radio"
+                      name="currency"
+                      checked={true}
+                      onChange={() => console.log()}
+                    />
                     <p className="text-sm text-[#BCBBB9]">BNB</p>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
@@ -129,14 +140,19 @@ const Launchpad = () => {
                 <p className="text-sm text-white">Fee options</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="radio" name="currency" />
+                    <input
+                      type="radio"
+                      name="fee"
+                      checked={true}
+                      onChange={() => console.log()}
+                    />
                     <p className="text-sm text-[#BCBBB9]">
                       3.5% BNB raised only{" "}
                       <span className="text-[#FCBF07]">(Recommended)</span>
                     </p>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="radio" name="currency" />
+                    <input type="radio" name="fee" />
                     <p className="text-sm text-[#BCBBB9]">
                       1.5% BNB raised + 1.5% token sold
                     </p>
@@ -148,7 +164,12 @@ const Launchpad = () => {
                 <p className="text-sm text-white">Listing Options</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="radio" name="currency" />
+                    <input
+                      type="radio"
+                      name="listing"
+                      checked={true}
+                      onChange={() => console.log()}
+                    />
                     <p className="text-sm text-[#BCBBB9]">Auto Listing</p>
                   </div>
                 </div>
@@ -158,7 +179,12 @@ const Launchpad = () => {
                 <p className="text-sm text-white">Affiliate Program</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex flex-row gap-2 items-center">
-                    <input type="radio" name="currency" />
+                    <input
+                      type="radio"
+                      name="affiliate"
+                      checked={true}
+                      onChange={() => console.log()}
+                    />
                     <p className="text-sm text-[#BCBBB9]">Disable Affiliate</p>
                   </div>
                   <div className="flex flex-row gap-2 items-center">
@@ -262,11 +288,21 @@ const Launchpad = () => {
 
             <div className="flex flex-row gap-6">
               <div className="flex flex-col gap-2 w-[100%]">
-                <Input label="Refund type" placeholder="0" required={true} />
+                <DefaultSelect
+                  label="Refund type"
+                  optons={[{ text: "Burn", value: "1" }]}
+                  required={true}
+                />
               </div>
 
               <div className="flex flex-col gap-2 w-[100%]">
-                <Input label="Router" placeholder="0" required={true} />
+                <DefaultSelect
+                  label="Router"
+                  optons={[
+                    { text: "---Select Router Exchange---", value: "1" },
+                  ]}
+                  required={true}
+                />
               </div>
             </div>
 
@@ -308,7 +344,22 @@ const Launchpad = () => {
 
               <div className="flex flex-row gap-6">
                 <div className="flex flex-col gap-2 w-[100%]">
-                  <Input label="Start time (UTC)" placeholder="0" />
+                  <p className="text-white text-[14px]">Start time (UTC)</p>
+                  <div className="flex flex-col relative">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      showTimeSelect
+                      dateFormat="MM/d/yyyy hh:mm aa"
+                      placeholderText="Select date"
+                      className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
+                    />
+                    <Image
+                      src={DatePickerIcon}
+                      alt="image"
+                      className="absolute top-4 right-5"
+                    />
+                  </div>
                   <p className="text-xs text-[#FCBF07]">
                     The duration between start time and end time must be less
                     than 10080 minutes
@@ -316,7 +367,22 @@ const Launchpad = () => {
                 </div>
 
                 <div className="flex flex-col gap-2 w-[100%]">
-                  <Input label="End time (UTC)" placeholder="0" />
+                  <p className="text-white text-[14px]">End time (UTC)</p>
+                  <div className="flex flex-col relative">
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      showTimeSelect
+                      dateFormat="MM/d/yyyy hh:mm aa"
+                      placeholderText="Select date"
+                      className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
+                    />
+                    <Image
+                      src={DatePickerIcon}
+                      alt="image"
+                      className="absolute top-4 right-5"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -344,7 +410,10 @@ const Launchpad = () => {
                   Previous
                 </button>
 
-                <button className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]">
+                <button
+                  onClick={() => setStep(3)}
+                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]"
+                >
                   Next
                 </button>
               </div>
@@ -455,6 +524,7 @@ const Launchpad = () => {
                 id=""
                 cols="30"
                 rows="10"
+                placeholder="Ex: This project is..."
                 className="bg-[#141414] rounded-[6px] border border-[#2C2C2C] py-[10px] px-4 outline-none"
               ></textarea>
             </div>
@@ -470,7 +540,7 @@ const Launchpad = () => {
 
                 <button
                   className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]"
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(4)}
                 >
                   Next
                 </button>

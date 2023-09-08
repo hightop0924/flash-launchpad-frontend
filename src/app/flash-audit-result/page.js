@@ -169,7 +169,6 @@ const FlashAuditResult = () => {
       <HeaderSection />
       {result === "" ? (
         <div>
-          <HeaderNav />
           <div className="flex flex-row justify-center">
             <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9">
               <div className="flex flex-col items-center gap-14">
