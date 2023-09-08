@@ -27,7 +27,7 @@ const FairLaunch = () => {
   const [step, setStep] = useState(1);
 
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       <div className="bg-[#1B1B1B] rounded-2xl p-8 flex flex-row">
         <div className="flex flex-col min-w-[328px] relative">
           <p className="text-sm text-[#FCBF07]">Step 1</p>

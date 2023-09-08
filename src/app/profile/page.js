@@ -25,7 +25,7 @@ const Profile = () => {
   ];
 
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       <HeaderSection />
       <div className="p-7 bg-[#1B1B1B] rounded-[16px]">
         <div className="flex flex-col gap-3 pb-8 border-b border-[#2C2C2C]">

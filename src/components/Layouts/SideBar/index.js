@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import NavItem from "./NavItem";
 import SmallIconOnlyBtn from "../../Button/SmallIconOnlyBtn";
@@ -40,6 +41,23 @@ import IconBtn from "@/components/Button/IconBtn";
 
 const SideBar = () => {
   const [active, setActive] = useState(1);
+
+  const routerList = [
+    "presales",
+    "staking-plools",
+    "token-lock",
+    "liquidity-lock",
+    "leaderboard",
+  ];
+
+  const router = useRouter();
+
+  const onNavItemClick = (index) => {
+    setActive(index);
+    if (index === 1) {
+      router.push("/about");
+    }
+  };
   return (
     <div className="bg-[#1B1B1B] w-[286px] h-auto pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10 relative">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
@@ -117,6 +135,13 @@ const SideBar = () => {
             active={active === 6 && true}
             index={6}
             onClick={(index) => setActive(index)}
+            childItems={[
+              { label: "Launchpad" },
+              { label: "Fair Launch" },
+              { label: "Token" },
+              { label: "Staking Pool" },
+              { label: "Create Lock" },
+            ]}
           />
           <NavItem
             text="Utility & Tools"
@@ -126,6 +151,11 @@ const SideBar = () => {
             active={active === 7 && true}
             index={7}
             onClick={(index) => setActive(index)}
+            childItems={[
+              { label: "Airdrop" },
+              { label: "Create Token" },
+              { label: "Swap & Bridge" },
+            ]}
           />
           <NavItem
             text="Flash Audit"
@@ -147,7 +177,7 @@ const SideBar = () => {
         />
       </div>
 
-      <div className="mt-40 absolute bottom-32">
+      <div className="mt-10">
         <Image src={FlokiBinance} alt="image" />
         <div className="mt-[113.5px] pl-10 pr-10 grid grid-cols-2 gap-x-5 gap-y-[26.55px]">
           <SmallIconOnlyBtn icon={Telegram} />

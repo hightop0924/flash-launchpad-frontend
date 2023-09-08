@@ -61,7 +61,7 @@ const LiquidityLock = () => {
     },
   ];
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       {page === 1 ? (
         <div className="bg-[#1B1B1B] rounded-2xl w-full h-auto p-8">
           <div className="relative">

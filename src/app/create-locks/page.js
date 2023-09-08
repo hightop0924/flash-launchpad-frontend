@@ -28,7 +28,7 @@ const FooterButton = () => {
 
 const CreateLocks = () => {
   return (
-    <div className="relative min-h-[1300px]">
+    <div className="relative min-h-[1500px]">
       <DefaultCard
         header="Create Your Locks for Free"
         footer={true}

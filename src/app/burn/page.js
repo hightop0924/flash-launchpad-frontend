@@ -44,7 +44,7 @@ const Burn = () => {
     },
   ];
   return (
-    <div className="relative min-h-[1300px]">
+    <div className="relative min-h-[1500px]">
       <HeaderSection />
       <HeaderNav />
       <div className="flex flex-row justify-center">

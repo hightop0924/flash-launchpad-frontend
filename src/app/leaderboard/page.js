@@ -11,7 +11,7 @@ import Leaderboard1 from "@/assets/image/leaderboard/1.png";
 const Leaderboard = () => {
   const [week, setWeek] = useState(0);
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       <div className="flex flex-row h-[145px] gap-[30px]">
         <div className="w-[100%] bg-[#1B1B1B] rounded-[16px] flex flex-col justify-center items-center gap-[10px] text-white">
           <p className="text-sm">Total success this week</p>

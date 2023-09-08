@@ -12,7 +12,7 @@ import CopyIcon from "@/assets/icons/copy.svg";
 
 const MultiSender = () => {
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       <div className="p-8 rounded-2xl bg-[#1B1B1B] flex flex-row justify-between relative">
         <div className="flex flex-col items-center  gap-2">
           <div className="w-[42px] h-[42px] bg-[#FCBF07] flex flex-row justify-center items-center rounded-full text-base">

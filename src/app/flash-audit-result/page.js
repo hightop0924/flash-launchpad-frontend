@@ -165,7 +165,7 @@ const FlashAuditResult = () => {
   };
 
   return (
-    <div className="min-h-[1300px]">
+    <div className="min-h-[1500px]">
       <HeaderSection />
       {result === "" ? (
         <div>

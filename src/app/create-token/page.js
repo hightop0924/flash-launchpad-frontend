@@ -26,7 +26,7 @@ const FooterButton = () => {
 
 const CreateToken = () => {
   return (
-    <div className="relative min-h-[1300px]">
+    <div className="relative min-h-[1500px]">
       <DefaultCard
         header="Create Token"
         footer={true}
