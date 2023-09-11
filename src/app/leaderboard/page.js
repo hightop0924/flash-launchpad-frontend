@@ -58,7 +58,7 @@ const Leaderboard = () => {
               id=""
             >
               <option value="0">All Chain</option>
-              <option value="1">Ether</option>
+              <option value="1">Ethereum</option>
               <option value="2">BNB</option>
             </select>
           </div>

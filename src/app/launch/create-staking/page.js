@@ -246,7 +246,7 @@ const CreateStaking = () => {
                   className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
                   onClick={() => setStep(1)}
                 >
-                  Previous
+                  Back
                 </button>
 
                 <button
@@ -386,7 +386,7 @@ const CreateStaking = () => {
                   className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
                   onClick={() => setStep(2)}
                 >
-                  Previous
+                  Back
                 </button>
 
                 <button
@@ -420,7 +420,7 @@ const CreateStaking = () => {
                 className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
                 onClick={() => setStep(3)}
               >
-                Previous
+                Back
               </button>
 
               <button

@@ -1,5 +1,7 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+
 import Image from "next/image";
 
 //! import components
@@ -25,6 +27,12 @@ const FooterButton = () => {
 };
 
 const CreateToken = () => {
+  const [tokenType, setTokenType] = useState([
+    { text: "Standard Token", value: 1 },
+    { text: "Liquidity Generator Token", value: 2 },
+    { text: "Baby Token", value: 3 },
+    { text: "Buyback Baby Token", value: 4 },
+  ]);
   return (
     <div className="relative min-h-[1500px]">
       <DefaultCard
@@ -43,7 +51,7 @@ const CreateToken = () => {
           </Success>
           <div className="flex flex-col pt-11 gap-8">
             <div>
-              <DefaultSelect optons={[{ text: "Simple Tokens", value: "1" }]} />
+              <DefaultSelect optons={tokenType} />
               <span className="text-[14px] text-[#FCBF07]">Fee: 0.1 BNB</span>
             </div>
 

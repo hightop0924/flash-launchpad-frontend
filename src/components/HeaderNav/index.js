@@ -24,12 +24,6 @@ const HeaderNav = () => {
 
   const navItem = [
     {
-      text: "Quick View",
-      icon: View,
-      active_icon: Active_View,
-      key: 1,
-    },
-    {
       text: "All Presales",
       icon: AllPresales,
       active_icon: Active_AllPresales,

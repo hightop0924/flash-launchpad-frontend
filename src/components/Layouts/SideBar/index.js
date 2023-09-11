@@ -234,7 +234,7 @@ const SideBar = () => {
           text="Sponsorised by Floki"
           img={Sponsored}
           BgClass="bg-[#f79422]"
-          TxClass="text-[#fff]"
+          TxClass="text-[#16171B]"
         />
       </div>
 

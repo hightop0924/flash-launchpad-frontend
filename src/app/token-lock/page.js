@@ -75,8 +75,8 @@ const TokenLock = () => {
           <div className="relative">
             <input
               type="text"
-              className="w-full bg-[#141414] border border-[#2C2C2C] rounded-lg p-5 text-base text-[#86888C] pl-14"
-              placeholder="Search by LP address..."
+              className="w-full bg-[#141414] border outline-none border-[#2C2C2C] rounded-lg p-5 text-base text-[#86888C] pl-14"
+              placeholder="Search by Token address..."
             />
             <Image
               src={SearchIcon}
