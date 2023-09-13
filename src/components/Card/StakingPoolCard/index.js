@@ -5,7 +5,6 @@ import Image from "next/image";
 import BackImage from "@/assets/image/staking-pool/back.png";
 import CardOneLogo from "@/assets/image/presales-card-1-logo.png";
 import AvatarImage from "@/assets/image/staking-pool/avatar.png";
-import Select from "@/components/Form/RoundedSelect";
 
 import RightIcon from "@/assets/icons/right.svg";
 
