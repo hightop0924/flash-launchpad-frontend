@@ -35,15 +35,18 @@ const PresalPage = () => {
     <div>
       <HeaderSection />
       <HeaderNav />
-      <div className="mt-6 flex justify-between">
-        <SearchInput />
+      <div className="mt-6 flex flex-row max-sm:flex-col justify-between max-sm:gap-5">
+        <div className="w-[100%]">
+          <SearchInput />
+        </div>
+
         <div className="flex gap-3">
           <Select label="Networks" />
           <Select label="Filter By" />
           <Select label="Sort By" />
         </div>
       </div>
-      <div className="mt-[50px] grid grid-cols-4 gap-y-[30px]">
+      <div className="mt-[50px] grid grid-cols-4 max-sm:grid-cols-1 gap-[30px] max-sm:pb-4">
         {presalesList.map((item) => (
           <PresalesCard key={item.key} />
         ))}

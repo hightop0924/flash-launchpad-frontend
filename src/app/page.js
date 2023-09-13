@@ -48,14 +48,16 @@ const HomePage = () => {
   return (
     <div>
       <HeaderSection />
-      <div className="pt-[127px]">
-        <p className="text-white text-[42px] text-center font-bold">Stats</p>
-        <div className="mt-[60px] flex justify-between gap-x-[30px]">
+      <div className="pt-[127px] max-sm:pt-0">
+        <p className="text-white text-[42px] text-center font-bold max-sm:text-2xl">
+          Stats
+        </p>
+        <div className="mt-[60px] grid grid-cols-3 max-2xl:grid-cols-1 gap-[24px] justify-center items-center">
           <StatsCard />
           <StatsCard />
           <StatsCard />
         </div>
-        <div className="grid grid-cols-4 gap-y-[30px] justify-between gap-x-7 mt-[56px]">
+        <div className="grid grid-cols-4 max-2xl:grid-cols-1 gap-[24px] justify-center gap-x-7 mt-[56px] items-center">
           <ColorCard />
           <ColorCard
             title="Staking Pool"
@@ -93,20 +95,22 @@ const HomePage = () => {
             BgColor="linear-gradient(137deg, #D4A918 0%, #F16806 100%)"
           />
         </div>
-        <div className="flex flex-col justify-center items-center mt-[182px]">
-          <p className="text-white text-[42px] text-center font-bold">
+        <div className="flex flex-col justify-center items-center mt-[182px] max-sm:mt-[50px]">
+          <p className="text-white text-[42px] text-center font-bold max-sm:text-2xl">
             Flash Ecosystem
           </p>
-          <div className="grid grid-cols-4 gap-6 mt-[60px]">
+          <div className="grid grid-cols-4 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-6 mt-[60px]">
             {flash_ecosystem.map((item, index) => (
               <FlashCard text={item.text} title={item.title} key={index} />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col items-center mt-[206px]">
-          <p className="text-white text-[42px] font-bold">Partners</p>
-          <div className="flex gap-[30px] mt-[56px]">
+        <div className="flex flex-col items-center mt-[206px] pb-2 max-sm:mt-[50px]">
+          <p className="text-white text-[42px] font-bold max-sm:text-2xl">
+            Partners
+          </p>
+          <div className="grid grid-cols-5 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 gap-[30px] mt-[56px]">
             <PartnerCard icon={Binance} />
             <PartnerCard icon={Certik} />
             <PartnerCard icon={Synaps} />

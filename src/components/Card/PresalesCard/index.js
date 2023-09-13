@@ -1,4 +1,4 @@
-import PresalesCardImage from "@/assets/icons/presales-card.svg";
+import PresalesCardHeader from "@/assets/icons/presalescard-header.svg";
 
 import Image from "next/image";
 
@@ -18,23 +18,22 @@ const PresalesCard = ({
   IogoImage = CardOneLogo,
 }) => {
   return (
-    <div
-      className="w-[366px] h-[599px]"
-      style={{
-        background: `url('${PresalesCardImage.src}')`,
-        backgroundRepeat: `no-repeat`,
-      }}
-    >
-      <p className="text-[#FCBF07] text-[14px] text-center pt-[6px]">
-        AffILIATE
-      </p>
-      <div className="w-[366px] h-[572px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
+    <div className="h-[599px]">
+      <div className="flex flex-col justify-center items-center">
+        <Image src={PresalesCardHeader} alt="image" />
+      </div>
+
+      <div className="h-[572px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
         <Image src={CardOneBack} alt="background" />
         <Image
           src={CardOneLogo}
           alt="logo"
           className="absolute top-[76px] left-5 border-[1px] border-[#202125] rounded-full"
         />
+        <div className="flex flex-row py-1 items-center px-2 bg-[#D1FAE5] rounded-[50px] gap-1 absolute top-3 right-3">
+          <div className="w-[8px] h-[8px] bg-[#10B981] rounded-full"></div>
+          <p className="text-xs text-[#10B981] font-semibold">Sale Live</p>
+        </div>
         <div className="pt-4 px-5 pb-5">
           <div className="flex justify-end gap-[8px]">
             <Badge />
