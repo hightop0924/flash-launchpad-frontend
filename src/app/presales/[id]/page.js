@@ -47,7 +47,7 @@ const PresalesDetails = () => {
   const tokenDetails = [
     {
       name: "Presale Address",
-      value: "0x43024ad83760a9779236b409F8dC1FEbA172F840",
+      value: "0x430....840",
     },
     {
       name: "Sale Type",
@@ -115,18 +115,18 @@ const PresalesDetails = () => {
     },
   ];
   return (
-    <div className="min-h-[1340px] flex flex-row gap-[30px]">
-      <div className="flex-auto w-[892px] flex flex-col gap-8">
+    <div className="min-h-[1340px] flex flex-row gap-[30px] max-sm:flex-col">
+      <div className="flex-auto w-[892px] max-sm:w-[100%] flex flex-col gap-8">
         <div className="bg-[#1B1B1B] rounded-[16px]">
           <div className="relative">
             <Image src={BackImage} alt="back" />
             <Image
               src={AvatarImage}
               alt="avatar"
-              className="absolute top-[147px] left-[60px] w-auto h-auto"
+              className="ml-[60px] -mt-[53px]  w-auto h-auto max-w-full"
             />
 
-            <div className="flex flex-row ml-[199px] items-center mt-2">
+            {/* <div className="flex flex-row ml-[199px] items-center mt-2">
               <p className="text-white text-[32px] font-semibold">Venom</p>
               <Image
                 src={WebsiteIcon}
@@ -143,13 +143,13 @@ const PresalesDetails = () => {
                 alt="website"
                 className="w-[22.5px] h-[22.5px] ml-[9.5px]"
               />
-              <div className="py-2 px-3 rounded-[40px] bg-[#5abaff]/[0.1] text-xs text-[#5ABAFF] ml-5">
+              <div className="py-2 px-3 rounded-[40px] bg-[#5abaff]/[0.1] text-xs text-[#5ABAFF] ml-5 max-sm:hidden">
                 Audit
               </div>
-              <div className="py-2 px-3 rounded-[40px] bg-[#FCBF07]/[0.1] text-xs text-[#FCBF07] ml-2">
+              <div className="py-2 px-3 rounded-[40px] bg-[#FCBF07]/[0.1] text-xs text-[#FCBF07] ml-2 max-sm:hidden">
                 Flash Transfer
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex flex-col mt-8 px-7 pb-7">
@@ -167,13 +167,11 @@ const PresalesDetails = () => {
           <div className="flex flex-col px-7 pt-6">
             <div className="flex flex-row justify-between items-center pb-4">
               <div className="text-white text-base">Presales Address</div>
-              <div className="flex flex-col items-end">
-                <p className="text-base text-[#FCBF07]">
-                  0x43024ad83760a9779236b409F8dC1FEbA172F840
-                </p>
-                <span className="text-xs text-white">
+              <div className="flex flex-col items-end max-sm:w-[142px]">
+                <p className="text-base text-[#FCBF07]">0x430....840</p>
+                <p className="text-xs text-white">
                   Do not send ETH directly to the presale address!
-                </span>
+                </p>
               </div>
             </div>
 
@@ -184,7 +182,9 @@ const PresalesDetails = () => {
                     className="flex flex-row justify-between items-center py-4 border-t border-[#2C2C2C]"
                     key={index}
                   >
-                    <div className="text-white text-base">{item.name}</div>
+                    <div className="text-white text-base max-sm:max-w-[150px]">
+                      {item.name}
+                    </div>
                     <div className="text-base text-white">{item.value}</div>
                   </div>
                 );
@@ -199,12 +199,12 @@ const PresalesDetails = () => {
           </div>
           <div className="py-6 px-7">
             <div className="flex flex-row h-[41px] w-[100%]">
-              <div className="py-3 px-5 justify-center items-center text-sm text-white bg-[#282828] rounded-l-lg">
+              <div className="py-3 px-5 justify-center w-[140px] items-center text-sm text-white bg-[#282828] rounded-l-lg">
                 Affiliate link
               </div>
               <input
                 type="text"
-                className="bg-[#141414] border border-[#282828] pl-5 py-3 outline-none w-[81.2%] text-sm text-[#86888C]"
+                className="bg-[#141414] border border-[#282828] pl-5 py-3 outline-none w-[77.2%] text-sm text-[#86888C]"
               />
 
               <div className="flex flex-col items-center justify-center w-[40px] h-[100%] bg-[#141414] border-t border-[#2C2C2C] border-b border-r rounded-r-lg">
@@ -308,7 +308,7 @@ const PresalesDetails = () => {
         </div>
       </div>
 
-      <div className="flex-auto w-[631px] flex flex-col gap-8">
+      <div className="flex-auto w-[631px] max-sm:w-[100%] flex flex-col gap-8">
         <div>
           <Image src={AffiliateImage} alt="image" className="ml-[236px]" />
           <div className="bg-[#1B1B1B] rounded-[16px] p-7 flex flex-col gap-6">

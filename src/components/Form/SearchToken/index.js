@@ -14,7 +14,7 @@ const SearchToken = ({
           className="bg-[#282828] p-5 text-white text-base outline-none"
           onChange={(e) => onSelectChange(e)}
         >
-          <option value="1">Ethereum</option>
+          <option value="1">ETH</option>
           <option value="56">BSC</option>
         </select>
       </div>

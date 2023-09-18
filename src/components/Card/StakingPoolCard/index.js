@@ -19,8 +19,8 @@ const PresalesCard = ({
   IogoImage = CardOneLogo,
 }) => {
   return (
-    <div className="w-[366px] h-[470px]">
-      <div className="w-[366px] h-[470px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
+    <div className="h-[470px]">
+      <div className="h-[470px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
         <Image src={BackImage} alt="background" />
         <div className="pt-2 px-5 pb-5">
           <div className="flex flex-row justify-between items-center">

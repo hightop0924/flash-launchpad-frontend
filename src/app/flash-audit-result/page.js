@@ -170,10 +170,18 @@ const FlashAuditResult = () => {
       {result === "" ? (
         <div>
           <div className="flex flex-row justify-center">
-            <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9">
+            <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9 max-sm:px-5">
               <div className="flex flex-col items-center gap-14">
-                <Image src={FlashAudit} alt="image" />
-                <Image src={LogoBig} alt="image" />
+                <Image
+                  src={FlashAudit}
+                  alt="image"
+                  className="max-sm:w-[196px] max-sm:h-[37px]"
+                />
+                <Image
+                  src={LogoBig}
+                  alt="image"
+                  className="max-sm:w-[196px] max-sm:h-[162px]"
+                />
               </div>
               <div className="flex flex-col mt-11">
                 <SearchToken

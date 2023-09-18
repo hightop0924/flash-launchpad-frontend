@@ -44,24 +44,30 @@ const Burn = () => {
     },
   ];
   return (
-    <div className="relative min-h-[1340px]">
+    <div className="relative min-h-[1340px] max-sm:min-h-[1000px]">
       <HeaderSection />
       <div className="flex flex-row justify-center">
-        <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
+        <div className="mt-[105px] max-sm:mt-[30px] w-[760px] max-sm:w-[100%] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
           <Image src={BurnBack} alt="Image" />
-          <div className="pt-[40px] px-8 pb-7">
-            <p className="text-center text-white text-[42px] font-bold">
+          <div className="pt-[40px] px-5 pb-7">
+            <p className="text-center text-white text-[42px] font-bold max-sm:text-2xl">
               Burn Floki and earn <br /> Whitelist
             </p>
 
             {page === 1 ? (
-              <table class="w-[100%] border-collapse">
+              <table class="w-[100%] border-collapse max-sm:mt-[10px]">
                 <thead>
-                  <tr className="text-[#86888C] text-[14px] border-b border-[#2C2C2C] h-[49px]">
-                    <td className="pl-5 border-none">Grade</td>
-                    <td className="pl-5 border-none">Burn Floki Amount</td>
-                    <td className="pl-5 border-none">Whitelist Slot</td>
-                    <td className="pl-5 border-none">Max Number Of Slots</td>
+                  <tr className="text-[#86888C] text-[14px] max-sm:text-[12px] border-b border-[#2C2C2C] h-[49px]">
+                    <td className="pl-5 max-sm:pl-1 border-none">Grade</td>
+                    <td className="pl-5 max-sm:pl-1 border-none">
+                      Burn Floki Amount
+                    </td>
+                    <td className="pl-5 max-sm:pl-1 border-none">
+                      Whitelist Slot
+                    </td>
+                    <td className="pl-5 max-sm:pl-1 border-none">
+                      Max Number Of Slots
+                    </td>
                   </tr>
                 </thead>
                 <tbody className="text-white text-[14px]">
@@ -72,10 +78,10 @@ const Burn = () => {
                         key={key}
                         onClick={() => setActive(key)}
                       >
-                        <td className="pl-5">{item.grade}</td>
-                        <td className="pl-5">{item.amount}</td>
-                        <td className="pl-5">{item.slot}</td>
-                        <td className="pl-5">{item.maxSlot}</td>
+                        <td className="pl-5 max-sm:pl-1">{item.grade}</td>
+                        <td className="pl-5 max-sm:pl-1">{item.amount}</td>
+                        <td className="pl-5 max-sm:pl-1">{item.slot}</td>
+                        <td className="pl-5 max-sm:pl-1">{item.maxSlot}</td>
                       </tr>
                     ) : (
                       <tr
@@ -83,16 +89,16 @@ const Burn = () => {
                         key={key}
                         onClick={() => setActive(key)}
                       >
-                        <td className="pl-5 border-b border-[#2C2C2C]">
+                        <td className="pl-5 max-sm:pl-1 border-b border-[#2C2C2C]">
                           {item.grade}
                         </td>
-                        <td className="pl-5 border-b border-[#2C2C2C]">
+                        <td className="pl-5 max-sm:pl-1 border-b border-[#2C2C2C]">
                           {item.amount}
                         </td>
-                        <td className="pl-5 border-b border-[#2C2C2C]">
+                        <td className="pl-5 max-sm:pl-1 border-b border-[#2C2C2C]">
                           {item.slot}
                         </td>
-                        <td className="pl-5 border-b border-[#2C2C2C]">
+                        <td className="pl-5 max-sm:pl-1 border-b border-[#2C2C2C]">
                           {item.maxSlot}
                         </td>
                       </tr>
@@ -124,7 +130,7 @@ const Burn = () => {
       <Image
         src={BurnImage}
         alt="image"
-        className="absolute -bottom-16 -right-10"
+        className="absolute -bottom-16 -right-10 max-sm:hidden"
       />
     </div>
   );

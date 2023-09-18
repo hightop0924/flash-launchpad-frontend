@@ -12,7 +12,7 @@ const StakingPool = () => {
         <Select label="Filter By" />
         <Select label="Sort By" />
       </div>
-      <div className="mt-[50px] grid grid-cols-4 gap-y-[30px]">
+      <div className="mt-[50px] grid grid-cols-4 max-sm:grid-cols-1 gap-[30px] justify-center items-center pb-5">
         {Array.from({ length: 8 }).map((item, index) => (
           <StakingPoolCard key={index} />
         ))}
