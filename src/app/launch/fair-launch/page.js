@@ -34,7 +34,7 @@ const FairLaunch = () => {
 
   return (
     <div className="min-h-[1500px]">
-      <div className="bg-[#1B1B1B] rounded-2xl p-8 flex flex-row">
+      <div className="bg-[#1B1B1B] rounded-2xl p-8 flex flex-row max-sm:hidden">
         <div className="flex flex-col min-w-[328px] relative">
           <p className="text-sm text-[#FCBF07]">Step 1</p>
           <p className="text-lg text-white font-semibold mt-5">Verify Token</p>
@@ -86,10 +86,97 @@ const FairLaunch = () => {
         </div>
       </div>
 
-      <div className="bg-[#1B1B1B] rounded-2xl p-8 mt-6">
+      <div className="bg-[#1B1B1B] rounded-2xl p-5 flex-col gap-[50px] max-sm:flex hidden">
+        <div className="flex flex-row gap-4">
+          <div
+            className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base text-[black] font-extrabold ${
+              step > 1 || step === 1
+                ? "bg-[#FCBF07] text-[black]"
+                : "bg-[#282828] text-[#86888C]"
+            }`}
+          >
+            1
+          </div>
+          <div className="flex flex-col">
+            <p className="text-xs text-[#FCBF07] font-medium">Step 1</p>
+            <p className="text-sm text-[white]/[0.85] font-semibold mt-3">
+              Approve Token
+            </p>
+            <p className="text-xs text-[white]/[0.45] font-normal mt-[6px]">
+              Enter the token address and approve
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-row gap-4">
+          <div
+            className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base font-extrabold ${
+              step > 2 || step === 2
+                ? "bg-[#FCBF07] text-[black]"
+                : "bg-[#282828] text-[#86888C]"
+            }`}
+          >
+            2
+          </div>
+          <div className="flex flex-col max-w-[235px]">
+            <p className="text-xs text-[#FCBF07] font-medium">Step 2</p>
+            <p className="text-sm text-[white]/[0.85] font-semibold mt-3">
+              Launchpad Information
+            </p>
+            <p className="text-xs text-[white]/[0.45] font-normal mt-[6px]">
+              Enter the Fair Launch information, in case of trouble check our
+              <span className="text-[#FCBF07]"> Docs</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-row gap-4">
+          <div
+            className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base font-extrabold ${
+              step > 3 || step === 3
+                ? "bg-[#FCBF07] text-[black]"
+                : "bg-[#282828] text-[#86888C]"
+            }`}
+          >
+            3
+          </div>
+          <div className="flex flex-col">
+            <p className="text-xs text-[#FCBF07] font-medium">Step 3</p>
+            <p className="text-sm text-[white]/[0.85] font-semibold mt-3">
+              Project Information
+            </p>
+            <p className="text-xs text-[white]/[0.45] font-normal mt-[6px]">
+              Add project links, description and select tier
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-row gap-4">
+          <div
+            className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base  font-extrabold ${
+              step > 4 || step === 4
+                ? "bg-[#FCBF07] text-[black]"
+                : "bg-[#282828] text-[#86888C]"
+            }`}
+          >
+            4
+          </div>
+          <div className="flex flex-col">
+            <p className="text-xs text-[#FCBF07] font-medium">Step 4</p>
+            <p className="text-sm text-[white]/[0.85] font-semibold mt-3">
+              Submit
+            </p>
+            <p className="text-xs text-[white]/[0.45] font-normal mt-[6px]">
+              Submit your presale
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#1B1B1B] rounded-2xl p-8 mt-6 max-sm:p-5">
         {step === 1 && (
           <div className="flex flex-col gap-8">
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between max-sm:flex-col-reverse max-sm:gap-8">
               <p className="text-xs text-[#FBBF04]">(*) is required field.</p>
               <button className="py-[10px] px-[61px] bg-[#FBBF04] rounded-[10px] text-sm text-[#151103] font-semibold">
                 Create Token
@@ -206,7 +293,7 @@ const FairLaunch = () => {
 
             <div className="flex flex-row justify-end">
               <button
-                className="bg-[#FBBF04] rounded-[10px] py-[10px] px-[61px] text-sm font-semibold text-[#151103]"
+                className="bg-[#FBBF04] max-sm:w-[100%] rounded-[10px] py-[10px] px-[61px] text-sm font-semibold text-[#151103]"
                 onClick={() => setStep(2)}
               >
                 Next
@@ -299,7 +386,7 @@ const FairLaunch = () => {
                 Select start time & end time (UTC)
               </p>
 
-              <div className="flex flex-row gap-6">
+              <div className="flex flex-row gap-6 max-sm:flex-col">
                 <div className="flex flex-col gap-2 w-[100%]">
                   <p className="text-white text-[14px]">Start time (UTC)</p>
                   <div className="flex flex-col relative">
@@ -353,19 +440,19 @@ const FairLaunch = () => {
             </div>
 
             <div className="flex flex-col gap-6">
-              <p className="text-right text-sm text-[#FCBF07]">
+              <p className="text-right text-sm text-[#FCBF07] max-sm:text-center">
                 Need 0 FLASH to create launchpad.
               </p>
-              <div className="flex flex-row justify-end gap-5">
+              <div className="flex flex-row justify-end gap-5 max-sm:w-[100%]">
                 <button
-                  className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
+                  className="px-12 py-[10px] text-sm text-[#FBBF04] max-sm:w-[100%] rounded-[10px] font-semibold border border-[#FBBF04]"
                   onClick={() => setStep(1)}
                 >
                   Previous
                 </button>
 
                 <button
-                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]"
+                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold max-sm:w-[100%] rounded-[10px] bg-[#FBBF04]"
                   onClick={() => setStep(3)}
                 >
                   Next
@@ -377,7 +464,7 @@ const FairLaunch = () => {
         {step === 3 && (
           <div className="flex flex-col gap-7">
             <p className="text-xs text-[#FBBF04]">(*) is required field.</p>
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-row max-sm:flex-col gap-6">
               <div className="flex flex-col w-[100%]">
                 <Input
                   label="Logo URL"
@@ -402,7 +489,7 @@ const FairLaunch = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-row max-sm:flex-col gap-6">
               <div className="flex flex-col w-[100%]">
                 <Input
                   label="Facebook"
@@ -419,7 +506,7 @@ const FairLaunch = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-row max-sm:flex-col gap-6">
               <div className="flex flex-col w-[100%]">
                 <Input
                   label="Github"
@@ -436,7 +523,7 @@ const FairLaunch = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-row gap-6">
+            <div className="flex flex-row max-sm:flex-col gap-6">
               <div className="flex flex-col w-[100%]">
                 <Input
                   label="Instagram"
@@ -486,14 +573,14 @@ const FairLaunch = () => {
             <div className="flex flex-col gap-6">
               <div className="flex flex-row justify-end gap-5">
                 <button
-                  className="px-12 py-[10px] text-sm text-[#FBBF04] rounded-[10px] font-semibold border border-[#FBBF04]"
+                  className="px-12 py-[10px] text-sm text-[#FBBF04] max-sm:w-[100%] rounded-[10px] font-semibold border border-[#FBBF04]"
                   onClick={() => setStep(2)}
                 >
                   Previous
                 </button>
 
                 <button
-                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold rounded-[10px] bg-[#FBBF04]"
+                  className="px-12 py-[10px] text-sm text-[#151103] font-semibold max-sm:w-[100%] rounded-[10px] bg-[#FBBF04]"
                   onClick={() => setStep(4)}
                 >
                   Next
@@ -566,9 +653,9 @@ const FairLaunch = () => {
               </div>
             </div>
 
-            <div className="p-[17px] flex flex-row items-center gap-6 border border-[#262626] bg-[#141414] rounded-[6px] mt-[50px]">
+            <div className="p-[17px] max-sm:p-[10px] flex flex-row items-center gap-6 max-sm:gap-2 border border-[#262626] bg-[#141414] rounded-[6px] mt-[50px]">
               <Image src={WarningIcon} alt="Warning" />
-              <p className="text-sm text-white">
+              <p className="text-sm text-white max-sm:text-xs break-words max-sm:w-[230px]">
                 Please exclude Flash Factory address
                 0x7461B2F388142a7584ac752e637B255Eead9bcPL from fees, rewards,
                 max tx amount to start creating pools

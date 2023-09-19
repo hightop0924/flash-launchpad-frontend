@@ -84,7 +84,7 @@ const Launchpad = () => {
         </div>
       </div>
 
-      <div className="bg-[#1B1B1B] rounded-2xl p-5 flex flex-col gap-[50px]">
+      <div className="bg-[#1B1B1B] rounded-2xl p-5 flex-col gap-[50px] max-sm:flex hidden">
         <div className="flex flex-row gap-4">
           <div
             className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base text-[black] font-extrabold ${
