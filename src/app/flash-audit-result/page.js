@@ -217,7 +217,7 @@ const FlashAuditResult = () => {
             <Image
               src={FlashAudit}
               alt="image"
-              className="w-[241px] h-[40px]"
+              className="w-[241px] h-[40px] max-sm:hidden"
             />
 
             <div className="w-[680px]">
@@ -230,56 +230,58 @@ const FlashAuditResult = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row bg-[#1B1B1B] items-center justify-between w-[1554px] h-[84px] mt-[29px] pl-8 pr-3 rounded-[38px]">
-            <div className="flex flex-row justify-between items-center w-[851px]">
-              <div className="flex flex-row gap-2">
-                <div className="flex flex-col mr-2">
-                  <p className="text-white text-[18.88px] font-bold">
-                    {result.token_symbol && result.token_symbol}
-                  </p>
-                  <p className="text-white text-[14px]">
-                    {result.token_name && result.token_name}
-                  </p>
+          <div className="max-sm:overflow-y-scroll">
+            <div className="flex flex-row bg-[#1B1B1B] items-center justify-between w-[1554px] h-[84px] mt-[29px] pl-8 pr-3 rounded-[38px]">
+              <div className="flex flex-row justify-between items-center w-[851px]">
+                <div className="flex flex-row gap-2">
+                  <div className="flex flex-col mr-2">
+                    <p className="text-white text-[18.88px] font-bold">
+                      {result.token_symbol && result.token_symbol}
+                    </p>
+                    <p className="text-white text-[14px]">
+                      {result.token_name && result.token_name}
+                    </p>
+                  </div>
+                  <Image src={EthereumLogoSmall} alt="etherem" />
+                  <Image src={DextoolsLogoSmall} alt="etherem" />
                 </div>
-                <Image src={EthereumLogoSmall} alt="etherem" />
-                <Image src={DextoolsLogoSmall} alt="etherem" />
-              </div>
 
-              <p className="text-white text-[23.04px] font-bold">
-                Security Detection
-              </p>
+                <p className="text-white text-[23.04px] font-bold">
+                  Security Detection
+                </p>
 
-              <div className="flex flex-row gap-2">
-                <Image src={Risky} alt="risky" />
-                <div className="flex flex-col text-white">
-                  <p className="text-base">Risky item</p>
-                  <p className="text-base font-bold">{riskyNum}</p>
+                <div className="flex flex-row gap-2">
+                  <Image src={Risky} alt="risky" />
+                  <div className="flex flex-col text-white">
+                    <p className="text-base">Risky item</p>
+                    <p className="text-base font-bold">{riskyNum}</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-row gap-2">
+                  <Image src={Attention} alt="attention" />
+                  <div className="flex flex-col text-white">
+                    <p className="text-base">Attention item</p>
+                    <p className="text-base font-bold">{attentionNum}</p>
+                  </div>
                 </div>
               </div>
-
-              <div className="flex flex-row gap-2">
-                <Image src={Attention} alt="attention" />
-                <div className="flex flex-col text-white">
-                  <p className="text-base">Attention item</p>
-                  <p className="text-base font-bold">{attentionNum}</p>
-                </div>
-              </div>
+              <IconBtn
+                icon={PDFIcon}
+                text="Generate a Flash Audit ($200)"
+                BgClass="bg-[#FCBF07]"
+                TxClass="text-[#16171B]"
+                px="px-[16px]"
+                py="py-[16px]"
+                heigh="h-[56px]"
+                rounded="rounded-[36px]"
+                TxSize="text-[16px]"
+              />
             </div>
-            <IconBtn
-              icon={PDFIcon}
-              text="Generate a Flash Audit ($200)"
-              BgClass="bg-[#FCBF07]"
-              TxClass="text-[#16171B]"
-              px="px-[16px]"
-              py="py-[16px]"
-              heigh="h-[56px]"
-              rounded="rounded-[36px]"
-              TxSize="text-[16px]"
-            />
           </div>
 
-          <div className="flex flex-row gap-7 mt-[80px]">
-            <div className="flex-auto flex flex-col w-[892px] gap-10">
+          <div className="flex flex-row gap-7 mt-[80px] max-sm:flex-col max-sm:pb-4">
+            <div className="flex-auto flex flex-col w-[892px] max-sm:w-[100%] gap-10">
               <DefaultCard header="Security Detection">
                 <div className="flex flex-col gap-5">
                   {/* Trusted Token */}
@@ -940,7 +942,7 @@ const FlashAuditResult = () => {
                 </div>
               </DefaultCard>
             </div>
-            <div className="flex-auto w-[630px] flex flex-col gap-10">
+            <div className="flex-auto w-[630px] max-sm:w-[100%] flex flex-col gap-10">
               <DefaultCard header="Basic Info">
                 <div className="flex flex-col">
                   <div className="flex flex-col gap-2">
@@ -1095,9 +1097,9 @@ const FlashAuditResult = () => {
                           )}
                         </p>
                       </div>
-                      <p>
-                        {result && result.owner_balance / 1000}k (
-                        {result && result.owner_percent * 100}%)
+                      <p className="p-0">
+                        {result && (result.owner_balance / 1000).toFixed(2)}k (
+                        {result && (result.owner_percent * 100).toFixed(2)}%)
                       </p>
                     </div>
                     <div className="flex flex-row items-center justify-between">

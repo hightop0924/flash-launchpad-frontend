@@ -21,7 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const FooterButton = () => {
   return (
-    <div className="flex flex-row gap-6 justify-end">
+    <div className="flex flex-row gap-6 justify-end max-sm:flex-row-reverse">
       <button className="px-8 py-4 border border-[#86888C] rounded-[8px] text-center text-[#86888C] text-[20px]">
         Reset
       </button>
@@ -72,13 +72,18 @@ const CreateLocks = () => {
 
             <Warning>
               <>
-                <p className="text-[14px] text-[#FFF7CD]">
-                  Exclude FlashPad`s lock address
-                </p>
-                <Image src={CopyIcon} alt="icon" />
-                <p className="text-[14px] text-[#FFF7CD]">
-                  from Fees, Max Transaction and Rewards.
-                </p>
+                <div className="flex flex-row items-center gap-3 max-sm:flex-col max-sm:gap-2  max-sm:items-start">
+                  <div className="flex flex-row items-center gap-3 max-sm:gap-2">
+                    <p className="text-[14px] text-[#FFF7CD] max-sm:text-xs">
+                      Exclude FlashPad`s lock address
+                    </p>
+                    <Image src={CopyIcon} alt="icon" />
+                  </div>
+
+                  <p className="text-[14px] text-[#FFF7CD] max-sm:text-xs">
+                    from Fees, Max Transaction and Rewards.
+                  </p>
+                </div>
               </>
             </Warning>
           </div>
@@ -87,7 +92,7 @@ const CreateLocks = () => {
       <Image
         src={BurnImage}
         alt="image"
-        className="absolute -bottom-16 -right-10"
+        className="absolute -bottom-16 -right-10 max-sm:hidden"
       />
     </div>
   );

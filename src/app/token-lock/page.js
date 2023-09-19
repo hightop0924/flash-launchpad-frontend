@@ -71,7 +71,7 @@ const TokenLock = () => {
   return (
     <div className="min-h-[1500px]">
       {page === 1 ? (
-        <div className="bg-[#1B1B1B] rounded-2xl w-full h-auto p-8">
+        <div className="bg-[#1B1B1B] rounded-2xl w-full h-auto p-8 max-sm:p-5">
           <div className="relative">
             <input
               type="text"
@@ -84,7 +84,7 @@ const TokenLock = () => {
               className="absolute top-5 left-5 w-6 h-6"
             />
           </div>
-          <div className="text-[14px] text-[#86888C] flex flex-row justify-end gap-5 mt-16">
+          <div className="text-[14px] text-[#86888C] flex flex-row justify-end max-sm:justify-start gap-5 mt-16 max-sm:mt-[16px]">
             <div
               className="relative px-2 cursor-pointer"
               onClick={() => setActiveTab(1)}
@@ -114,7 +114,7 @@ const TokenLock = () => {
           </div>
           <table className="text-white w-[100%] mt-14">
             <thead>
-              <tr className="text-base">
+              <tr className="text-base max-sm:text-sm">
                 <td>Token</td>
                 <td>Amount</td>
                 <td></td>
@@ -124,21 +124,29 @@ const TokenLock = () => {
               {tableList.map((item, index) => {
                 if (loadMore) {
                   return (
-                    <tr className="w-[100%]" key={index}>
+                    <tr className="w-[100%] max-sm:text-sm" key={index}>
                       <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
-                        <div className="flex flex-row gap-4">
-                          <Image src={LumiImage} alt="image" />
+                        <div className="flex flex-row gap-4 items-center">
+                          <Image
+                            src={LumiImage}
+                            alt="image"
+                            className="max-sm:w-[43px] max-sm:h-[32px]"
+                          />
                           <div className="flex flex-col">
-                            <p className="text-[18px]">Lumi Foundation</p>
-                            <p className="text-[16px] text-[#86888C]">LFD</p>
+                            <p className="text-[18px] max-sm:text-sm">
+                              Lumi Foundation
+                            </p>
+                            <p className="text-[16px] text-[#86888C] max-sm:text-sm">
+                              LFD
+                            </p>
                           </div>
                         </div>
                       </td>
-                      <td className="w-[40%] py-5 border-b border-[#2C2C2C]">
+                      <td className="w-[40%] py-5 border-b max-sm:w-[25%] border-[#2C2C2C]">
                         500,000
                       </td>
                       <td
-                        className="py-5 border-b border-[#2C2C2C] w-[10%] text-[16px] text-[#FCBF07] cursor-pointer"
+                        className="py-5 border-b border-[#2C2C2C] w-[10%] text-[16px] max-sm:text-sm text-[#FCBF07] cursor-pointer"
                         onClick={() => setPage(2)}
                       >
                         View
@@ -147,21 +155,29 @@ const TokenLock = () => {
                   );
                 } else if (loadMore === false && index < 10) {
                   return (
-                    <tr className="w-[100%]" key={index}>
+                    <tr className="w-[100%] max-sm:text-sm" key={index}>
                       <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
-                        <div className="flex flex-row gap-4">
-                          <Image src={LumiImage} alt="image" />
+                        <div className="flex flex-row gap-4 items-center">
+                          <Image
+                            src={LumiImage}
+                            alt="image"
+                            className="max-sm:w-[43px] max-sm:h-[32px]"
+                          />
                           <div className="flex flex-col">
-                            <p className="text-[18px]">Lumi Foundation</p>
-                            <p className="text-[16px] text-[#86888C]">LFD</p>
+                            <p className="text-[18px] max-sm:text-sm">
+                              Lumi Foundation
+                            </p>
+                            <p className="text-[16px] max-sm:text-sm text-[#86888C]">
+                              LFD
+                            </p>
                           </div>
                         </div>
                       </td>
-                      <td className="w-[40%] py-5 border-b border-[#2C2C2C]">
+                      <td className="w-[40%] py-5 border-b max-sm:w-[25%] max-sm:text-sm border-[#2C2C2C]">
                         500,000
                       </td>
                       <td
-                        className="py-5 border-b border-[#2C2C2C] w-[10%] text-[16px] text-[#FCBF07] cursor-pointer"
+                        className="py-5 border-b max-sm:text-sm border-[#2C2C2C] w-[10%] text-[16px] text-[#FCBF07] cursor-pointer"
                         onClick={() => setPage(2)}
                       >
                         View
@@ -190,23 +206,39 @@ const TokenLock = () => {
           </div>
           <DefaultCard header="Lock info">
             <div className="flex flex-col text-white text-base">
-              {details.map((item, index) => (
-                <div
-                  className="flex flex-row justify-between items-center py-5 border-b border-b-[#2C2C2C]"
-                  key={index}
-                >
-                  <p> {item.name} </p>
-                  <p> {item.value} </p>
-                </div>
-              ))}
+              {details.map((item, index) => {
+                if (index != 2) {
+                  return (
+                    <div
+                      className="flex flex-row justify-between items-center py-5 border-b border-b-[#2C2C2C]"
+                      key={index}
+                    >
+                      <p> {item.name} </p>
+                      <p className="text-right"> {item.value} </p>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      className="flex flex-col w-[100%] justify-between py-5 border-b border-b-[#2C2C2C]"
+                      key={index}
+                    >
+                      <p> {item.name} </p>
+                      <p className="max-w-[282px] break-words">{item.value}</p>
+                    </div>
+                  );
+                }
+              })}
             </div>
           </DefaultCard>
           <DefaultCard header="Lock Records">
-            <table className="text-white text-base w-[100%]">
+            <table className="text-white text-base w-[100%] max-sm:text-sm">
               <thead>
                 <tr>
                   <td className="p-1 font-bold">Amount</td>
-                  <td className="p-1 font-bold">Lock time</td>
+                  <td className="p-1 font-bold">
+                    {"   "}Lock time{"   "}{" "}
+                  </td>
                   <td className="p-1 font-bold">Unlock time</td>
                 </tr>
               </thead>
