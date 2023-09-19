@@ -30,48 +30,51 @@ const Profile = () => {
       <div className="p-7 bg-[#1B1B1B] rounded-[16px]">
         <div className="flex flex-col gap-3 pb-8 border-b border-[#2C2C2C]">
           <div className="flex flex-row gap-2">
-            <p className="text-white text-[16px]">
+            <p className="text-white text-[16px] break-words max-sm:max-w-[280px]">
               Connected as 0x15f5aC23FEA29c0f8be082EB490D3a18d7d08892
             </p>
             <Image src={CopyYelloIcon} alt="icon" />
           </div>
           <p className="text-[16px] text-[#FCBF07]">0.639639 ETH</p>
         </div>
-        <div className="flex flex-row gap-4 mt-7">
-          <button className="py-3 px-5 rounded-lg bg-[#FCBF07]">
+        <div className="flex flex-row gap-4 mt-7 max-sm:w-[100%]">
+          <button className="py-3 px-5 rounded-lg bg-[#FCBF07] max-sm:w-[100%]">
             Share your profile
           </button>
-          <button className="py-3 px-5 rounded-lg border border-[#2C2C2C] text-[#86888C]">
+          <button className="py-3 px-5 rounded-lg border border-[#2C2C2C] max-sm:w-[100%] text-[#86888C]">
             Logout
           </button>
         </div>
       </div>
 
       <div className="p-7 rounded-[16px] bg-[#1B1B1B] mt-6 min-h-[567px]">
-        <div className="flex flex-row pb-5 border-b border-[#2C2C2C] gap-8">
-          {tabItems.map((item, index) => (
-            <div
-              className="relative cursor-pointer"
-              key={index}
-              onClick={() => setTabActive(index)}
-            >
-              <p
-                className={`text-base ${
-                  tabActive === index ? "text-[#FCBF07]" : "text-white"
-                }`}
+        <div className="max-sm:overflow-x-scroll">
+          <div className="flex flex-row pb-5 border-b border-[#2C2C2C] gap-8 max-sm:w-[1500px]">
+            {tabItems.map((item, index) => (
+              <div
+                className="relative cursor-pointer"
+                key={index}
+                onClick={() => setTabActive(index)}
               >
-                {item.name}
-              </p>
-              {tabActive === index && (
-                <hr className="h-0.5 border-0 bg-[#FCBF07] w-[100%] absolute -bottom-[21px] left-0"></hr>
-              )}
-            </div>
-          ))}
+                <p
+                  className={`text-base ${
+                    tabActive === index ? "text-[#FCBF07]" : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </p>
+                {tabActive === index && (
+                  <hr className="h-0.5 border-0 bg-[#FCBF07] w-[100%] absolute -bottom-[21px] left-0"></hr>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
+
         <div className="mt-8">
           {tabActive === 0 && (
             <div>
-              <div className="py-[46px] justify-center w-[100%] border border-[#2C2C2C] flex flex-row gap-[345px]">
+              <div className="py-[46px] justify-center w-[100%] border border-[#2C2C2C] flex flex-row max-sm:flex-col max-sm:gap-[70px] gap-[345px]">
                 <div className="flex flex-col items-center text-white gap-3">
                   <p className="text-base">TOTAL POOL INVESTED</p>
                   <p className="text-4xl">0</p>
@@ -86,28 +89,30 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="mt-[70px]">
-                <div className="flex flex-row text-base text-white pb-4 border-b border-[#2C2C2C]">
-                  <div className="w-[250px] border-r border-[#2C2C2C] pr-6">
-                    Name
+              <div className="max-sm:overflow-x-scroll">
+                <div className="mt-[70px] max-sm:w-[1550px]">
+                  <div className="flex flex-row text-base text-white pb-4 border-b border-[#2C2C2C]">
+                    <div className="w-[250px] border-r border-[#2C2C2C] pr-6">
+                      Name
+                    </div>
+                    <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
+                      Data
+                    </div>
+                    <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
+                      Amount
+                    </div>
+                    <div className="flex flex-row pl-3 pr-6 border-r border-[#2C2C2C]">
+                      <p className="w-[250px]">Type</p>
+                      <Image src={Filter} alt="filter" />
+                    </div>
+                    <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
+                      Transaction
+                    </div>
                   </div>
-                  <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
-                    Data
+                  <div className="h-[285px] flex flex-col justify-center items-center gap-3 border-b border-[#2C2C2C]">
+                    <Image src={NoDataIcon} alt="no data" />
+                    <p className="text-lg text-[#2F2F2F]">No Data</p>
                   </div>
-                  <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
-                    Amount
-                  </div>
-                  <div className="flex flex-row pl-3 pr-6 border-r border-[#2C2C2C]">
-                    <p className="w-[250px]">Type</p>
-                    <Image src={Filter} alt="filter" />
-                  </div>
-                  <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
-                    Transaction
-                  </div>
-                </div>
-                <div className="h-[285px] flex flex-col justify-center items-center gap-3 border-b border-[#2C2C2C]">
-                  <Image src={NoDataIcon} alt="no data" />
-                  <p className="text-lg text-[#2F2F2F]">No Data</p>
                 </div>
               </div>
             </div>
@@ -119,25 +124,23 @@ const Profile = () => {
             </div>
           )}
           {tabActive === 2 && (
-            <div className="">
-              <div className="flex flex-row items-center justify-between">
-                <div className="flex flex-row gap-[30px]">
-                  <Image
-                    src={LogoIcon}
-                    alt="logo icon"
-                    className="rounded-full w-[48px] h-[48px]"
-                  />
-                  <div className="text-white flex flex-col gap-1 text-base">
-                    <p className="font-semibold">Flash 3.0 Fairlaunch</p>
-                    <p className="font-semibold">Flash</p>
-                  </div>
+            <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row gap-[30px]">
+                <Image
+                  src={LogoIcon}
+                  alt="logo icon"
+                  className="rounded-full w-[48px] h-[48px]"
+                />
+                <div className="text-white flex flex-col gap-1 text-base">
+                  <p className="font-semibold">Flash 3.0 Fairlaunch</p>
+                  <p className="font-semibold">Flash</p>
                 </div>
-                <p className="text-base text-[#FCBF07] cursor-pointer">View</p>
               </div>
+              <p className="text-base text-[#FCBF07] cursor-pointer">View</p>
             </div>
           )}
           {tabActive === 3 && (
-            <div>
+            <div className="">
               <div className="flex flex-col gap-4">
                 {Array.from({ length: 7 }).map((item, index) => (
                   <div
@@ -162,7 +165,7 @@ const Profile = () => {
                 ))}
               </div>
 
-              <div className="mt-[30px] flex flex-row gap-[11.2px] justify-end">
+              <div className="mt-[30px] flex flex-row gap-[11.2px] justify-end max-sm:hidden">
                 <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
                   <Image src={PageLeftIcon} alt="page" />
                 </div>
@@ -188,8 +191,8 @@ const Profile = () => {
       </div>
 
       {(tabActive === 0 || tabActive === 1) && (
-        <div className="mt-[157px] flex flex-row justify-center">
-          <p className="text-center text-lg text-white w-[1155px]">
+        <div className="mt-[157px] max-sm:mt-8 pb-5 flex flex-row justify-center">
+          <p className="text-center text-lg max-sm:text-sm text-white w-[1155px]">
             Disclaimer: Flashlaunch will never endorse or encourage that you
             invest in any of the projects listed and therefore, accept no
             liability for any loss occasioned. It is the users responsibility to
@@ -197,6 +200,29 @@ const Profile = () => {
             More information about (DOR) can be found via{" "}
             <span className="text-[#FCBF07]">Binance Academy</span>.
           </p>
+        </div>
+      )}
+
+      {tabActive === 3 && (
+        <div className="mt-[30px] flex flex-row gap-[11.2px] justify-center">
+          <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
+            <Image src={PageLeftIcon} alt="page" />
+          </div>
+          <div className="w-[28px] h-[28px] bg-[#FCBF07] rounded-[5.6px] flex flex-row justify-center items-center">
+            <p className="text-base text-[#16171B]">1</p>
+          </div>
+          <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
+            <p className="text-base text-[#86888C]">2</p>
+          </div>
+          <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
+            <p className="text-base text-[#86888C]">3</p>
+          </div>
+          <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
+            <p className="text-base text-[#86888C]">4</p>
+          </div>
+          <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
+            <Image src={PageRightActive} alt="page" />
+          </div>
         </div>
       )}
     </div>
