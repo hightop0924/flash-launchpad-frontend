@@ -1,13 +1,10 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-import Image from "next/image";
-
 import SideBar from "@/components/Layouts/SideBar";
 import Header from "@/components/Layouts/Header";
 
 import Background from "@/assets/image/background.png";
-import HeaderSection from "@/components/HeaderSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,21 +17,32 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex">
+        <div className="flex max-lg:hidden">
           <SideBar />
           <div>
             <Header />
 
-            <div className="">
-              <div
-                className="w-[calc(100vw-286px)] h-full -ml-[1px]"
-                style={{
-                  background: `url('${Background.src}') center center`,
-                }}
-              >
-                <HeaderSection />
-                <div className="px-10 pb-16">{children}</div>
-              </div>
+            <div
+              className="w-[calc(100vw-286px)] -ml-[1px]"
+              style={{
+                background: `url('${Background.src}') center center`,
+              }}
+            >
+              {/* <HeaderSection /> */}
+              <div className="px-10 pb-16 pt-8">{children}</div>
+            </div>
+          </div>
+        </div>
+        <div className="lg:hidden">
+          <div>
+            <div
+              className="w-[100%] h-full"
+              style={{
+                background: `url('${Background.src}') center center`,
+              }}
+            >
+              <Header />
+              <div className="px-5">{children}</div>
             </div>
           </div>
         </div>

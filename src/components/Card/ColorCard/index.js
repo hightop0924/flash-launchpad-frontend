@@ -5,7 +5,7 @@ const ColorCard = ({
 }) => {
   return (
     <div
-      className="flex flex-col gap-y-[14px] rounded-[10px] w-[366px] h-[143px] px-7 py-[30px]"
+      className="flex flex-col gap-y-[14px] rounded-[10px] min-w-[335px] h-[143px] px-7 py-[30px]"
       style={{
         background: `${BgColor}`,
       }}

@@ -24,12 +24,6 @@ const HeaderNav = () => {
 
   const navItem = [
     {
-      text: "Quick View",
-      icon: View,
-      active_icon: Active_View,
-      key: 1,
-    },
-    {
       text: "All Presales",
       icon: AllPresales,
       active_icon: Active_AllPresales,
@@ -61,18 +55,20 @@ const HeaderNav = () => {
     },
   ];
   return (
-    <div className="flex gap-x-4 w-[1554px] h-[61px] rounded-[12px] bg-[#1B1B1B] px-7 py-3 items-center">
-      {navItem.map((item) => (
-        <HeaderNavItem
-          icon={item.icon}
-          active_icon={item.active_icon}
-          text={item.text}
-          active={active === item.key && true}
-          key={item.key}
-          index={item.key}
-          onClick={(index) => setActive(index)}
-        />
-      ))}
+    <div className="max-sm:w-[100%]  max-2xl:overflow-y-scroll">
+      <div className="flex gap-x-4 w-[1554px] h-[61px] rounded-[38px] bg-[#1B1B1B] px-7 py-3 items-center">
+        {navItem.map((item) => (
+          <HeaderNavItem
+            icon={item.icon}
+            active_icon={item.active_icon}
+            text={item.text}
+            active={active === item.key && true}
+            key={item.key}
+            index={item.key}
+            onClick={(index) => setActive(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

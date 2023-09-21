@@ -2,26 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(#fcbf07);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: #fcbf07;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.1em solid #2c2c2c;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+input[type="radio"]:checked {
+  border: 0.1em solid #fcbf07;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+input[type="radio"]::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(rgb(190, 21, 21));
+  /* Windows High Contrast Mode */
+  background-color: #fcbf07;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(#fcbf07);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: #fcbf07;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.1em solid #2c2c2c;
+  /* border-radius: 50%; */
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]:checked {
+  border: 0.1em solid #fcbf07;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  /* border-radius: 50%; */
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(rgb(190, 21, 21));
+  /* Windows High Contrast Mode */
+  background-color: #fcbf07;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
