@@ -12,6 +12,7 @@ import PresalesFavorites from "@/assets/icons/presales-favorites.svg";
 
 import Badge from "./Badge";
 import { useRouter } from "next/navigation";
+import ExportedImage from "next-image-export-optimizer";
 
 const PresalesCard = ({
   title = "Woygate",
@@ -29,12 +30,12 @@ const PresalesCard = ({
   return (
     <div className="h-[599px]">
       <div className="flex flex-col justify-center items-center">
-        <Image src={PresalesCardHeader} alt="image" />
+        <ExportedImage src={PresalesCardHeader} alt="image" />
       </div>
 
       <div className="h-[572px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
-        <Image src={CardOneBack} alt="background" />
-        <Image
+        <ExportedImage src={CardOneBack} alt="background" />
+        <ExportedImage
           src={CardOneLogo}
           alt="logo"
           className="absolute top-[76px] left-5 border-[1px] border-[#202125] rounded-full"
@@ -65,7 +66,7 @@ const PresalesCard = ({
                 Fair Launch - Max Spots : 250
               </p>
             </div>
-            <Image src={Ethereum} alt="Image" />
+            <ExportedImage src={Ethereum} alt="Image" />
           </div>
 
           <div className="flex flex-col mt-6 gap-2">
@@ -111,12 +112,12 @@ const PresalesCard = ({
               <p className="text-[#86888C] text-[16px]">2023-04-16</p>
             </div>
             <div className="flex gap-2 items-center">
-              <Image
+              <ExportedImage
                 src={PresalesAlarm}
                 className="cursor-pointer"
                 alt="image"
               />
-              <Image
+              <ExportedImage
                 src={PresalesFavorites}
                 className="cursor-pointer"
                 alt="image"

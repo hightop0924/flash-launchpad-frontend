@@ -28,6 +28,7 @@ import DatePickerIcon from "@/assets/icons/datepicker.svg";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import ExportedImage from "next-image-export-optimizer";
 
 const CreateStaking = () => {
   const [step, setStep] = useState(1);
@@ -298,7 +299,7 @@ const CreateStaking = () => {
                       placeholderText="Select date"
                       className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
                     />
-                    <Image
+                    <ExportedImage
                       src={DatePickerIcon}
                       alt="image"
                       className="absolute top-4 right-5"
@@ -317,7 +318,7 @@ const CreateStaking = () => {
                       placeholderText="Select date"
                       className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
                     />
-                    <Image
+                    <ExportedImage
                       src={DatePickerIcon}
                       alt="image"
                       className="absolute top-4 right-5"
@@ -353,7 +354,7 @@ const CreateStaking = () => {
               <div className="flex flex-col w-[100%] gap-3">
                 <p className="text-sm text-[#FCBF07]">Banner (Not requared)</p>
                 <button className="bg-[#282828] rounded-[40px] flex flex-row w-[100%] py-[10px] justify-center items-center gap-3 shadow-[0_9px_37px_0_rgba(0, 0, 0, 0.20)]">
-                  <Image src={CoverIcon} alt="" />
+                  <ExportedImage src={CoverIcon} alt="" />
                   <p className="text-sm text-white max-sm:w-[175px]">
                     Cover Image/video 1024x150 Up To %mb
                   </p>

@@ -25,6 +25,7 @@ import DatePickerIcon from "@/assets/icons/datepicker.svg";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import ExportedImage from "next-image-export-optimizer";
 
 const Launchpad = () => {
   const [step, setStep] = useState(1);
@@ -443,7 +444,7 @@ const Launchpad = () => {
                       placeholderText="Select date"
                       className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
                     />
-                    <Image
+                    <ExportedImage
                       src={DatePickerIcon}
                       alt="image"
                       className="absolute top-4 right-5"
@@ -466,7 +467,7 @@ const Launchpad = () => {
                       placeholderText="Select date"
                       className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
                     />
-                    <Image
+                    <ExportedImage
                       src={DatePickerIcon}
                       alt="image"
                       className="absolute top-4 right-5"
@@ -735,7 +736,7 @@ const Launchpad = () => {
             </div>
 
             <div className="p-[17px] max-sm:p-[10px] flex flex-row items-center gap-6 max-sm:gap-2 border border-[#262626] bg-[#141414] rounded-[6px] mt-[50px]">
-              <Image src={WarningIcon} alt="Warning" />
+              <ExportedImage src={WarningIcon} alt="Warning" />
               <p className="text-sm text-white max-sm:text-xs break-words max-sm:w-[245px]">
                 Please exclude Flash Factory address
                 0x7461B2F388142a7584ac752e637B255Eead9bcPL from fees, rewards,

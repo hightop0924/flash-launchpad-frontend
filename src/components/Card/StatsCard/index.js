@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import CircleArrows from "@/assets/icons/circle-arrows.svg";
 import StatsGraph from "@/assets/icons/stats-graph.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const StatsCard = ({
   text = "Total Project",
@@ -14,7 +15,7 @@ const StatsCard = ({
       <div className="flex justify-between items-center">
         <p className="text-white text-2xl max-sm:text-sm">{text}</p>
         <div className="flex gap-x-3 items-center">
-          <Image
+          <ExportedImage
             src={CircleArrows}
             alt="image"
             className="max-sm:w-[16px] max-sm:h-[16px]"
@@ -28,7 +29,7 @@ const StatsCard = ({
         <p className="text-white text-[42px] max-sm:text-[28px]">
           {value} {symbol && "%"}
         </p>
-        <Image
+        <ExportedImage
           src={StatsGraph}
           alt="image"
           className="max-sm:w-[127px] max-sm:h-[34px]"

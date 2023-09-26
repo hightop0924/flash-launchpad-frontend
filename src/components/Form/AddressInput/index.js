@@ -3,6 +3,7 @@ import Image from "next/image";
 //! import icons
 import EtherscanLogoIcon from "@/assets/icons/etherscan-logo-small.svg";
 import DextoolsLogoIcon from "@/assets/icons/dextools-contract-logo-small.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const AddressInput = ({ value = "" }) => {
   const handleChange = () => {};
@@ -15,8 +16,8 @@ const AddressInput = ({ value = "" }) => {
         onChange={handleChange}
       />
       <div className="absolute top-0 right-0 bg-[#282828] rounded-e-lg h-[38px] w-[92px] flex flex-row items-center justify-center gap-3">
-        <Image src={EtherscanLogoIcon} alt="image" />
-        <Image src={DextoolsLogoIcon} alt="image" />
+        <ExportedImage src={EtherscanLogoIcon} alt="image" />
+        <ExportedImage src={DextoolsLogoIcon} alt="image" />
       </div>
     </div>
   );

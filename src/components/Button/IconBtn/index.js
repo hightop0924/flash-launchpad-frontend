@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import Home from "@/assets/icons/home.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const IconBtn = ({
   text = "Home",
@@ -25,7 +26,11 @@ const IconBtn = ({
       className={`${px} ${py} flex flex-row justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
       onClick={(e) => onClick()}
     >
-      <Image src={icon} height={iconHeight ? iconHeight : ""} alt="image" />
+      <ExportedImage
+        src={icon}
+        height={iconHeight ? iconHeight : ""}
+        alt="image"
+      />
       <p
         className={`${TxClass} ${TxSize} font-semibold ${
           capitalize ? "capitalize" : ""
@@ -33,7 +38,7 @@ const IconBtn = ({
       >
         {text}
       </p>
-      {rightIcon && <Image src={rightIcon} alt="image" />}
+      {rightIcon && <ExportedImage src={rightIcon} alt="image" />}
     </button>
   );
 };

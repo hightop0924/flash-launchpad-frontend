@@ -40,6 +40,7 @@ import Light from "@/assets/icons/light.svg";
 
 import FlokiBinance from "@/assets/image/floki-flash-audit.gif";
 import IconBtn from "@/components/Button/IconBtn";
+import ExportedImage from "next-image-export-optimizer";
 
 const SideBar = () => {
   const [active, setActive] = useState(0);
@@ -128,7 +129,7 @@ const SideBar = () => {
   return (
     <div className="bg-[#1B1B1B] w-[286px] h-auto pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10 relative">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
-        <Image src={logo} alt="logo" />
+        <ExportedImage src={logo} alt="logo" />
         <p className="text-[#fff] text-[19.067px] font-bold">Flashlaunch</p>
       </div>
 
@@ -252,7 +253,7 @@ const SideBar = () => {
       </div>
 
       <div className="mt-10">
-        <Image src={FlokiBinance} alt="image" />
+        <ExportedImage src={FlokiBinance} alt="image" />
         <div className="mt-[113.5px] pl-10 pr-10 grid grid-cols-2 gap-x-5 gap-y-[26.55px]">
           <SmallIconOnlyBtn icon={Telegram} />
           <SmallIconOnlyBtn icon={Twitter} />

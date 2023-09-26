@@ -8,6 +8,7 @@ import Image from "next/image";
 import EtherCircle from "@/assets/icons/ether-circle.svg";
 import Leaderboard1 from "@/assets/image/leaderboard/1.png";
 import { useRouter } from "next/navigation";
+import ExportedImage from "next-image-export-optimizer";
 
 const Leaderboard = () => {
   const [week, setWeek] = useState(0);
@@ -72,8 +73,8 @@ const Leaderboard = () => {
               <div className="flex flex-row items-center">
                 <p className="w-7 text-2xl font-semibold text-white">1</p>
                 <div className="relative ml-4">
-                  <Image src={Leaderboard1} alt="leader" />
-                  <Image
+                  <ExportedImage src={Leaderboard1} alt="leader" />
+                  <ExportedImage
                     src={EtherCircle}
                     className="absolute bottom-0 -right-2"
                     alt="leader"

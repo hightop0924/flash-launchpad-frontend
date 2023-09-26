@@ -18,6 +18,7 @@ import Input from "@/components/Form/Input";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import ExportedImage from "next-image-export-optimizer";
 
 const FooterButton = () => {
   return (
@@ -63,7 +64,7 @@ const CreateLocks = () => {
                 placeholderText="09/09/2023 03:57 pm"
                 className="bg-[#141414] outline-none border w-[100%] border-[#2C2C2C] h-[59px] p-5 rounded-lg text-base text-[#86888C]"
               />
-              <Image
+              <ExportedImage
                 src={DatePickerIcon}
                 alt="image"
                 className="absolute top-4 right-5"
@@ -77,7 +78,7 @@ const CreateLocks = () => {
                     <p className="text-[14px] text-[#FFF7CD] max-sm:text-xs">
                       Exclude FlashPad`s lock address
                     </p>
-                    <Image src={CopyIcon} alt="icon" />
+                    <ExportedImage src={CopyIcon} alt="icon" />
                   </div>
 
                   <p className="text-[14px] text-[#FFF7CD] max-sm:text-xs">
@@ -89,7 +90,7 @@ const CreateLocks = () => {
           </div>
         </div>
       </DefaultCard>
-      <Image
+      <ExportedImage
         src={BurnImage}
         alt="image"
         className="absolute -bottom-16 -right-10 max-sm:hidden"

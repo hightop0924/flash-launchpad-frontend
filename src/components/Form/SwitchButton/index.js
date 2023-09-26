@@ -3,14 +3,15 @@ import SwitchIcon from "@/assets/icons/switch.svg";
 import SwitchActiveIcon from "@/assets/icons/switch-active.svg";
 
 import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const SwitchButton = ({ onClick = "", check = false }) => {
   return (
     <div onClick={() => onClick(!check)} className="cursor-pointer">
       {check ? (
-        <Image src={SwitchActiveIcon} alt="" />
+        <ExportedImage src={SwitchActiveIcon} alt="" />
       ) : (
-        <Image src={SwitchIcon} alt="" />
+        <ExportedImage src={SwitchIcon} alt="" />
       )}
     </div>
   );

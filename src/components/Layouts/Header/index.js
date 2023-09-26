@@ -29,6 +29,7 @@ import MenuIcon from "@/assets/icons/menu.svg";
 import FlashIcon from "@/assets/icons/flash.svg";
 
 import { useRouter } from "next/navigation";
+import ExportedImage from "next-image-export-optimizer";
 
 const Header = () => {
   const mainnet = [
@@ -97,10 +98,10 @@ const Header = () => {
             onClick={() => setLanShow(!lanShow)}
             className="border border-[#2C2C2C] rounded-[33px] py-[5px] px-[15px] w-[110px] h-[34px] flex flex-row gap-[10px] items-center cursor-pointer"
           >
-            <Image src={UKIcon} alt="icon" />
+            <ExportedImage src={UKIcon} alt="icon" />
             <p className="text-white text-sm">UK</p>
             <div className="flex flex-row justify-center items-center w-[24px] h-[24px]">
-              <Image src={UpIcon} alt="icon" />
+              <ExportedImage src={UpIcon} alt="icon" />
             </div>
           </div>
           <IconBtn
@@ -147,7 +148,7 @@ const Header = () => {
                 className="flex flex-row py-3 px-5 border-b border-white gap-3 cursor-pointer"
                 onClick={() => setLanShow(false)}
               >
-                <Image src={item.img} alt="image" />
+                <ExportedImage src={item.img} alt="image" />
                 <p className="text-white">{item.name}</p>
               </div>
             ))}
@@ -159,7 +160,7 @@ const Header = () => {
             <div className="bg-[#1B1B1B] rounded-lg w-[370px] pt-6 pb-4 border-solid border-2 border-[#2C2C2C]">
               <div className="flex flex-row px-[20px] pb-[16px] justify-between">
                 <p className="text-white text-[20px]">Switch Network</p>
-                <Image
+                <ExportedImage
                   src={CloseIcon}
                   alt="icon"
                   className="cursor-pointer"
@@ -175,7 +176,7 @@ const Header = () => {
                   className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
                   onClick={() => setNetShow(false)}
                 >
-                  <Image src={item.icon} alt="icon" />
+                  <ExportedImage src={item.icon} alt="icon" />
                   <p className="text-white text-sm">{item.name}</p>
                 </div>
               ))}
@@ -190,7 +191,7 @@ const Header = () => {
                   className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
                   onClick={() => setNetShow(false)}
                 >
-                  <Image src={item.icon} alt="icon" />
+                  <ExportedImage src={item.icon} alt="icon" />
                   <p className="text-white text-sm">{item.name}</p>
                 </div>
               ))}
@@ -263,10 +264,10 @@ const Header = () => {
       </div>
       <div className="sm:hidden flex flex-row p-5 justify-between">
         <div className="flex flex-row items-center gap-1">
-          <Image src={FlashIcon} alt="flash" />
+          <ExportedImage src={FlashIcon} alt="flash" />
           <p className="text-white text-sm">Flash pad</p>
         </div>
-        <Image src={MenuIcon} alt="menu" className="cursor-pointer" />
+        <ExportedImage src={MenuIcon} alt="menu" className="cursor-pointer" />
       </div>
     </>
   );

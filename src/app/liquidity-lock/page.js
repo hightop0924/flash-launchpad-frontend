@@ -13,6 +13,7 @@ import LumiImage from "@/assets/image/lumi.png";
 
 //! import Components
 import DefaultCard from "@/components/Card/DefaultCard";
+import ExportedImage from "next-image-export-optimizer";
 
 const TokenLock = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -70,7 +71,7 @@ const TokenLock = () => {
               className="w-full bg-[#141414] border outline-none border-[#2C2C2C] rounded-lg p-5 text-base text-[#86888C] pl-14"
               placeholder="Search by LP address..."
             />
-            <Image
+            <ExportedImage
               src={SearchIcon}
               alt="image"
               className="absolute top-5 left-5 w-6 h-6"
@@ -119,7 +120,7 @@ const TokenLock = () => {
                     <tr className="w-[100%] max-sm:text-sm" key={index}>
                       <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
                         <div className="flex flex-row gap-4 items-center">
-                          <Image
+                          <ExportedImage
                             src={LumiImage}
                             alt="image"
                             className="max-sm:w-[43px] max-sm:h-[32px]"
@@ -150,7 +151,7 @@ const TokenLock = () => {
                     <tr className="w-[100%] max-sm:text-sm" key={index}>
                       <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
                         <div className="flex flex-row gap-4 items-center">
-                          <Image
+                          <ExportedImage
                             src={LumiImage}
                             alt="image"
                             className="max-sm:w-[43px] max-sm:h-[32px]"
@@ -192,7 +193,7 @@ const TokenLock = () => {
           <div className="w-[100%] bg-[#1B1B1B] py-4 px-3 flex flex-row justify-center text-white text-[14px] gap-3 items-center rounded-[37px]">
             <p>Connect Network To</p>
             <div className="flex flex-row justify-center items-center bg-[#282828] rounded-full p-2">
-              <Image src={EtherIcon} alt="icon" />
+              <ExportedImage src={EtherIcon} alt="icon" />
             </div>
             <p>Ethereum</p>
           </div>

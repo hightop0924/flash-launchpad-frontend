@@ -13,6 +13,7 @@ import NoDataIcon from "@/assets/icons/no-data.svg";
 import LogoIcon from "@/assets/icons/logo.svg";
 import PageLeftIcon from "@/assets/icons/page-left.svg";
 import PageRightActive from "@/assets/icons/page-right-active.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const Profile = () => {
   const [tabActive, setTabActive] = useState(0);
@@ -33,7 +34,7 @@ const Profile = () => {
             <p className="text-white text-[16px] break-words max-sm:max-w-[280px]">
               Connected as 0x15f5aC23FEA29c0f8be082EB490D3a18d7d08892
             </p>
-            <Image src={CopyYelloIcon} alt="icon" />
+            <ExportedImage src={CopyYelloIcon} alt="icon" />
           </div>
           <p className="text-[16px] text-[#FCBF07]">0.639639 ETH</p>
         </div>
@@ -103,14 +104,14 @@ const Profile = () => {
                     </div>
                     <div className="flex flex-row pl-3 pr-6 border-r border-[#2C2C2C]">
                       <p className="w-[250px]">Type</p>
-                      <Image src={Filter} alt="filter" />
+                      <ExportedImage src={Filter} alt="filter" />
                     </div>
                     <div className="w-[250px] pl-3 pr-6 border-r border-[#2C2C2C]">
                       Transaction
                     </div>
                   </div>
                   <div className="h-[285px] flex flex-col justify-center items-center gap-3 border-b border-[#2C2C2C]">
-                    <Image src={NoDataIcon} alt="no data" />
+                    <ExportedImage src={NoDataIcon} alt="no data" />
                     <p className="text-lg text-[#2F2F2F]">No Data</p>
                   </div>
                 </div>
@@ -119,14 +120,14 @@ const Profile = () => {
           )}
           {tabActive === 1 && (
             <div className="flex flex-col justify-center items-center gap-3 mt-[191px]">
-              <Image src={NoDataIcon} alt="no data" />
+              <ExportedImage src={NoDataIcon} alt="no data" />
               <p className="text-lg text-[#2F2F2F]">No Data</p>
             </div>
           )}
           {tabActive === 2 && (
             <div className="flex flex-row items-center justify-between">
               <div className="flex flex-row gap-[30px]">
-                <Image
+                <ExportedImage
                   src={LogoIcon}
                   alt="logo icon"
                   className="rounded-full w-[48px] h-[48px]"
@@ -148,7 +149,7 @@ const Profile = () => {
                     key={index}
                   >
                     <div className="flex flex-row gap-[30px]">
-                      <Image
+                      <ExportedImage
                         src={LogoIcon}
                         alt="logo icon"
                         className="rounded-full w-[48px] h-[48px]"
@@ -167,7 +168,7 @@ const Profile = () => {
 
               <div className="mt-[30px] flex flex-row gap-[11.2px] justify-end max-sm:hidden">
                 <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
-                  <Image src={PageLeftIcon} alt="page" />
+                  <ExportedImage src={PageLeftIcon} alt="page" />
                 </div>
                 <div className="w-[28px] h-[28px] bg-[#FCBF07] rounded-[5.6px] flex flex-row justify-center items-center">
                   <p className="text-base text-[#16171B]">1</p>
@@ -182,7 +183,7 @@ const Profile = () => {
                   <p className="text-base text-[#86888C]">4</p>
                 </div>
                 <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
-                  <Image src={PageRightActive} alt="page" />
+                  <ExportedImage src={PageRightActive} alt="page" />
                 </div>
               </div>
             </div>
@@ -206,7 +207,7 @@ const Profile = () => {
       {tabActive === 3 && (
         <div className="mt-[30px] flex flex-row gap-[11.2px] justify-center">
           <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
-            <Image src={PageLeftIcon} alt="page" />
+            <ExportedImage src={PageLeftIcon} alt="page" />
           </div>
           <div className="w-[28px] h-[28px] bg-[#FCBF07] rounded-[5.6px] flex flex-row justify-center items-center">
             <p className="text-base text-[#16171B]">1</p>
@@ -221,7 +222,7 @@ const Profile = () => {
             <p className="text-base text-[#86888C]">4</p>
           </div>
           <div className="w-[28px] h-[28px] bg-[#282828] rounded-[5.6px] flex flex-row justify-center items-center">
-            <Image src={PageRightActive} alt="page" />
+            <ExportedImage src={PageRightActive} alt="page" />
           </div>
         </div>
       )}

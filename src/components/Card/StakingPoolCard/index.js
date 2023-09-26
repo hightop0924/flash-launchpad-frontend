@@ -14,6 +14,7 @@ import PresalesAlarm from "@/assets/icons/presales-alarm.svg";
 import PresalesFavorites from "@/assets/icons/presales-favorites.svg";
 
 import { useRouter } from "next/navigation";
+import ExportedImage from "next-image-export-optimizer";
 
 const PresalesCard = ({
   title = "Woygate",
@@ -32,13 +33,13 @@ const PresalesCard = ({
       }}
     >
       <div className="h-[470px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
-        <Image src={BackImage} alt="background" />
+        <ExportedImage src={BackImage} alt="background" />
         <div className="pt-2 px-5 pb-5">
           <div className="flex flex-row justify-between items-center">
             <div className="flex flex-row gap-3">
-              <Image src={AvatarImage} alt="image" />
-              <Image src={RightIcon} alt="image" />
-              <Image src={AvatarImage} alt="image" />
+              <ExportedImage src={AvatarImage} alt="image" />
+              <ExportedImage src={RightIcon} alt="image" />
+              <ExportedImage src={AvatarImage} alt="image" />
             </div>
             <div className="flex flex-row py-1 px-2 items-center gap-1 bg-[#D1FAE5] rounded-[50px] w-[50px] h-[26px]">
               <div className="w-[8px] h-[8px] bg-[#10B981] rounded-full"></div>
@@ -52,7 +53,7 @@ const PresalesCard = ({
                 Fair Launch - Max Spots : 250
               </p>
             </div>
-            <Image src={Ethereum} alt="Image" />
+            <ExportedImage src={Ethereum} alt="Image" />
           </div>
 
           <div className="flex flex-col gap-3 mt-6">

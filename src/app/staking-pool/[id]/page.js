@@ -27,6 +27,7 @@ export const options = {
 };
 
 import Map from "@/components/Map";
+import ExportedImage from "next-image-export-optimizer";
 /**
  *
  *
@@ -84,8 +85,8 @@ const StakingPoolDetails = () => {
       <div className="flex-auto w-[892px] flex flex-col gap-8">
         <div className="bg-[#1B1B1B] rounded-[16px]">
           <div className="relative">
-            <Image src={BackImage} alt="back" />
-            <Image
+            <ExportedImage src={BackImage} alt="back" />
+            <ExportedImage
               src={AvatarImage}
               alt="avatar"
               className="absolute top-[147px] left-[60px] w-auto h-auto"
@@ -133,7 +134,7 @@ const StakingPoolDetails = () => {
         <div className="w-[100%] bg-[#1B1B1B] py-4 px-3 flex flex-row justify-center text-white text-[14px] gap-3 items-center rounded-[37px]">
           <p>Connect Network To</p>
           <div className="flex flex-row justify-center items-center bg-[#282828] rounded-full p-2">
-            <Image src={EtherIcon} alt="icon" />
+            <ExportedImage src={EtherIcon} alt="icon" />
           </div>
           <p>Ethereum</p>
         </div>
@@ -160,14 +161,14 @@ const StakingPoolDetails = () => {
                 <p className="text-sm text-[#FCBF07]">
                   0x626b596dd10467EA969179235123F884e133074a
                 </p>
-                <Image src={CopyIcon} alt="icon" />
+                <ExportedImage src={CopyIcon} alt="icon" />
               </div>
             </div>
 
             <div className="flex flex-row py-4 border-b border-[#2C2C2C] gap-16">
               <div className="w-[140px] text-base text-white">Chart</div>
               <div className="flex flex-row gap-1 items-center">
-                <Image src={PoocoinIcon} alt="icon" />
+                <ExportedImage src={PoocoinIcon} alt="icon" />
                 <p className="text-sm text-[#FCBF07]">Poocoin</p>
               </div>
             </div>

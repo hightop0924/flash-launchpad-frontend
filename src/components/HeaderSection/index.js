@@ -20,6 +20,7 @@ import Icon_6 from "@/assets/icons/6.svg";
 import Icon_7 from "@/assets/icons/7.svg";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const HeaderSection = () => {
   return (
@@ -36,7 +37,7 @@ const HeaderSection = () => {
         </div>
         <div className="min-w-[1200px] flex flex-row gap-x-[10px] px-3 py-2 rounded-full bg-[#1B1B1B]">
           <div className="flex flex-row justify-center items-center gap-3">
-            <Image src={Hot} alt="hot" />
+            <ExportedImage src={Hot} alt="hot" />
             <p className="text-[16px] text-[#fff] font-semibold">HOT</p>
           </div>
           <Marquee>

@@ -24,6 +24,7 @@ import HeaderSection from "@/components/HeaderSection";
 
 //! import API
 import { GoPlus, ErrorCode } from "@goplus/sdk-node";
+import ExportedImage from "next-image-export-optimizer";
 
 const FlashAuditResult = () => {
   const [result, setResult] = useState("");
@@ -172,12 +173,12 @@ const FlashAuditResult = () => {
           <div className="flex flex-row justify-center">
             <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9 max-sm:px-5">
               <div className="flex flex-col items-center gap-14">
-                <Image
+                <ExportedImage
                   src={FlashAudit}
                   alt="image"
                   className="max-sm:w-[196px] max-sm:h-[37px]"
                 />
-                <Image
+                <ExportedImage
                   src={LogoBig}
                   alt="image"
                   className="max-sm:w-[196px] max-sm:h-[162px]"
@@ -214,7 +215,7 @@ const FlashAuditResult = () => {
       ) : (
         <div>
           <div className="flex flex-row justify-between">
-            <Image
+            <ExportedImage
               src={FlashAudit}
               alt="image"
               className="w-[241px] h-[40px] max-sm:hidden"
@@ -242,8 +243,8 @@ const FlashAuditResult = () => {
                       {result.token_name && result.token_name}
                     </p>
                   </div>
-                  <Image src={EthereumLogoSmall} alt="etherem" />
-                  <Image src={DextoolsLogoSmall} alt="etherem" />
+                  <ExportedImage src={EthereumLogoSmall} alt="etherem" />
+                  <ExportedImage src={DextoolsLogoSmall} alt="etherem" />
                 </div>
 
                 <p className="text-white text-[23.04px] font-bold">
@@ -251,7 +252,7 @@ const FlashAuditResult = () => {
                 </p>
 
                 <div className="flex flex-row gap-2">
-                  <Image src={Risky} alt="risky" />
+                  <ExportedImage src={Risky} alt="risky" />
                   <div className="flex flex-col text-white">
                     <p className="text-base">Risky item</p>
                     <p className="text-base font-bold">{riskyNum}</p>
@@ -259,7 +260,7 @@ const FlashAuditResult = () => {
                 </div>
 
                 <div className="flex flex-row gap-2">
-                  <Image src={Attention} alt="attention" />
+                  <ExportedImage src={Attention} alt="attention" />
                   <div className="flex flex-col text-white">
                     <p className="text-base">Attention item</p>
                     <p className="text-base font-bold">{attentionNum}</p>
@@ -288,7 +289,7 @@ const FlashAuditResult = () => {
                   {result.trust_list === "1" && (
                     <div className="border-b border-b-[#2C2C2C] pb-5">
                       <div className="max-w-[690px] flex flex-row items-start gap-3">
-                        <Image src={CheckIcon} alt="Check" />
+                        <ExportedImage src={CheckIcon} alt="Check" />
 
                         <div className="mt-[6px] flex flex-col gap-[18px]">
                           <p className="text-[16px] text-[#FCBF07] font-bold">
@@ -307,9 +308,9 @@ const FlashAuditResult = () => {
                     <div className="max-w-[690px] flex flex-row items-start gap-3">
                       {result.is_open_source &&
                       result.is_open_source === "1" ? (
-                        <Image src={CheckIcon} alt="Check" />
+                        <ExportedImage src={CheckIcon} alt="Check" />
                       ) : (
-                        <Image
+                        <ExportedImage
                           src={Risky}
                           alt="risky"
                           className="w-[36px] h-[36px]"
@@ -337,9 +338,9 @@ const FlashAuditResult = () => {
                     <div className="border-b border-b-[#2C2C2C] pb-5">
                       <div className="max-w-[690px] flex flex-row items-start gap-3">
                         {result.is_proxy && result.is_proxy === "0" ? (
-                          <Image src={CheckIcon} alt="Check" />
+                          <ExportedImage src={CheckIcon} alt="Check" />
                         ) : (
-                          <Image
+                          <ExportedImage
                             src={Attention}
                             alt="risky"
                             className="w-[36px] h-[36px]"
@@ -368,9 +369,9 @@ const FlashAuditResult = () => {
                       <div className="border-b border-b-[#2C2C2C] pb-5">
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.is_mintable && result.is_mintable === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -399,9 +400,9 @@ const FlashAuditResult = () => {
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.can_take_back_ownership &&
                           result.can_take_back_ownership === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -432,9 +433,9 @@ const FlashAuditResult = () => {
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.owner_change_balance &&
                           result.owner_change_balance === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Risky}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -463,9 +464,9 @@ const FlashAuditResult = () => {
                     <div className="border-b border-b-[#2C2C2C] pb-5">
                       <div className="max-w-[690px] flex flex-row items-start gap-3">
                         {result.hidden_owner && result.hidden_owner === "0" ? (
-                          <Image src={CheckIcon} alt="Check" />
+                          <ExportedImage src={CheckIcon} alt="Check" />
                         ) : (
-                          <Image
+                          <ExportedImage
                             src={Attention}
                             alt="risky"
                             className="w-[36px] h-[36px]"
@@ -492,9 +493,9 @@ const FlashAuditResult = () => {
                     <div className="border-b border-b-[#2C2C2C] pb-5">
                       <div className="max-w-[690px] flex flex-row items-start gap-3">
                         {result.selfdestruct && result.selfdestruct === "0" ? (
-                          <Image src={CheckIcon} alt="Check" />
+                          <ExportedImage src={CheckIcon} alt="Check" />
                         ) : (
-                          <Image
+                          <ExportedImage
                             src={Attention}
                             alt="risky"
                             className="w-[36px] h-[36px]"
@@ -522,9 +523,9 @@ const FlashAuditResult = () => {
                       <div className="max-w-[690px] flex flex-row items-start gap-3">
                         {result.external_call &&
                         result.external_call === "0" ? (
-                          <Image src={CheckIcon} alt="Check" />
+                          <ExportedImage src={CheckIcon} alt="Check" />
                         ) : (
-                          <Image
+                          <ExportedImage
                             src={Attention}
                             alt="risky"
                             className="w-[36px] h-[36px]"
@@ -551,7 +552,7 @@ const FlashAuditResult = () => {
                   {/* Gas abuser */}
                   <div className="border-b border-b-[#2C2C2C] pb-5">
                     <div className="max-w-[690px] flex flex-row items-start gap-3">
-                      <Image src={CheckIcon} alt="Check" />
+                      <ExportedImage src={CheckIcon} alt="Check" />
                       <div className="mt-[6px] flex flex-col gap-[18px]">
                         <p className="text-[16px] text-[#FCBF07] font-bold">
                           This token is not a gas abuser
@@ -592,9 +593,9 @@ const FlashAuditResult = () => {
                       <div className="border-b border-b-[#2C2C2C] pb-5">
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.is_honeypot && result.is_honeypot === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -623,9 +624,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.transfer_pausable &&
                             result.transfer_pausable === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"
@@ -656,9 +657,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.cannot_sell_all &&
                             result.cannot_sell_all === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"
@@ -687,9 +688,9 @@ const FlashAuditResult = () => {
                       <div className="border-b border-b-[#2C2C2C] pb-5">
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.cannot_buy && result.cannot_buy === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -718,9 +719,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.trading_cooldown &&
                             result.trading_cooldown === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"
@@ -750,9 +751,9 @@ const FlashAuditResult = () => {
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.is_anti_whale &&
                           result.is_anti_whale === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -783,9 +784,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.anti_whale_modifiable &&
                             result.anti_whale_modifiable === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"
@@ -816,9 +817,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.slippage_modifiable &&
                             result.slippage_modifiable === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"
@@ -848,9 +849,9 @@ const FlashAuditResult = () => {
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.is_blacklisted &&
                           result.is_blacklisted === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -880,9 +881,9 @@ const FlashAuditResult = () => {
                         <div className="max-w-[690px] flex flex-row items-start gap-3">
                           {result.is_whitelisted &&
                           result.is_whitelisted === "0" ? (
-                            <Image src={CheckIcon} alt="Check" />
+                            <ExportedImage src={CheckIcon} alt="Check" />
                           ) : (
-                            <Image
+                            <ExportedImage
                               src={Attention}
                               alt="risky"
                               className="w-[36px] h-[36px]"
@@ -913,9 +914,9 @@ const FlashAuditResult = () => {
                           <div className="max-w-[690px] flex flex-row items-start gap-3">
                             {result.personal_slippage_modifiable &&
                             result.personal_slippage_modifiable === "0" ? (
-                              <Image src={CheckIcon} alt="Check" />
+                              <ExportedImage src={CheckIcon} alt="Check" />
                             ) : (
-                              <Image
+                              <ExportedImage
                                 src={Attention}
                                 alt="risky"
                                 className="w-[36px] h-[36px]"

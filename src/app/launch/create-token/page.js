@@ -12,6 +12,7 @@ import Input from "@/components/Form/Input";
 
 //! import Image
 import BurnImage from "@/assets/image/burn-image.png";
+import ExportedImage from "next-image-export-optimizer";
 
 const FooterButton = () => {
   return (
@@ -68,7 +69,7 @@ const CreateToken = () => {
         </div>
       </DefaultCard>
 
-      <Image
+      <ExportedImage
         src={BurnImage}
         alt="image"
         className="absolute -bottom-16 -right-10 max-sm:hidden"

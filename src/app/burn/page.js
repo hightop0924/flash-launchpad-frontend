@@ -12,6 +12,7 @@ import HeaderSection from "@/components/HeaderSection";
 import BurnBack from "@/assets/image/burn-back.png";
 import Floki from "@/assets/icons/floki.svg";
 import BurnImage from "@/assets/image/burn-image.png";
+import ExportedImage from "next-image-export-optimizer";
 
 const Burn = () => {
   const [active, setActive] = useState(1);
@@ -48,7 +49,7 @@ const Burn = () => {
       <HeaderSection />
       <div className="flex flex-row justify-center">
         <div className="mt-[105px] max-sm:mt-[30px] w-[760px] max-sm:w-[100%] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px]">
-          <Image src={BurnBack} alt="Image" />
+          <ExportedImage src={BurnBack} alt="Image" />
           <div className="pt-[40px] px-5 pb-7">
             <p className="text-center text-white text-[42px] font-bold max-sm:text-2xl">
               Burn Floki and earn <br /> Whitelist
@@ -127,7 +128,7 @@ const Burn = () => {
           </div>
         </div>
       </div>
-      <Image
+      <ExportedImage
         src={BurnImage}
         alt="image"
         className="absolute -bottom-16 -right-10 max-sm:hidden"

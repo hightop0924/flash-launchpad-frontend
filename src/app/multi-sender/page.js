@@ -9,6 +9,7 @@ import Warning from "@/components/Alert/Warning";
 
 //! import Icon
 import CopyIcon from "@/assets/icons/copy.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const MultiSender = () => {
   return (
@@ -63,7 +64,7 @@ const MultiSender = () => {
             <p className="text-[14px] text-[#FFF7CD]">
               Please exclude 0xB803b0E5E7457B135085E896FD7A3398b266cd43
             </p>
-            <Image src={CopyIcon} alt="icon" />
+            <ExportedImage src={CopyIcon} alt="icon" />
             <p className="text-[14px] text-[#FFF7CD]">
               from fees, rewards, max tx amount to start sending tokens.
             </p>

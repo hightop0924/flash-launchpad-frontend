@@ -38,6 +38,7 @@ export const options = {
 };
 
 import Map from "@/components/Map";
+import ExportedImage from "next-image-export-optimizer";
 /**
  *
  *
@@ -119,8 +120,8 @@ const PresalesDetails = () => {
       <div className="flex-auto w-[892px] max-sm:w-[100%] flex flex-col gap-8">
         <div className="bg-[#1B1B1B] rounded-[16px]">
           <div className="relative">
-            <Image src={BackImage} alt="back" />
-            <Image
+            <ExportedImage src={BackImage} alt="back" />
+            <ExportedImage
               src={AvatarImage}
               alt="avatar"
               className="ml-[60px] -mt-[53px]  w-auto h-auto max-w-full"
@@ -128,17 +129,17 @@ const PresalesDetails = () => {
 
             {/* <div className="flex flex-row ml-[199px] items-center mt-2">
               <p className="text-white text-[32px] font-semibold">Venom</p>
-              <Image
+              <ExportedImage
                 src={WebsiteIcon}
                 alt="website"
                 className="w-[22.5px] h-[22.5px] ml-[20px]"
               />
-              <Image
+              <ExportedImage
                 src={TwitterIcon}
                 alt="website"
                 className="w-[22.5px] h-[22.5px] ml-[9.5px]"
               />
-              <Image
+              <ExportedImage
                 src={TelegramIcon}
                 alt="website"
                 className="w-[22.5px] h-[22.5px] ml-[9.5px]"
@@ -162,7 +163,7 @@ const PresalesDetails = () => {
               on ETH, you can earn ETH as rewards. Plus, we`re sharing 50% of
               the revenue with our token holders!
             </p>
-            <Image src={YoutubeImage} alt="image" className="mt-9" />
+            <ExportedImage src={YoutubeImage} alt="image" className="mt-9" />
           </div>
           <div className="flex flex-col px-7 pt-6">
             <div className="flex flex-row justify-between items-center pb-4">
@@ -208,7 +209,7 @@ const PresalesDetails = () => {
               />
 
               <div className="flex flex-col items-center justify-center w-[40px] h-[100%] bg-[#141414] border-t border-[#2C2C2C] border-b border-r rounded-r-lg">
-                <Image src={CopyIcon} alt="icon" />
+                <ExportedImage src={CopyIcon} alt="icon" />
               </div>
             </div>
             <div className="flex flex-col mt-4 text-white/[.8] text-base">
@@ -247,7 +248,7 @@ const PresalesDetails = () => {
                 >
                   <div className="flex-auto w-[258px] flex flex-row items-center gap-[10px]">
                     <div className="min-w-[123px]">0xEc21...2018</div>
-                    <Image
+                    <ExportedImage
                       src={CopyIcon}
                       alt="copy"
                       className="w-[10px] h-[10px] cursor-pointer"
@@ -295,7 +296,7 @@ const PresalesDetails = () => {
                 type="text"
                 className="w-[100%] h-[52px] py-4 px-5 rounded-[26px] border border-[#2C2C2C] bg-[#141414] outline-none text-base text-[#86888C]"
               />
-              <Image
+              <ExportedImage
                 src={SearchIcon}
                 alt="search"
                 className="top-4 right-5 absolute"
@@ -310,7 +311,11 @@ const PresalesDetails = () => {
 
       <div className="flex-auto w-[631px] max-sm:w-[100%] flex flex-col gap-8">
         <div>
-          <Image src={AffiliateImage} alt="image" className="ml-[236px]" />
+          <ExportedImage
+            src={AffiliateImage}
+            alt="image"
+            className="ml-[236px]"
+          />
           <div className="bg-[#1B1B1B] rounded-[16px] p-7 flex flex-col gap-6">
             <div className="py-[10px] px-[17px] border border-[#B78103] bg-[#7A4F01]/[.06] text-[#FFF7CD] text-sm rounded-lg">
               Make sure the website is flashlaunch!
@@ -372,7 +377,7 @@ const PresalesDetails = () => {
           </div>
           <div className="flex flex-row justify-center mt-1">
             <div className="w-[32px] h-[32px] flex flex-col justify-center items-center">
-              <Image src={DownYello} alt="down" />
+              <ExportedImage src={DownYello} alt="down" />
             </div>
           </div>
           <div className="flex flex-col">
@@ -408,34 +413,34 @@ const PresalesDetails = () => {
                 <div className=" text-sm">
                   0x626b596dd10467EA969179235123F884e133074a
                 </div>
-                <Image src={CopyWhiteIcon} alt="image" />
+                <ExportedImage src={CopyWhiteIcon} alt="image" />
               </div>
             </div>
             <div className="flex flex-row items-center py-4 border-b border-[#2C2C2C]">
               <div className="w-[204px]">Listed On</div>
               <div className="flex flex-row gap-2">
-                <Image src={PancakeswapIcon} alt="icon" />
+                <ExportedImage src={PancakeswapIcon} alt="icon" />
                 <div className="text-[#FCBF07] text-base">PancakeSwap</div>
               </div>
             </div>
             <div className="flex flex-row items-center py-4 border-b border-[#2C2C2C]">
               <div className="w-[204px]">Listed On</div>
               <div className="flex flex-row gap-2">
-                <Image src={BubblemapsIcon} alt="icon" />
+                <ExportedImage src={BubblemapsIcon} alt="icon" />
                 <div className="text-[#FCBF07] text-base">Bubblemaps</div>
               </div>
             </div>
             <div className="flex flex-row items-center py-4 border-b border-[#2C2C2C]">
               <div className="w-[204px]">Chart</div>
               <div className="flex flex-row gap-2">
-                <Image src={GeckoterminalIcon} alt="icon" />
+                <ExportedImage src={GeckoterminalIcon} alt="icon" />
                 <div className="text-[#FCBF07] text-base">GeckoTerminal</div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-row justify-center gap-2 items-center mt-14">
-            <Image src={FlashIcon} alt="icon" />
+            <ExportedImage src={FlashIcon} alt="icon" />
             <p className="text-white text-2xl font-semibold">
               Flash Audit security
             </p>

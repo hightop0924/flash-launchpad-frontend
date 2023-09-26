@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import Telegram from "@/assets/icons/telegram.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const SmallIconOnlyBtn = ({ icon = Telegram, shadow = true }) => {
   return (
@@ -9,7 +10,7 @@ const SmallIconOnlyBtn = ({ icon = Telegram, shadow = true }) => {
         shadow && "shadow-xl"
       }`}
     >
-      <Image src={icon} alt="icon" />
+      <ExportedImage src={icon} alt="icon" />
     </div>
   );
 };

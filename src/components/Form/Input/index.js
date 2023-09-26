@@ -1,5 +1,6 @@
 //! import icon
 import LogoURLIcon from "@/assets/icons/logoURL-input.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 import Image from "next/image";
 
@@ -20,7 +21,7 @@ const Input = ({
         </p>
       )}
       {icon && (
-        <Image
+        <ExportedImage
           src={icon}
           alt="icon"
           className="absolute bottom-[22px] left-4"

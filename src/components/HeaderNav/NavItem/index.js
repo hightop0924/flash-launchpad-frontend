@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import View from "@/assets/icons/view.svg";
 import Active_View from "@/assets/icons/active-view.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const HeaderNavItem = ({
   icon = View,
@@ -14,7 +15,7 @@ const HeaderNavItem = ({
   return (
     <div className="relative cursor-pointer" onClick={() => onClick(index)}>
       <div className="flex gap-3 items-center justify-center px-2">
-        <Image src={active ? active_icon : icon} alt="Image" />
+        <ExportedImage src={active ? active_icon : icon} alt="Image" />
         <p
           className={`${
             active ? "text-[#FCBF07]" : "text-[#86888C]"

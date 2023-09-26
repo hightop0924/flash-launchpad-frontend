@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import Presales from "@/assets/icons/presales.svg";
 import Right from "@/assets/icons/small-right.svg";
+import ExportedImage from "next-image-export-optimizer";
 
 const NavItem = ({
   text = "Presales",
@@ -45,11 +46,11 @@ const NavItem = ({
         }}
         onClick={() => handleClick()}
       >
-        <Image src={active ? active_img : img} alt="image" />
+        <ExportedImage src={active ? active_img : img} alt="image" />
         <p className={`${TxClass} text-[16px] font-semibold capitalize`}>
           {text}
         </p>
-        {right && <Image src={Right} alt="right" />}
+        {right && <ExportedImage src={Right} alt="right" />}
         {active && (
           <div className="h-[54px] w-[6px] absolute right-0 top-0 bg-[#FCBF07] rounded-l-2xl"></div>
         )}
