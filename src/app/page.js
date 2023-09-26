@@ -62,6 +62,7 @@ const HomePage = () => {
           <ColorCard
             title="Staking Pool"
             text="Explore the staking pools and enjoy passive rewards from multiple projects"
+            link="/staking-pool"
             BgColor="linear-gradient(137deg, #784FFB 28.67%, #0096E9 100%)"
           />
           <ColorCard
@@ -77,6 +78,7 @@ const HomePage = () => {
           <ColorCard
             title="Create Presale"
             text="Create presale for you own project and enjoy all the benefits GemPad offers"
+            link="/launch/launchpad"
             BgColor="linear-gradient(137deg, #49E313 0%, #005E36 100%)"
           />
           <ColorCard

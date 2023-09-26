@@ -24,7 +24,7 @@ const HeaderNavItem = ({
         </p>
       </div>
       {active && (
-        <div className="absolute -bottom-5 h-[4px] w-[100%] bg-[#FCBF07]"></div>
+        <div className="absolute -bottom-5 h-[4px] w-[100%] bg-[#FCBF07] rounded-t-2xl"></div>
       )}
     </div>
   );

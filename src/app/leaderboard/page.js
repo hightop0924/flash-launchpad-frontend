@@ -7,9 +7,12 @@ import Image from "next/image";
 //! import image
 import EtherCircle from "@/assets/icons/ether-circle.svg";
 import Leaderboard1 from "@/assets/image/leaderboard/1.png";
+import { useRouter } from "next/navigation";
 
 const Leaderboard = () => {
   const [week, setWeek] = useState(0);
+  const router = useRouter();
+
   return (
     <div className="min-h-[1500px]">
       <div className="flex flex-row max-sm:flex-col h-[145px] max-sm:h-auto gap-[30px]">
@@ -95,7 +98,12 @@ const Leaderboard = () => {
                 <div className="flex flex-row items-center justify-center border-[5px] border-[#52BC1F] w-[54px] h-[54px] rounded-full text-[10px] text-white">
                   100.0%
                 </div>
-                <button className="py-[10px] px-[20px] bg-[#FCBF07] rounded-lg outline-none text-[13px] font-semibold">
+                <button
+                  className="py-[10px] px-[20px] bg-[#FCBF07] rounded-lg outline-none text-[13px] font-semibold"
+                  onClick={() => {
+                    router.push("/presales/test");
+                  }}
+                >
                   View Pool
                 </button>
               </div>

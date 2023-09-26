@@ -9,7 +9,7 @@ import IconBtn from "../../Button/IconBtn";
 import Home from "@/assets/icons/home.svg";
 import Docs from "@/assets/icons/docs.svg";
 import Alert from "@/assets/icons/alerts.svg";
-import AlphaClub from "@/assets/icons/alpha-club.svg";
+import FlashClub from "@/assets/icons/logo.svg";
 import Floki from "@/assets/icons/floki.svg";
 import Wallet from "@/assets/icons/wallet.svg";
 import Add from "@/assets/icons/add.svg";
@@ -27,6 +27,8 @@ import DownIcon from "@/assets/icons/down.svg";
 
 import MenuIcon from "@/assets/icons/menu.svg";
 import FlashIcon from "@/assets/icons/flash.svg";
+
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const mainnet = [
@@ -54,20 +56,38 @@ const Header = () => {
   const [lanShow, setLanShow] = useState(false);
   const [createShow, setCreateShow] = useState(false);
 
+  const router = useRouter();
+
   return (
     <>
       <div className="relative w-[calc(100vw-286px)] h-20 px-10 bg-[#1b1b1b]/[.99] ml-[-1px] flex items-center justify-between max-sm:hidden">
         <div className="flex gap-2">
-          <IconBtn text="Home" icon={Home} heigh="h-[37px]" />
+          <IconBtn
+            text="Home"
+            icon={Home}
+            heigh="h-[37px]"
+            onClick={() => {
+              router.push("/");
+            }}
+          />
           <IconBtn text="Docs" icon={Docs} heigh="h-[37px]" />
           <IconBtn text="presale alerts" icon={Alert} heigh="h-[37px]" />
-          <IconBtn text="join alpha club" icon={AlphaClub} heigh="h-[37px]" />
+          <IconBtn
+            text="Join flash club"
+            icon={FlashClub}
+            heigh="h-[37px]"
+            iconHeight={25}
+            onClick={() => {}}
+          />
           <div className="ml-[33px]">
             <IconBtn
               text="Burn Floki For get Whitelist"
               icon={Floki}
               BgClass="bg-[#FCBF07]"
               heigh="h-[37px]"
+              onClick={() => {
+                router.push("/burn");
+              }}
             />
           </div>
         </div>
@@ -135,43 +155,46 @@ const Header = () => {
         )}
 
         {netShow && (
-          <div className="absolute top-[90px] right-[200px] z-50 bg-[#1B1B1B] rounded-lg w-[370px] pt-6 pb-4">
-            <div className="flex flex-row px-[20px] pb-[16px] justify-between">
-              <p className="text-white text-[20px]">Switch Network</p>
-              <Image
-                src={CloseIcon}
-                alt="icon"
-                onClick={() => setNetShow(false)}
-              />
-            </div>
-            <div className="text-sm text-[#FCBF07] py-[13px] text-center">
-              Mainnet
-            </div>
-            {mainnet.map((item, index) => (
-              <div
-                key={index}
-                className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
-                onClick={() => setNetShow(false)}
-              >
-                <Image src={item.icon} alt="icon" />
-                <p className="text-white text-sm">{item.name}</p>
+          <div className="fixed flex top-0 left-0 w-screen h-screen z-50 justify-center items-center bg-[#000] bg-opacity-50">
+            <div className="bg-[#1B1B1B] rounded-lg w-[370px] pt-6 pb-4 border-solid border-2 border-[#2C2C2C]">
+              <div className="flex flex-row px-[20px] pb-[16px] justify-between">
+                <p className="text-white text-[20px]">Switch Network</p>
+                <Image
+                  src={CloseIcon}
+                  alt="icon"
+                  className="cursor-pointer"
+                  onClick={() => setNetShow(false)}
+                />
               </div>
-            ))}
-
-            <div className="text-sm text-[#FCBF07] py-[13px] text-center">
-              Testnet
-            </div>
-
-            {testnet.map((item, index) => (
-              <div
-                key={index}
-                className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
-                onClick={() => setNetShow(false)}
-              >
-                <Image src={item.icon} alt="icon" />
-                <p className="text-white text-sm">{item.name}</p>
+              <div className="text-sm text-[#FCBF07] py-[13px] text-center">
+                Mainnet
               </div>
-            ))}
+              {mainnet.map((item, index) => (
+                <div
+                  key={index}
+                  className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
+                  onClick={() => setNetShow(false)}
+                >
+                  <Image src={item.icon} alt="icon" />
+                  <p className="text-white text-sm">{item.name}</p>
+                </div>
+              ))}
+
+              <div className="text-sm text-[#FCBF07] py-[13px] text-center">
+                Testnet
+              </div>
+
+              {testnet.map((item, index) => (
+                <div
+                  key={index}
+                  className="py-3 px-5 flex flex-row gap-3 items-center border-b border-[#2C2C2C] cursor-pointer"
+                  onClick={() => setNetShow(false)}
+                >
+                  <Image src={item.icon} alt="icon" />
+                  <p className="text-white text-sm">{item.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

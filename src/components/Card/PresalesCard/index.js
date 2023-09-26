@@ -1,3 +1,4 @@
+"use client"; // Need to send a JavaScript function to the browser 👈🏽
 import PresalesCardHeader from "@/assets/icons/presalescard-header.svg";
 
 import Image from "next/image";
@@ -10,13 +11,21 @@ import PresalesAlarm from "@/assets/icons/presales-alarm.svg";
 import PresalesFavorites from "@/assets/icons/presales-favorites.svg";
 
 import Badge from "./Badge";
+import { useRouter } from "next/navigation";
 
 const PresalesCard = ({
   title = "Woygate",
   text = "Fair Launch - Max Spots : 250",
+  link = "/presales/test_presale",
   BKImage = CardOneBack,
   IogoImage = CardOneLogo,
 }) => {
+  const router = useRouter();
+
+  const onHandleView = () => {
+    router.push(link);
+  };
+
   return (
     <div className="h-[599px]">
       <div className="flex flex-col justify-center items-center">
@@ -101,9 +110,23 @@ const PresalesCard = ({
               <p className="text-[#86888C] text-[12px]">Listing Time</p>
               <p className="text-[#86888C] text-[16px]">2023-04-16</p>
             </div>
-            <div className="flex gap-2">
-              <Image src={PresalesAlarm} alt="image" />
-              <Image src={PresalesFavorites} alt="image" />
+            <div className="flex gap-2 items-center">
+              <Image
+                src={PresalesAlarm}
+                className="cursor-pointer"
+                alt="image"
+              />
+              <Image
+                src={PresalesFavorites}
+                className="cursor-pointer"
+                alt="image"
+              />
+              <div
+                onClick={() => onHandleView()}
+                className="cursor-pointer px-2 py-1 rounded-md bg-[#FCBF07] bg-opacity-10"
+              >
+                <span className="text-[#FCBF07]"> View </span>
+              </div>
             </div>
           </div>
         </div>

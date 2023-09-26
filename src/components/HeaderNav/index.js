@@ -20,7 +20,7 @@ import Active_Alarms from "@/assets/icons/active-alarms.svg";
 import Active_CreatedPresales from "@/assets/icons/active-created-presales.svg";
 
 const HeaderNav = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(2);
 
   const navItem = [
     {

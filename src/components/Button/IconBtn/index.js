@@ -17,14 +17,22 @@ const IconBtn = ({
   rounded = "rounded-[20px]",
   borderColor = "border-[#282828]",
   onClick = "",
+  capitalize = true,
+  iconHeight,
 }) => {
   return (
     <button
       className={`${px} ${py} flex flex-row justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
       onClick={(e) => onClick()}
     >
-      <Image src={icon} alt="image" />
-      <p className={`${TxClass} ${TxSize} font-semibold capitalize`}>{text}</p>
+      <Image src={icon} height={iconHeight ? iconHeight : ""} alt="image" />
+      <p
+        className={`${TxClass} ${TxSize} font-semibold ${
+          capitalize ? "capitalize" : ""
+        }`}
+      >
+        {text}
+      </p>
       {rightIcon && <Image src={rightIcon} alt="image" />}
     </button>
   );

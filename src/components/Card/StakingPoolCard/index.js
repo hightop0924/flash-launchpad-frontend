@@ -1,3 +1,4 @@
+"use client"; // Need to send a JavaScript function to the browser 👈🏽
 import PresalesCardImage from "@/assets/icons/presales-card.svg";
 
 import Image from "next/image";
@@ -12,14 +13,24 @@ import Ethereum from "@/assets/icons/ethereum.svg";
 import PresalesAlarm from "@/assets/icons/presales-alarm.svg";
 import PresalesFavorites from "@/assets/icons/presales-favorites.svg";
 
+import { useRouter } from "next/navigation";
+
 const PresalesCard = ({
   title = "Woygate",
   text = "Fair Launch - Max Spots : 250",
+  link = "/staking-pool/test",
   BKImage = BackImage,
   IogoImage = CardOneLogo,
 }) => {
+  const router = useRouter();
+
   return (
-    <div className="h-[470px]">
+    <div
+      className="h-[470px] cursor-pointer"
+      onClick={() => {
+        router.push(link);
+      }}
+    >
       <div className="h-[470px] rounded-2xl bg-[#1B1B1B] overflow-hidden relative border border-[#2C2C2C]">
         <Image src={BackImage} alt="background" />
         <div className="pt-2 px-5 pb-5">

@@ -38,7 +38,7 @@ import Twitter from "@/assets/icons/twitter.svg";
 import Dark from "@/assets/icons/dark.svg";
 import Light from "@/assets/icons/light.svg";
 
-import FlokiBinance from "@/assets/image/floki-binance.png";
+import FlokiBinance from "@/assets/image/floki-flash-audit.gif";
 import IconBtn from "@/components/Button/IconBtn";
 
 const SideBar = () => {
@@ -113,7 +113,6 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    console.log(pathname);
     routerList.forEach((item) => {
       if (item.path == pathname) {
         setActive(item.active);
@@ -130,7 +129,7 @@ const SideBar = () => {
     <div className="bg-[#1B1B1B] w-[286px] h-auto pb-10 shadow-[4px_0_10px_0_rgba(14,15,20,0.31)] z-10 relative">
       <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
         <Image src={logo} alt="logo" />
-        <p className="text-[#fff] text-[19.067px] font-bold">Flashpad</p>
+        <p className="text-[#fff] text-[19.067px] font-bold">Flashlaunch</p>
       </div>
 
       <button
@@ -212,19 +211,33 @@ const SideBar = () => {
             active_img={ActiveTools}
             right={true}
             index="12"
-            onClick={() => setActive(7)}
+            onClick={() => setActive(12)}
             active={active > 11 && active < 15 && true}
             childItems={[
-              { label: "Airdrop" },
-              { label: "Create Token" },
-              { label: "Swap & Bridge" },
+              {
+                label: "Airdrop",
+                path: "/airdrop",
+                active: active === 12 && true,
+              },
+              {
+                label: "Create Token",
+                path: "/launch/create-token",
+                active: active === 13 && true,
+              },
+              {
+                label: "Swap & Bridge",
+                path: "https://flash-dex.com",
+                active: active === 14 && true,
+              },
             ]}
           />
           <NavItem
             text="Flash Audit"
             img={Audit}
             active_img={ActiveAudit}
-            active={active === 8 && true}
+            index="15"
+            active={active === 15 && true}
+            path={"/flash-audit-result"}
           />
         </div>
       </div>
