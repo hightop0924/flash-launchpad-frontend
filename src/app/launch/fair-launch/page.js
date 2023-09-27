@@ -28,10 +28,13 @@ import DatePickerIcon from "@/assets/icons/datepicker.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ExportedImage from "next-image-export-optimizer";
+import { useRouter } from "next/navigation";
 
 const FairLaunch = () => {
   const [step, setStep] = useState(1);
   const [startDate, setStartDate] = useState(null);
+
+  const router = useRouter();
 
   return (
     <div className="min-h-[1500px]">
@@ -179,7 +182,12 @@ const FairLaunch = () => {
           <div className="flex flex-col gap-8">
             <div className="flex flex-row justify-between max-sm:flex-col-reverse max-sm:gap-8">
               <p className="text-xs text-[#FBBF04]">(*) is required field.</p>
-              <button className="py-[10px] px-[61px] bg-[#FBBF04] rounded-[10px] text-sm text-[#151103] font-semibold">
+              <button
+                className="py-[10px] px-[61px] bg-[#FBBF04] rounded-[10px] text-sm text-[#151103] font-semibold"
+                onClick={() => {
+                  router.push("/launch/create-token");
+                }}
+              >
                 Create Token
               </button>
             </div>

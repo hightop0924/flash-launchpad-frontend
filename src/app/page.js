@@ -68,11 +68,13 @@ const HomePage = () => {
           <ColorCard
             title="Tokens"
             text="Create you own token with Audit included"
+            link="/launch/create-token"
             BgColor="linear-gradient(128deg, #02BDA6 0%, #0691C9 100%)"
           />
           <ColorCard
             title="Airdrop"
-            text="Free tool for airdrops "
+            text="Free tool for airdrops"
+            link="/airdrop"
             BgColor="linear-gradient(137deg, #F728EF 0%, #663FF5 100%)"
           />
           <ColorCard
@@ -84,16 +86,18 @@ const HomePage = () => {
           <ColorCard
             title="Flash Transfer"
             text="Create your own rewarding system"
+            link="/flash-transfer"
             BgColor="linear-gradient(152deg, rgba(249, 162, 37, 0.90) 0%, rgba(79, 65, 22, 0.90) 100%)"
           />
           <ColorCard
             title="Floki locker"
             text="Block your tokens or liquidity with Floki Lock directly on Flash pad."
+            link="/launch/create-lock"
             BgColor="linear-gradient(137deg, #FC7B21 0%, #F4555C 100%)"
           />
           <ColorCard
             title="Flash Club"
-            text="Join GemPad’s Alpha club by holding 180,000 GEMS"
+            text="Join Flash Club by holding NFT"
             BgColor="linear-gradient(137deg, #D4A918 0%, #F16806 100%)"
           />
         </div>

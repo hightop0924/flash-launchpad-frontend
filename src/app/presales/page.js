@@ -34,7 +34,7 @@ const PresalPage = () => {
   return (
     <div>
       <HeaderSection />
-      <HeaderNav />
+      <HeaderNav navType={"presale"} />
       <div className="mt-6 flex flex-row max-sm:flex-col justify-between max-sm:gap-5">
         <div className="w-[100%]">
           <SearchInput />

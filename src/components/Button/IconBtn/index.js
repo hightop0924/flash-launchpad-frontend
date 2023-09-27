@@ -7,6 +7,7 @@ import ExportedImage from "next-image-export-optimizer";
 
 const IconBtn = ({
   text = "Home",
+  className = "",
   icon = Home,
   rightIcon = "",
   heigh = "h-[38px]",
@@ -17,27 +18,30 @@ const IconBtn = ({
   py = "py-[8px]",
   rounded = "rounded-[20px]",
   borderColor = "border-[#282828]",
-  onClick = "",
+  onClick = () => {},
   capitalize = true,
   iconHeight,
 }) => {
   return (
     <button
-      className={`${px} ${py} flex flex-row justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
+      className={`${className} ${px} ${py} flex flex-row justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
       onClick={(e) => onClick()}
     >
       <ExportedImage
         src={icon}
         height={iconHeight ? iconHeight : ""}
         alt="image"
+        style={{ maxWidth: "none" }}
       />
-      <p
-        className={`${TxClass} ${TxSize} font-semibold ${
-          capitalize ? "capitalize" : ""
-        }`}
-      >
-        {text}
-      </p>
+      {text && (
+        <p
+          className={`${TxClass} ${TxSize} font-semibold ${
+            capitalize ? "capitalize" : ""
+          }`}
+        >
+          {text}
+        </p>
+      )}
       {rightIcon && <ExportedImage src={rightIcon} alt="image" />}
     </button>
   );

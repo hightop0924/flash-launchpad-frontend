@@ -46,7 +46,7 @@ const CreateToken = () => {
             <p className="text-white text-[14px]">
               All created tokens include an Audit. <br />
               Audits can be found <span className="text-[#FCBF07]">here</span>.
-              Created tokens also get Audit badge on FlashPad presales
+              Created tokens also get Audit badge on Flashlaunch presales
               automatically.
             </p>
           </Success>

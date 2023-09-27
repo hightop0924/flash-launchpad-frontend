@@ -6,7 +6,7 @@ import Select from "@/components/Form/RoundedSelect";
 const StakingPool = () => {
   return (
     <div className="min-h-[1350px]">
-      <HeaderNav />
+      <HeaderNav navType={"staking"} />
       <div className="flex gap-3 justify-end mt-8">
         <Select label="Networks" />
         <Select label="Filter By" />

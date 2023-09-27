@@ -171,7 +171,7 @@ const FlashAuditResult = () => {
       {result === "" ? (
         <div>
           <div className="flex flex-row justify-center">
-            <div className="mt-[105px] w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9 max-sm:px-5">
+            <div className="mt-[105px] max-sm:w-3/4 max-md:w-3/4 max-lg:w-[760px] bg-[#1B1B1B] border border-[#2C2C2C] rounded-[16px] px-8 py-9 max-sm:px-5">
               <div className="flex flex-col items-center gap-14">
                 <ExportedImage
                   src={FlashAudit}

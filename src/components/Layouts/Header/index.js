@@ -30,8 +30,9 @@ import FlashIcon from "@/assets/icons/flash.svg";
 
 import { useRouter } from "next/navigation";
 import ExportedImage from "next-image-export-optimizer";
+import Link from "next/link";
 
-const Header = () => {
+const Header = ({ show, setShow }) => {
   const mainnet = [
     { name: "Ethereum", icon: EtherNetIcon, index: 1 },
     { name: "BNB Smart Chain", icon: BNBNetIcon, index: 2 },
@@ -42,8 +43,7 @@ const Header = () => {
   const testnet = [
     { name: "Goerli", icon: EtherNetIcon, index: 5 },
     { name: "BNB Smart Chain", icon: BNBNetIcon, index: 6 },
-    { name: "OpBNB Mainnet", icon: OpBNBNetIcon, index: 7 },
-    { name: "Polygon (mumbai)", icon: PolygonNetIcon, index: 8 },
+    { name: "Polygon (mumbai)", icon: PolygonNetIcon, index: 7 },
   ];
 
   const lanList = [
@@ -71,20 +71,27 @@ const Header = () => {
               router.push("/");
             }}
           />
-          <IconBtn text="Docs" icon={Docs} heigh="h-[37px]" />
+          <Link
+            href={
+              "https://flash-technologies.org/static/media/WhitePaperEN.d5c6dc29f299f21b24e2.pdf"
+            }
+            target="_blank"
+          >
+            <IconBtn text="Docs" icon={Docs} heigh="h-[37px]" />
+          </Link>
           <IconBtn text="presale alerts" icon={Alert} heigh="h-[37px]" />
           <IconBtn
             text="Join flash club"
             icon={FlashClub}
             heigh="h-[37px]"
             iconHeight={25}
-            onClick={() => {}}
           />
           <div className="ml-[33px]">
             <IconBtn
               text="Burn Floki For get Whitelist"
               icon={Floki}
               BgClass="bg-[#FCBF07]"
+              TxClass="color-[#000]"
               heigh="h-[37px]"
               onClick={() => {
                 router.push("/burn");
@@ -200,66 +207,96 @@ const Header = () => {
         )}
 
         {createShow && (
-          <div className="bg-[#1B1B1B] rounded-[8px] shadow-[0_8px_55px_0_rgba(0, 0, 0, 0.20)] py-6 absolute top-[90px] right-[300px] z-50 w-[400px]">
-            <p className="text-center text-[#FCBF07] text-[25.6px]">Create</p>
-            <div className="flex flex-row px-[28.5px] py-[25px]">
-              <div className="flex flex-col gap-5 border-r-2 border-[#2C2C2C] pr-[39px] py-[15px]">
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Presale
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Special Sale
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Launchpad
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Fair Launch
-                </button>
+          <>
+            <div
+              className="fixed bg-transparent top-0 left-0 w-screen h-screen z-10"
+              onClick={() => {
+                setCreateShow(false);
+              }}
+            ></div>
+            <div className="bg-[#1B1B1B] rounded-[8px] shadow-[0_8px_55px_0_rgba(0, 0, 0, 0.20)] py-6 absolute top-[90px] right-[300px] z-50 w-[400px] z-20">
+              <p className="text-center text-[#FCBF07] text-[25.6px]">Create</p>
+              <div className="flex flex-row px-[28.5px] py-[25px]">
+                <div className="flex flex-col gap-5 border-r-2 border-[#2C2C2C] pr-[39px] py-[15px]">
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Presale
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Special Sale
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/launch/launchpad");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Launchpad
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/launch/fair-launch");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Fair Launch
+                  </button>
+                </div>
+                <div className="flex flex-col gap-5 pl-[39px] py-[15px]">
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/launch/create-token");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Token
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/launch/create-staking");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Staking Pool
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/launch/create-lock");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Lock
+                  </button>
+                  <button
+                    onClick={() => {
+                      setCreateShow(false);
+                      router.push("/airdrop");
+                    }}
+                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
+                  >
+                    Airdrop
+                  </button>
+                </div>
               </div>
-              <div className="flex flex-col gap-5 pl-[39px] py-[15px]">
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Token
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Staking Pool
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Lock
-                </button>
-                <button
-                  onClick={() => setCreateShow(false)}
-                  className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                >
-                  Airdrop
-                </button>
-              </div>
+              <p className="text-sm text-[#FCBF07] text-center">
+                Apply For Flash Incubation
+              </p>
             </div>
-            <p className="text-sm text-[#FCBF07] text-center">
-              Apply For Flash Incubation
-            </p>
-          </div>
+          </>
         )}
       </div>
       <div className="sm:hidden flex flex-row p-5 justify-between">
@@ -267,7 +304,27 @@ const Header = () => {
           <ExportedImage src={FlashIcon} alt="flash" />
           <p className="text-white text-sm">Flash pad</p>
         </div>
-        <ExportedImage src={MenuIcon} alt="menu" className="cursor-pointer" />
+        <div className="flex flex-row items-center gap-1">
+          <IconBtn
+            text=""
+            icon={Wallet}
+            BgClass="bg-[#FCBF07]"
+            TxClass="text-[#16171B]"
+            TxSize="text-[16px]"
+            rounded="rounded-[30px]"
+            heigh="h-[35px]"
+            px="px-[18px]"
+            py="py-[5px]"
+          />
+          <ExportedImage
+            src={MenuIcon}
+            alt="menu"
+            className="cursor-pointer"
+            onClick={() => {
+              setShow(!show);
+            }}
+          />
+        </div>
       </div>
     </>
   );

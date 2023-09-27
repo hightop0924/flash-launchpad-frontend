@@ -20,7 +20,7 @@ const TokenLock = () => {
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(false);
 
-  const tableList = [
+  const [tableList, setTableList] = useState([
     { key: 1 },
     { key: 2 },
     { key: 3 },
@@ -37,7 +37,7 @@ const TokenLock = () => {
     { key: 14 },
     { key: 15 },
     { key: 16 },
-  ];
+  ]);
 
   const details = [
     {
@@ -88,7 +88,27 @@ const TokenLock = () => {
           <div className="text-[14px] text-[#86888C] flex flex-row justify-end max-sm:justify-start gap-5 mt-16 max-sm:mt-[16px]">
             <div
               className="relative px-2 cursor-pointer"
-              onClick={() => setActiveTab(1)}
+              onClick={() => {
+                setActiveTab(1);
+                setTableList([
+                  { key: 1 },
+                  { key: 2 },
+                  { key: 3 },
+                  { key: 4 },
+                  { key: 5 },
+                  { key: 6 },
+                  { key: 7 },
+                  { key: 8 },
+                  { key: 9 },
+                  { key: 10 },
+                  { key: 11 },
+                  { key: 12 },
+                  { key: 13 },
+                  { key: 14 },
+                  { key: 15 },
+                  { key: 16 },
+                ]);
+              }}
             >
               {activeTab === 1 ? (
                 <>
@@ -101,7 +121,10 @@ const TokenLock = () => {
             </div>
             <div
               className="relative px-2 cursor-pointer"
-              onClick={() => setActiveTab(2)}
+              onClick={() => {
+                setActiveTab(2);
+                setTableList([]);
+              }}
             >
               {activeTab === 2 ? (
                 <>
@@ -122,79 +145,89 @@ const TokenLock = () => {
               </tr>
             </thead>
             <tbody>
-              {tableList.map((item, index) => {
-                if (loadMore) {
-                  return (
-                    <tr className="w-[100%] max-sm:text-sm" key={index}>
-                      <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
-                        <div className="flex flex-row gap-4 items-center">
-                          <ExportedImage
-                            src={LumiImage}
-                            alt="image"
-                            className="max-sm:w-[43px] max-sm:h-[32px]"
-                          />
-                          <div className="flex flex-col">
-                            <p className="text-[18px] max-sm:text-sm">
-                              Lumi Foundation
-                            </p>
-                            <p className="text-[16px] text-[#86888C] max-sm:text-sm">
-                              LFD
-                            </p>
+              {tableList.length === 0 && (
+                <tr>
+                  <td colSpan={2} className="p-5 text-center">
+                    <span className="text-xl font-bold"> No Data </span>
+                  </td>
+                </tr>
+              )}
+              {tableList.length > 0 &&
+                tableList.map((item, index) => {
+                  if (loadMore) {
+                    return (
+                      <tr className="w-[100%] max-sm:text-sm" key={index}>
+                        <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
+                          <div className="flex flex-row gap-4 items-center">
+                            <ExportedImage
+                              src={LumiImage}
+                              alt="image"
+                              className="max-sm:w-[43px] max-sm:h-[32px]"
+                            />
+                            <div className="flex flex-col">
+                              <p className="text-[18px] max-sm:text-sm">
+                                Lumi Foundation
+                              </p>
+                              <p className="text-[16px] text-[#86888C] max-sm:text-sm">
+                                LFD
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="w-[40%] py-5 border-b max-sm:w-[25%] border-[#2C2C2C]">
-                        500,000
-                      </td>
-                      <td
-                        className="py-5 border-b border-[#2C2C2C] w-[10%] text-[16px] max-sm:text-sm text-[#FCBF07] cursor-pointer"
-                        onClick={() => setPage(2)}
-                      >
-                        View
-                      </td>
-                    </tr>
-                  );
-                } else if (loadMore === false && index < 10) {
-                  return (
-                    <tr className="w-[100%] max-sm:text-sm" key={index}>
-                      <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
-                        <div className="flex flex-row gap-4 items-center">
-                          <ExportedImage
-                            src={LumiImage}
-                            alt="image"
-                            className="max-sm:w-[43px] max-sm:h-[32px]"
-                          />
-                          <div className="flex flex-col">
-                            <p className="text-[18px] max-sm:text-sm">
-                              Lumi Foundation
-                            </p>
-                            <p className="text-[16px] max-sm:text-sm text-[#86888C]">
-                              LFD
-                            </p>
+                        </td>
+                        <td className="w-[40%] py-5 border-b max-sm:w-[25%] border-[#2C2C2C]">
+                          500,000
+                        </td>
+                        <td
+                          className="py-5 border-b border-[#2C2C2C] w-[10%] text-[16px] max-sm:text-sm text-[#FCBF07] cursor-pointer"
+                          onClick={() => setPage(2)}
+                        >
+                          View
+                        </td>
+                      </tr>
+                    );
+                  } else if (loadMore === false && index < 10) {
+                    return (
+                      <tr className="w-[100%] max-sm:text-sm" key={index}>
+                        <td className="w-[46%] py-5 border-b border-[#2C2C2C]">
+                          <div className="flex flex-row gap-4 items-center">
+                            <ExportedImage
+                              src={LumiImage}
+                              alt="image"
+                              className="max-sm:w-[43px] max-sm:h-[32px]"
+                            />
+                            <div className="flex flex-col">
+                              <p className="text-[18px] max-sm:text-sm">
+                                Lumi Foundation
+                              </p>
+                              <p className="text-[16px] max-sm:text-sm text-[#86888C]">
+                                LFD
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="w-[40%] py-5 border-b max-sm:w-[25%] max-sm:text-sm border-[#2C2C2C]">
-                        500,000
-                      </td>
-                      <td
-                        className="py-5 border-b max-sm:text-sm border-[#2C2C2C] w-[10%] text-[16px] text-[#FCBF07] cursor-pointer"
-                        onClick={() => setPage(2)}
-                      >
-                        View
-                      </td>
-                    </tr>
-                  );
-                }
-              })}
+                        </td>
+                        <td className="w-[40%] py-5 border-b max-sm:w-[25%] max-sm:text-sm border-[#2C2C2C]">
+                          500,000
+                        </td>
+                        <td
+                          className="py-5 border-b max-sm:text-sm border-[#2C2C2C] w-[10%] text-[16px] text-[#FCBF07] cursor-pointer"
+                          onClick={() => setPage(2)}
+                        >
+                          View
+                        </td>
+                      </tr>
+                    );
+                  }
+                })}
             </tbody>
           </table>
-          <div
-            className="text-base text-[#FCBF07] mt-8 cursor-pointer"
-            onClick={() => setLoadMore(!loadMore)}
-          >
-            {loadMore === true ? "Load Less" : "Load More"}
-          </div>
+          {tableList.length > 0 && (
+            <div
+              className="text-base text-[#FCBF07] mt-8 cursor-pointer"
+              onClick={() => setLoadMore(!loadMore)}
+            >
+              {loadMore === true ? "Load Less" : "Load More"}
+            </div>
+          )}
         </div>
       ) : (
         <div className="flex flex-col gap-5">

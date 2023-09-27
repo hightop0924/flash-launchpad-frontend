@@ -47,7 +47,7 @@ const CreateLocks = () => {
           <Success>
             <p className="text-white text-[14px]">
               Verified <br />
-              FlashPad is Audited By:
+              Flashlaunch is Audited By:
               <span className="text-[#FCBF07]"> Certik</span>
             </p>
           </Success>
@@ -76,7 +76,7 @@ const CreateLocks = () => {
                 <div className="flex flex-row items-center gap-3 max-sm:flex-col max-sm:gap-2  max-sm:items-start">
                   <div className="flex flex-row items-center gap-3 max-sm:gap-2">
                     <p className="text-[14px] text-[#FFF7CD] max-sm:text-xs">
-                      Exclude FlashPad`s lock address
+                      Exclude Flashlaunch`s lock address
                     </p>
                     <ExportedImage src={CopyIcon} alt="icon" />
                   </div>

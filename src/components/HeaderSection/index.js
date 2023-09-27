@@ -24,18 +24,33 @@ import ExportedImage from "next-image-export-optimizer";
 
 const HeaderSection = () => {
   return (
-    <div className="gap-x-[22px] flex pb-8 pl-10 max-sm:w-[100%] max-2xl:overflow-y-scroll max-sm:pt-7 max-sm:pl-0">
-      <div className="min-w-[1500px] flex flex-row gap-x-[22px] items-center">
-        <div className="mr-8">
-          <IconBtn
-            icon={Floki}
-            text="FLOKI"
-            BgClass="bg-[#FCBF07]"
-            py="py-[12px]"
-            TxSize="text-[16px]"
-          />
-        </div>
-        <div className="min-w-[1200px] flex flex-row gap-x-[10px] px-3 py-2 rounded-full bg-[#1B1B1B]">
+    <div className="gap-x-[22px] flex pb-8 max-sm:w-[100%] max-2xl:overflow-y-scroll max-sm:pt-7 max-sm:pl-0">
+      <div
+        className="max-sm:min-w-0 max-md:min-w-0 max-lg:min-w-[1500px] flex flex-row gap-x-[22px] items-center"
+        style={{ maxWidth: "100%" }}
+      >
+        {/* <div className="mr-8"> */}
+        <IconBtn
+          icon={Floki}
+          className="max-sm:hidden max-md:hidden"
+          text="FLOKI"
+          BgClass="bg-[#FCBF07]"
+          py="py-[12px]"
+          TxSize="text-[16px]"
+          TxClass="text-[#000]"
+        />
+        <IconBtn
+          icon={Floki}
+          className="hidden max-lg:hidden max-xl:hidden max-2xl:hidden max-sm:block max-md:block"
+          text=""
+          BgClass="bg-[#FCBF07]"
+          px="px-[10px]"
+          py="py-[5px]"
+          TxSize="text-[16px]"
+          TxClass="text-[#000]"
+        />
+        {/* </div> */}
+        <div className="max-sm:min-w-[240px] max-sm:w-[calc(100%-140px)] max-md:min-w-[600px] max-sm:w-[calc(100%-140px)] max-lg:min-w-[1200px] max-lg:w-[calc(100%-288px)] flex flex-row gap-x-[10px] px-3 py-2 rounded-full bg-[#1B1B1B]">
           <div className="flex flex-row justify-center items-center gap-3">
             <ExportedImage src={Hot} alt="hot" />
             <p className="text-[16px] text-[#fff] font-semibold">HOT</p>
@@ -171,10 +186,21 @@ const HeaderSection = () => {
         </div>
         <IconBtn
           icon={DexTools}
+          className="max-sm:hidden max-md:hidden"
           text="DEXTools"
           BgClass="bg-[#0A505F]"
           py="py-[12px]"
           TxSize="text-[14px]"
+        />
+        <IconBtn
+          icon={DexTools}
+          className="hidden max-sm:block max-md:block"
+          text=""
+          BgClass="bg-[#0A505F]"
+          px="px-[10px]"
+          py="py-[5px]"
+          TxSize="text-[16px]"
+          TxClass="text-[#000]"
         />
       </div>
     </div>

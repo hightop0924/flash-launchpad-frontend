@@ -39,6 +39,7 @@ export const options = {
 
 import Map from "@/components/Map";
 import ExportedImage from "next-image-export-optimizer";
+import { useRouter } from "next/navigation";
 /**
  *
  *
@@ -115,6 +116,13 @@ const PresalesDetails = () => {
       value: "10 %",
     },
   ];
+
+  const [affiliateLink, setAffiliateLink] = useState(
+    "https://www.pinksale.finance/launchpad/0x0903f032F0cf20e1e105F49fD6C74fFFaF1Df831?chain=ETH"
+  );
+
+  const router = useRouter();
+
   return (
     <div className="min-h-[1340px] flex flex-row gap-[30px] max-sm:flex-col">
       <div className="flex-auto w-[892px] max-sm:w-[100%] flex flex-col gap-8">
@@ -206,6 +214,9 @@ const PresalesDetails = () => {
               <input
                 type="text"
                 className="bg-[#141414] border border-[#282828] pl-5 py-3 outline-none w-[77.2%] text-sm text-[#86888C]"
+                value={affiliateLink}
+                readOnly
+                onChange={() => {}}
               />
 
               <div className="flex flex-col items-center justify-center w-[40px] h-[100%] bg-[#141414] border-t border-[#2C2C2C] border-b border-r rounded-r-lg">
@@ -360,7 +371,12 @@ const PresalesDetails = () => {
                   MAX
                 </div>
               </div>
-              <button className="w-[150px] h-[43px] flex flex-col items-center justify-center bg-[#FBBF04] outline-none rounded-[10px] text-sm text-[#151103]">
+              <button
+                className="w-[150px] h-[43px] flex flex-col items-center justify-center bg-[#FBBF04] outline-none rounded-[10px] text-sm text-[#151103]"
+                onClick={() => {
+                  router.push(affiliateLink);
+                }}
+              >
                 Next
               </button>
             </div>
