@@ -70,6 +70,12 @@ const MultiSender = () => {
             </p>
           </>
         </Warning>
+
+        <div className="flex justify-center items-center">
+          <button className="bg-[#FBBF04] rounded-lg text-center text-[#000] min-w-[152px] p-3">
+            <span className="text-[#000]"> Next </span>
+          </button>
+        </div>
       </div>
 
       <p className="text-white text-base text-center mt-8">

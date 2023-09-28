@@ -19,8 +19,8 @@ import Active_Favorites from "@/assets/icons/active-favorites.svg";
 import Active_Alarms from "@/assets/icons/active-alarms.svg";
 import Active_CreatedPresales from "@/assets/icons/active-created-presales.svg";
 
-const HeaderNav = ({ navType }) => {
-  const [active, setActive] = useState(2);
+const HeaderNav = ({ navActive, setNavActive, navType }) => {
+  const [active, setActive] = useState(navActive);
 
   const navItem = {
     presale: [
@@ -87,7 +87,10 @@ const HeaderNav = ({ navType }) => {
             active={active === item.key && true}
             key={item.key}
             index={item.key}
-            onClick={(index) => setActive(index)}
+            onClick={(index) => {
+              setActive(index);
+              setNavActive(index);
+            }}
           />
         ))}
       </div>

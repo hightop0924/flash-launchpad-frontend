@@ -39,7 +39,7 @@ const CreateLocks = () => {
   return (
     <div className="relative min-h-[1500px]">
       <DefaultCard
-        header="Create Your Locks for Free"
+        header="Create Your Locks"
         footer={true}
         footerWrapper={<FooterButton />}
       >

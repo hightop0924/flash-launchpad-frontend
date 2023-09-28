@@ -10,7 +10,7 @@ import Dextools from "@/assets/icons/dextools-logo.svg";
 import Floki from "@/assets/icons/floki-logo.svg";
 import HeaderSection from "@/components/HeaderSection";
 
-const HomePage = () => {
+export default function HomePage() {
   const flash_ecosystem = [
     {
       title: "Flash Transfer",
@@ -127,6 +127,4 @@ const HomePage = () => {
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}

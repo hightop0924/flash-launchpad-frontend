@@ -20,6 +20,36 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        {/* <!-- Primary Meta Tags --> */}
+        <title>Flash Launch</title>
+        <link rel="icon" type="image/x-icon" href="/logo.svg" />
+        <meta name="title" content="Flash Launch" />
+        <meta
+          name="description"
+          content="Launchpad revolutionary decentralized"
+        />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://flash-launch.com/" />
+        <meta property="og:title" content="Flash Launch" />
+        <meta
+          property="og:description"
+          content="Launchpad revolutionary decentralized"
+        />
+        <meta property="og:image" content="put flash logo url here" />
+
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://flash-launch.com/" />
+        <meta property="twitter:title" content="Flash Launch" />
+        <meta
+          property="twitter:description"
+          content="Launchpad revolutionary decentralized"
+        />
+        <meta property="twitter:image" content="put flash logo url here" />
+      </head>
       <body className={inter.className}>
         <div className="flex max-lg:hidden">
           <SideBar mobileView={false} show={true} />
@@ -27,7 +57,7 @@ export default function RootLayout({ children }) {
             <Header />
 
             <div
-              className="w-[calc(100vw-286px)] -ml-[1px]"
+              className="w-[calc(100vw-286px)] -ml-[1px] min-h-screen h-[calc(100%-80px)]"
               style={{
                 background: `url('${Background.src}') center center`,
               }}
