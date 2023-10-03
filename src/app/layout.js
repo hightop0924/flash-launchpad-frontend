@@ -23,7 +23,11 @@ export default function RootLayout({ children }) {
       <head>
         {/* <!-- Primary Meta Tags --> */}
         <title>Flash Launch</title>
-        <link rel="icon" type="image/x-icon" href="/logo.svg" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="https://flash-technologies.org/logo2.png"
+        />
         <meta name="title" content="Flash Launch" />
         <meta
           name="description"
@@ -38,17 +42,26 @@ export default function RootLayout({ children }) {
           property="og:description"
           content="Launchpad revolutionary decentralized"
         />
-        <meta property="og:image" content="put flash logo url here" />
+        <meta
+          property="og:image"
+          content="https://flash-technologies.org/flash_tech.jpg"
+        />
 
         {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:card"
+          content="https://flash-technologies.org/logo2.png"
+        />
         <meta property="twitter:url" content="https://flash-launch.com/" />
         <meta property="twitter:title" content="Flash Launch" />
         <meta
           property="twitter:description"
           content="Launchpad revolutionary decentralized"
         />
-        <meta property="twitter:image" content="put flash logo url here" />
+        <meta
+          property="twitter:image"
+          content="https://flash-technologies.org/flash_tech.jpg"
+        />
       </head>
       <body className={inter.className}>
         <div className="flex max-lg:hidden">
