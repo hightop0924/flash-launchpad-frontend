@@ -43,7 +43,8 @@ const Header = ({ show, setShow }) => {
   const testnet = [
     { name: "Goerli", icon: EtherNetIcon, index: 5 },
     { name: "BNB Smart Chain", icon: BNBNetIcon, index: 6 },
-    { name: "Polygon (mumbai)", icon: PolygonNetIcon, index: 7 },
+    { name: "OpBNB", icon: OpBNBNetIcon, index: 7 },
+    { name: "Polygon (mumbai)", icon: PolygonNetIcon, index: 8 },
   ];
 
   const lanList = [
@@ -80,12 +81,14 @@ const Header = ({ show, setShow }) => {
             <IconBtn text="Docs" icon={Docs} heigh="h-[37px]" />
           </Link>
           <IconBtn text="presale alerts" icon={Alert} heigh="h-[37px]" />
-          <IconBtn
-            text="Join flash club"
-            icon={FlashClub}
-            heigh="h-[37px]"
-            iconHeight={25}
-          />
+          <Link href={"https://rarible.com/flashtechno/sale"} target="_blank">
+            <IconBtn
+              text="Join flash club"
+              icon={FlashClub}
+              heigh="h-[37px]"
+              iconHeight={25}
+            />
+          </Link>
           <div className="ml-[33px]">
             <IconBtn
               text="Burn Floki For get Whitelist"
@@ -221,18 +224,11 @@ const Header = ({ show, setShow }) => {
                   <button
                     onClick={() => {
                       setCreateShow(false);
+                      router.push("/launch/create-token");
                     }}
                     className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
                   >
-                    Presale
-                  </button>
-                  <button
-                    onClick={() => {
-                      setCreateShow(false);
-                    }}
-                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                  >
-                    Special Sale
+                    Token
                   </button>
                   <button
                     onClick={() => {
@@ -254,15 +250,6 @@ const Header = ({ show, setShow }) => {
                   </button>
                 </div>
                 <div className="flex flex-col gap-5 pl-[39px] py-[15px]">
-                  <button
-                    onClick={() => {
-                      setCreateShow(false);
-                      router.push("/launch/create-token");
-                    }}
-                    className="outline-none border-2 border-[#FCBF07] rounded-[23px] flex flex-row items-center justify-center w-[131px] h-[41px] text-white text-[13px]"
-                  >
-                    Token
-                  </button>
                   <button
                     onClick={() => {
                       setCreateShow(false);

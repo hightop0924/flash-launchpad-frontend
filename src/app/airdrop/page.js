@@ -26,7 +26,7 @@ const MultiSender = () => {
         </div>
 
         <div className="flex flex-col items-center gap-2">
-          <div className="w-[42px] h-[42px] bg-[#FCBF07] flex flex-row justify-center items-center rounded-full text-base">
+          <div className="w-[42px] h-[42px] bg-[#86888C] flex flex-row justify-center items-center rounded-full text-base">
             2
           </div>
           <p className="text-white text-base">Confirmation</p>
@@ -78,14 +78,14 @@ const MultiSender = () => {
         </div>
       </div>
 
-      <p className="text-white text-base text-center mt-8">
+      {/* <p className="text-white text-base text-center mt-8">
         Disclaimer: PinkSale will never endorse or encourage that you invest in
         any of the projects listed and therefore, accept no liability for <br />
         any loss occasioned. It is the user(s) responsibility to do their own
         research and seek financial advice from a professional. More <br />
         information about (DYOR) can be found via{" "}
         <span className="text-[#FCBF07]">Flashlaunch.</span>
-      </p>
+      </p> */}
     </div>
   );
 };

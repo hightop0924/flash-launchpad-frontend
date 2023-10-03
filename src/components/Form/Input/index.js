@@ -30,7 +30,7 @@ const Input = ({
       <input
         type="text"
         placeholder={placeholder}
-        className={`w-[100%] h-[59px] outline-none border border-[#2C2C2C] bg-[#141414] p-5 ${
+        className={`w-[100%] h-[59px] text-white outline-none border border-[#2C2C2C] bg-[#141414] p-5 ${
           icon && "pl-11"
         }  rounded-lg text-[#86888C] text-sm`}
       />

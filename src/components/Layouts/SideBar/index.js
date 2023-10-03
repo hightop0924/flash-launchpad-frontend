@@ -150,10 +150,14 @@ const SideBar = ({ show, mobileView, setShow }) => {
             : "relative"
         } ${show ? "block" : "hidden"}`}
       >
-        <div className="flex items-center gap-x-2 pl-10 pt-[24.96px]">
+        <Link
+          className="flex items-center gap-x-2 pl-10 pt-[24.96px]"
+          href={"https://flash-launch.com/"}
+          target="_self"
+        >
           <ExportedImage src={logo} alt="logo" />
           <p className="text-[#fff] text-[19.067px] font-bold">Flashlaunch</p>
-        </div>
+        </Link>
 
         <Link
           href={

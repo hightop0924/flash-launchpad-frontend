@@ -191,7 +191,7 @@ const Profile = () => {
         </div>
       </div>
 
-      {(tabActive === 0 || tabActive === 1) && (
+      {/* {(tabActive === 0 || tabActive === 1) && (
         <div className="mt-[157px] max-sm:mt-8 pb-5 flex flex-row justify-center">
           <p className="text-center text-lg max-sm:text-sm text-white w-[1155px]">
             Disclaimer: Flashlaunch will never endorse or encourage that you
@@ -202,7 +202,7 @@ const Profile = () => {
             <span className="text-[#FCBF07]">Binance Academy</span>.
           </p>
         </div>
-      )}
+      )} */}
 
       {tabActive === 3 && (
         <div className="mt-[30px] flex flex-row gap-[11.2px] justify-center">

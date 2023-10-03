@@ -10,6 +10,9 @@ import PoocoinIcon from "@/assets/icons/poocoin.svg";
 import CopyIcon from "@/assets/icons/copy.svg";
 import EtherIcon from "@/assets/icons/eth.svg";
 
+import MetaIcon from "@/assets/image/metadata.jpg";
+import YellowLogoIcon from "@/assets/image/yello_logo.png";
+
 export const data = [
   ["Task", "Hours per Day"],
   ["Work", 11],
@@ -85,11 +88,11 @@ const StakingPoolDetails = () => {
       <div className="flex-auto w-[892px] flex flex-col gap-8">
         <div className="bg-[#1B1B1B] rounded-[16px]">
           <div className="relative">
-            <ExportedImage src={BackImage} alt="back" />
+            <ExportedImage src={MetaIcon} alt="back" className="w-full h-48" />
             <ExportedImage
-              src={AvatarImage}
+              className="absolute w-[107px] h-[107px] top-[147px] left-[60px] rounded-full bg-[#1B1B1B]"
+              src={YellowLogoIcon}
               alt="avatar"
-              className="absolute top-[147px] left-[60px] w-auto h-auto"
             />
 
             <div className="flex flex-col ml-[199px] mt-2">

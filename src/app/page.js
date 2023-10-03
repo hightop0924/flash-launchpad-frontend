@@ -54,8 +54,16 @@ export default function HomePage() {
         </p>
         <div className="mt-[60px] grid grid-cols-3 max-2xl:grid-cols-1 gap-[24px] justify-center items-center">
           <StatsCard />
-          <StatsCard />
-          <StatsCard />
+          <StatsCard
+            text="Total Generated Tokens"
+            percent="17.74"
+            value="3,190"
+          />
+          <StatsCard
+            text="Project Raise Success Rate"
+            percent="32.43"
+            value="70.792%"
+          />
         </div>
         <div className="grid grid-cols-4 max-2xl:grid-cols-1 gap-[24px] justify-center gap-x-7 mt-[56px] items-center">
           <ColorCard />
@@ -86,7 +94,7 @@ export default function HomePage() {
           <ColorCard
             title="Flash Transfer"
             text="Create your own rewarding system"
-            link="/flash-transfer"
+            link="https://flash-transfer.com"
             BgColor="linear-gradient(152deg, rgba(249, 162, 37, 0.90) 0%, rgba(79, 65, 22, 0.90) 100%)"
           />
           <ColorCard
@@ -98,6 +106,7 @@ export default function HomePage() {
           <ColorCard
             title="Flash Club"
             text="Join Flash Club by holding NFT"
+            link="https://rarible.com/flashtechno/sale"
             BgColor="linear-gradient(137deg, #D4A918 0%, #F16806 100%)"
           />
         </div>
