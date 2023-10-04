@@ -185,7 +185,7 @@ const SideBar = ({ show, mobileView, setShow }) => {
           </p>
           <div className="flex flex-col mt-5 gap-y-2">
             {routerList.map((item, index) => {
-              if (index < 5) {
+              if (index < 4) {
                 return (
                   <NavItem
                     key={index}
