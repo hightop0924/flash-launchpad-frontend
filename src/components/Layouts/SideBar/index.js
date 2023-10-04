@@ -156,7 +156,7 @@ const SideBar = ({ show, mobileView, setShow }) => {
           target="_self"
         >
           <ExportedImage src={logo} alt="logo" />
-          <p className="text-[#fff] text-[19.067px] font-bold">Flashlaunch</p>
+          <p className="text-[#fff] text-[19.067px] font-bold">Flash pad</p>
         </Link>
 
         <Link
@@ -167,7 +167,7 @@ const SideBar = ({ show, mobileView, setShow }) => {
           rel="noreferrer"
         >
           <button
-            className={`ml-10 mt-[34px] px-6 py-3 flex justify-center items-center gap-2 rounded-[39px] h-[43px] bg-[#FCBF07]`}
+            className={`mt-[34px] px-6 py-3 flex justify-center items-center gap-2 rounded-[39px] h-[43px] bg-[#FCBF07]`}
           >
             <p className={`text-[#16171B] text-base font-semibold capitalize`}>
               Buy $Flash

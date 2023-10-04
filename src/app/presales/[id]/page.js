@@ -374,7 +374,7 @@ const PresalesDetails = () => {
               <button
                 className="w-[150px] h-[43px] flex flex-col items-center justify-center bg-[#FBBF04] outline-none rounded-[10px] text-sm text-[#151103]"
                 onClick={() => {
-                  router.push(affiliateLink);
+                  // router.push(affiliateLink);
                 }}
               >
                 Next

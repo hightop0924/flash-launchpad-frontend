@@ -73,14 +73,14 @@ const Header = ({ show, setShow }) => {
             }}
           />
           <Link
-            href={
-              "https://flash-technologies.org/static/media/WhitePaperEN.d5c6dc29f299f21b24e2.pdf"
-            }
+            href={"https://flash-technologies.gitbook.io/flash-launchpad/"}
             target="_blank"
           >
             <IconBtn text="Docs" icon={Docs} heigh="h-[37px]" />
           </Link>
-          <IconBtn text="presale alerts" icon={Alert} heigh="h-[37px]" />
+          <Link href={"https://t.me/flashlaunchalert"} target="_blank">
+            <IconBtn text="presale alerts" icon={Alert} heigh="h-[37px]" />
+          </Link>
           <Link href={"https://rarible.com/flashtechno/sale"} target="_blank">
             <IconBtn
               text="Join flash club"
