@@ -54,13 +54,13 @@ const SideBar = ({ show, mobileView, setShow }) => {
       path: "/presales",
       active: 1,
     },
-    {
-      text: "Staking Pools",
-      img: Pools,
-      active_img: ActivePools,
-      path: "/staking-pool",
-      active: 2,
-    },
+    // {
+    //   text: "Staking Pools",
+    //   img: Pools,
+    //   active_img: ActivePools,
+    //   path: "/staking-pool",
+    //   active: 2,
+    // },
     {
       text: "Token Locks List",
       img: TokenList,
@@ -159,21 +159,25 @@ const SideBar = ({ show, mobileView, setShow }) => {
           <p className="text-[#fff] text-[19.067px] font-bold">Flash pad</p>
         </Link>
 
-        <Link
-          href={
-            "https://app.uniswap.org/swap?outputCurrency=0xBb19DA2482308ec02a242ACED4Fe0f09D06b12A7&inputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
-          }
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button
-            className={`mt-[34px] px-6 py-3 flex justify-center items-center gap-2 rounded-[39px] h-[43px] bg-[#FCBF07]`}
+        <div className="flex justify-center items-center">
+          <Link
+            href={
+              "https://app.uniswap.org/swap?outputCurrency=0xBb19DA2482308ec02a242ACED4Fe0f09D06b12A7&inputCurrency=0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+            }
+            target="_blank"
+            rel="noreferrer"
           >
-            <p className={`text-[#16171B] text-base font-semibold capitalize`}>
-              Buy $Flash
-            </p>
-          </button>
-        </Link>
+            <button
+              className={`mt-[34px] px-6 py-3 flex justify-center items-center gap-2 rounded-[39px] h-[43px] bg-[#FCBF07]`}
+            >
+              <p
+                className={`text-[#16171B] text-base font-semibold capitalize`}
+              >
+                Buy $Flash
+              </p>
+            </button>
+          </Link>
+        </div>
 
         <div className="mt-[26px]">
           <p className="text-[#86888c] text-[14px] font-semibold uppercase tracking-[1.5px] pl-10">

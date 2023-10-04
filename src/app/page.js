@@ -67,12 +67,12 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-4 max-2xl:grid-cols-1 gap-[24px] justify-center gap-x-7 mt-[56px] items-center">
           <ColorCard />
-          <ColorCard
+          {/* <ColorCard
             title="Staking Pool"
             text="Explore the staking pools and enjoy passive rewards from multiple projects"
             link="/staking-pool"
             BgColor="linear-gradient(137deg, #784FFB 28.67%, #0096E9 100%)"
-          />
+          /> */}
           <ColorCard
             title="Tokens"
             text="Create you own token with Audit included"

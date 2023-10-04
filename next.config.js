@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: true,
-  output: "export",
   images: {
     loader: "custom",
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

@@ -24,6 +24,10 @@ export default function RootLayout({ children }) {
         {/* <!-- Primary Meta Tags --> */}
         <title>Flash Launch</title>
         <link rel="icon" type="image/x-icon" href="/logo.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.svg" />
+        <link rel="icon" type="image/png" href="/logo.svg" sizes="32x32" />
+        <link rel="shortcut icon" href="/logo.svg" />
+
         <meta name="title" content="Flash Launch" />
         <meta
           name="description"
