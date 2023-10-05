@@ -14,7 +14,7 @@ const DefaultSelect = ({
       )}
       <select
         placeholder={placeholder}
-        className="w-[100%] h-[59px] p-5 bg-[#141414] border border-[#2C2C2C] rounded-[8px] outline-none text-base text-[#86888C]"
+        className="w-[100%] h-[59px] p-4 bg-[#141414] border border-[#2C2C2C] rounded-[8px] outline-none text-base text-[#86888C]"
       >
         {optons.map((item, index) => (
           <option value={item.value} key={index}>

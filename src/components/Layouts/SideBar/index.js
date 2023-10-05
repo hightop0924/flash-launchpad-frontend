@@ -102,6 +102,18 @@ const SideBar = ({ show, mobileView, setShow }) => {
       path: "/launch/create-lock",
       active: 11,
     },
+    {
+      path: "/airdrop",
+      active: 13,
+    },
+    {
+      path: "/launch/create-token",
+      active: 14,
+    },
+    {
+      path: "/flash-audit-result",
+      active: 16,
+    },
   ];
 
   const router = useRouter();
@@ -156,7 +168,7 @@ const SideBar = ({ show, mobileView, setShow }) => {
           target="_self"
         >
           <ExportedImage src={logo} alt="logo" />
-          <p className="text-[#fff] text-[19.067px] font-bold">Flash pad</p>
+          <p className="text-[#fff] text-[19.067px] font-bold">Flash launch</p>
         </Link>
 
         <div className="flex justify-center items-center">
@@ -231,11 +243,11 @@ const SideBar = ({ show, mobileView, setShow }) => {
                   path: "/launch/create-token",
                   active: active === 9 && true,
                 },
-                {
-                  label: "Staking Pool",
-                  path: "/launch/create-staking",
-                  active: active === 10 && true,
-                },
+                // {
+                //   label: "Staking Pool",
+                //   path: "/launch/create-staking",
+                //   active: active === 10 && true,
+                // },
                 {
                   label: "Create Lock",
                   path: "/launch/create-lock",
@@ -251,22 +263,22 @@ const SideBar = ({ show, mobileView, setShow }) => {
               right={true}
               index="12"
               onClick={() => setActive(12)}
-              active={active > 11 && active < 15 && true}
+              active={active > 11 && active < 16 && true}
               childItems={[
                 {
                   label: "Airdrop",
                   path: "/airdrop",
-                  active: active === 12 && true,
+                  active: active === 13 && true,
                 },
                 {
                   label: "Create Token",
                   path: "/launch/create-token",
-                  active: active === 13 && true,
+                  active: active === 14 && true,
                 },
                 {
                   label: "Swap & Bridge",
                   path: "https://flash-dex.com",
-                  active: active === 14 && true,
+                  active: active === 15 && true,
                 },
               ]}
             />
@@ -274,8 +286,8 @@ const SideBar = ({ show, mobileView, setShow }) => {
               text="Flash Audit"
               img={Audit}
               active_img={ActiveAudit}
-              index="15"
-              active={active === 15 && true}
+              index="16"
+              active={active === 16 && true}
               path={"/flash-audit-result"}
             />
           </div>

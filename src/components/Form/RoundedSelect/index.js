@@ -1,8 +1,9 @@
 const Select = ({
   label = "Networks",
   optons = [
-    { text: "Text", value: "value" },
-    { text: "Text1", value: "value1" },
+    { text: "ETH", value: "eth" },
+    { text: "BSC", value: "bsc" },
+    { text: "opBNB", value: "opbnb" },
   ],
 }) => {
   return (

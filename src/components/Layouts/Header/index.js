@@ -139,7 +139,7 @@ const Header = ({ show, setShow }) => {
             onClick={() => setNetShow(!netShow)}
           />
           <IconBtn
-            text="Connect Wallet"
+            text="Connect"
             icon={Wallet}
             BgClass="bg-[#FCBF07]"
             TxClass="text-[#16171B]"
@@ -289,12 +289,12 @@ const Header = ({ show, setShow }) => {
       <div className="sm:hidden flex flex-row p-5 justify-between">
         <div className="flex flex-row items-center gap-1">
           <ExportedImage src={FlashIcon} alt="flash" />
-          <p className="text-white text-sm">Flash pad</p>
+          <p className="text-white text-sm">Flash launch</p>
         </div>
         <div className="flex flex-row items-center gap-1">
           <IconBtn
-            text=""
-            icon={Wallet}
+            text="Connect"
+            icon={null}
             BgClass="bg-[#FCBF07]"
             TxClass="text-[#16171B]"
             TxSize="text-[16px]"

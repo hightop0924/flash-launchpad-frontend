@@ -87,8 +87,24 @@ const PresalPage = () => {
 
         <div className="flex gap-3">
           <Select label="Networks" />
-          <Select label="Filter By" />
-          <Select label="Sort By" />
+          <Select
+            label="Filter By"
+            optons={[
+              { text: "Launchpad", value: "launchpad" },
+              { text: "Fair Launch", value: "fairlaunch" },
+            ]}
+          />
+          <Select
+            label="Sort By"
+            optons={[
+              { text: "No Filter", value: "nofilter" },
+              { text: "Hard Cap", value: "hardcap" },
+              { text: "Soft Cap", value: "softcap" },
+              { text: "LP percent", value: "lp_percent" },
+              { text: "Start time", value: "start_time" },
+              { text: "End time", value: "end_time" },
+            ]}
+          />
         </div>
       </div>
       {presalesList.length == 0 ? (

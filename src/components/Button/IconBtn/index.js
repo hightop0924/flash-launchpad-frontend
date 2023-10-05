@@ -27,12 +27,14 @@ const IconBtn = ({
       className={`${className} ${px} ${py} flex flex-row justify-center items-center gap-2 ${rounded} ${heigh} ${BgClass} border ${borderColor}`}
       onClick={(e) => onClick()}
     >
-      <ExportedImage
-        src={icon}
-        height={iconHeight ? iconHeight : ""}
-        alt="image"
-        style={{ maxWidth: "none" }}
-      />
+      {icon && (
+        <ExportedImage
+          src={icon}
+          height={iconHeight ? iconHeight : ""}
+          alt="image"
+          style={{ maxWidth: "none" }}
+        />
+      )}
       {text && (
         <p
           className={`${TxClass} ${TxSize} font-semibold ${

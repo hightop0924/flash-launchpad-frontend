@@ -122,7 +122,7 @@ const CreateStaking = () => {
             className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base text-[black] font-extrabold ${
               step > 1 || step === 1
                 ? "bg-[#FCBF07] text-[black]"
-                : "bg-[#282828] text-[#86888C]"
+                : "bg-[#86888C] text-[black]"
             }`}
           >
             1
@@ -143,7 +143,7 @@ const CreateStaking = () => {
             className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base font-extrabold ${
               step > 2 || step === 2
                 ? "bg-[#FCBF07] text-[black]"
-                : "bg-[#282828] text-[#86888C]"
+                : "bg-[#86888C] text-[black]"
             }`}
           >
             2
@@ -165,7 +165,7 @@ const CreateStaking = () => {
             className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base font-extrabold ${
               step > 3 || step === 3
                 ? "bg-[#FCBF07] text-[black]"
-                : "bg-[#282828] text-[#86888C]"
+                : "bg-[#86888C] text-[black]"
             }`}
           >
             3
@@ -186,7 +186,7 @@ const CreateStaking = () => {
             className={`w-[42px] h-[42px] rounded-full flex flex-row items-center justify-center text-base  font-extrabold ${
               step > 4 || step === 4
                 ? "bg-[#FCBF07] text-[black]"
-                : "bg-[#282828] text-[#86888C]"
+                : "bg-[#86888C] text-[black]"
             }`}
           >
             4
